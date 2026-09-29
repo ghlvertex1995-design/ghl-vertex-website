@@ -1,0 +1,208 @@
+.megaMenuWrapper {
+  position: absolute;
+  top: calc(100% - 4px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  width: 100%;
+  max-width: 1320px;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-normal), transform var(--transition-normal), visibility var(--transition-normal);
+  z-index: 1000;
+}
+
+.megaMenuWrapper::before {
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 0;
+  right: 0;
+  height: 16px;
+}
+
+.megaMenuWrapper.isOpen {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.megaMenuCard {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-megamenu);
+  padding: 1.85rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) 1.2fr;
+  gap: 1.35rem;
+  backdrop-filter: blur(24px);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.columnCard {
+  background: var(--bg-surface-alt);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+}
+
+.columnCard:hover {
+  background: #ffffff;
+  border-color: var(--brand-primary-light);
+  box-shadow: var(--shadow-card);
+}
+
+.columnHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.headerIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  background: var(--brand-primary-subtle);
+  color: var(--brand-primary);
+  flex-shrink: 0;
+}
+
+.columnTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.linkList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+}
+
+.itemLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.48rem 0.65rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.itemLink:hover {
+  color: var(--brand-primary);
+  background: var(--brand-primary-subtle);
+  transform: translateX(3px);
+}
+
+.itemArrow {
+  font-size: 0.8rem;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: all var(--transition-fast);
+  color: var(--brand-primary);
+}
+
+.itemLink:hover .itemArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Featured Case Study Card */
+.featuredCard {
+  background: linear-gradient(145deg, #f0f7ff 0%, #e0effe 100%);
+  border: 1px solid rgba(1, 72, 163, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.featuredCard::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(1, 72, 163, 0.16) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.featuredBadge {
+  align-self: flex-start;
+  background: #ffffff;
+  color: var(--brand-primary);
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 6px rgba(1, 72, 163, 0.08);
+  margin-bottom: 0.85rem;
+}
+
+.featuredStat {
+  font-size: 2.85rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--brand-primary);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.15rem;
+}
+
+.statLabel {
+  font-size: 0.975rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.35;
+  margin-bottom: 0.65rem;
+}
+
+.featuredDesc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1.35rem;
+}
+
+.featuredCta {
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 0.75rem 1.15rem;
+}
+
+@media (max-width: 1100px) {
+  .megaMenuCard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
