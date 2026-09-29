@@ -1,0 +1,188 @@
+.industrySection {
+  position: relative;
+  width: 100%;
+  padding: 6.5rem 0 7.5rem;
+  background: transparent;
+  z-index: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+.headerArea {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: var(--brand-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.heading {
+  font-size: clamp(2.15rem, 3.5vw, 3.15rem);
+  font-weight: 850;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #0b1329;
+}
+
+.headingHighlight {
+  background: linear-gradient(135deg, #0148A3 0%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+.supporting {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #475569;
+}
+
+/* 8-Card Grid (4 cols on large screens, 2 on tablet, 1 on mobile) */
+.industryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.industryCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.03);
+}
+
+.industryCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(1, 72, 163, 0.35);
+  box-shadow: 0 20px 40px -15px rgba(1, 72, 163, 0.16);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  background: #f1f5f9;
+  overflow: hidden;
+}
+
+.industryImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.industryCard:hover .industryImage {
+  transform: scale(1.05);
+}
+
+.imageOverlayBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cardBody {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.industryTitle {
+  font-size: 1.25rem;
+  font-weight: 850;
+  color: #0f172a;
+  margin-bottom: 0.85rem;
+}
+
+.automateList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 1.5rem;
+}
+
+.automateItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.825rem;
+  color: #475569;
+  font-weight: 500;
+}
+
+.checkBullet {
+  color: var(--brand-primary);
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+
+.cardCta {
+  margin-top: auto;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: gap var(--transition-fast);
+}
+
+.cardCta:hover {
+  gap: 0.65rem;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .industryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .industrySection {
+    padding: 4rem 0 4.5rem;
+  }
+
+  .industryGrid {
+    grid-template-columns: 1fr;
+  }
+}

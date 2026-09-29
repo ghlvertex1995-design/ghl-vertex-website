@@ -1,0 +1,387 @@
+.workforceSection {
+  position: relative;
+  width: 100%;
+  padding: 6rem 0 6.5rem;
+  background: transparent;
+  z-index: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header Area */
+.headerArea {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: var(--brand-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.heading {
+  font-size: clamp(2.15rem, 3.5vw, 3rem);
+  font-weight: 850;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #0b1329;
+}
+
+.headingHighlight {
+  background: linear-gradient(135deg, #0148A3 0%, #0284c7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+.supporting {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #475569;
+}
+
+/* 4-Card Grid */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.agentCard {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-normal);
+  position: relative;
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.03);
+  overflow: hidden;
+}
+
+.agentCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(1, 72, 163, 0.35);
+  box-shadow: 0 20px 40px -15px rgba(1, 72, 163, 0.16);
+}
+
+/* Card Header */
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.cardIconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-primary);
+  flex-shrink: 0;
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.agentCard:hover .cardIconBox {
+  background: var(--brand-primary);
+  color: #ffffff;
+}
+
+.cardTitleGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.cardRole {
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+}
+
+.cardDesc {
+  font-size: 0.925rem;
+  line-height: 1.5;
+  color: #475569;
+  margin-bottom: 1.25rem;
+  min-height: 44px;
+}
+
+/* Simulated Visual Widget in Card */
+.visualContainer {
+  background: #f8fafc;
+  border: 1px solid #f1f5f9;
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-height: 110px;
+  justify-content: center;
+}
+
+/* Visual 1: Phone + Calendar */
+.phoneCalWidget {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0.75rem;
+}
+
+.widgetBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.75rem;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #0f172a;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.03);
+}
+
+.syncArrow {
+  color: var(--brand-primary);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+/* Visual 2: Lead -> Qualified -> Opportunity */
+.pipelineWidget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.pipeStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.pipeActive {
+  color: var(--brand-primary);
+}
+
+.pipeDot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.55rem;
+  color: #ffffff;
+}
+
+.pipeActive .pipeDot {
+  background: var(--brand-primary);
+  box-shadow: 0 0 8px rgba(1, 72, 163, 0.4);
+}
+
+.pipeConnector {
+  flex: 1;
+  height: 2px;
+  background: #e2e8f0;
+  margin: 0 0.25rem 1rem;
+}
+
+/* Visual 3: Chat + Knowledge Base */
+.supportWidget {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.supportQuery {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.75rem;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.kbMatch {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 6px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.725rem;
+  color: var(--brand-primary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Visual 4: Multichannel Sequence */
+.multichannelWidget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.35rem;
+}
+
+.channelIconPill {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: #0f172a;
+  transition: all var(--transition-fast);
+}
+
+.agentCard:hover .channelIconPill {
+  border-color: #bfdbfe;
+  color: var(--brand-primary);
+  background: #eff6ff;
+}
+
+/* Hover Details (Capabilities, Channels, Integrations) */
+.hoverDetails {
+  border-top: 1px solid #f1f5f9;
+  padding-top: 1rem;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.metaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.metaLabel {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tagPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.tagPill {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-sm);
+}
+
+/* CTA at bottom of section */
+.bottomCtaRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 3.5rem;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.88rem 2rem;
+  border-radius: var(--radius-pill);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--gradient-brand-cta);
+  box-shadow: var(--shadow-cta);
+  transition: all var(--transition-normal);
+  text-decoration: none;
+}
+
+.ctaButton:hover {
+  box-shadow: var(--shadow-cta-hover);
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+
+.ctaArrow {
+  transition: transform var(--transition-fast);
+}
+
+.ctaButton:hover .ctaArrow {
+  transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .workforceSection {
+    padding: 4rem 0 4.5rem;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .headerArea {
+    margin-bottom: 2.5rem;
+  }
+}

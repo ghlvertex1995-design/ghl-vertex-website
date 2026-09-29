@@ -1,0 +1,273 @@
+.finalCtaSection {
+  position: relative;
+  width: 100%;
+  padding: 7rem 0 8rem;
+  background: linear-gradient(180deg, #070e1e 0%, #030814 100%);
+  color: #ffffff;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.ambientGlow {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(1, 72, 163, 0.35) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Left Content */
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: var(--radius-pill);
+  background: rgba(1, 72, 163, 0.25);
+  border: 1px solid rgba(1, 72, 163, 0.5);
+  color: #93c5fd;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.heading {
+  font-size: clamp(2.25rem, 3.8vw, 3.4rem);
+  font-weight: 850;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.headingHighlight {
+  background: linear-gradient(135deg, #60a5fa 0%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+.supporting {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #94a3b8;
+}
+
+.ctaButtonGroup {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.95rem 2.25rem;
+  border-radius: var(--radius-pill);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0148A3 0%, #0284c7 100%);
+  box-shadow: 0 10px 30px rgba(1, 72, 163, 0.5);
+  transition: all var(--transition-normal);
+  text-decoration: none;
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(1, 72, 163, 0.7);
+  filter: brightness(1.1);
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.95rem 2rem;
+  border-radius: var(--radius-pill);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: all var(--transition-normal);
+  text-decoration: none;
+}
+
+.secondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Right Interactive Box */
+.interactiveBox {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(1, 72, 163, 0.35);
+  backdrop-filter: blur(16px);
+  border-radius: var(--radius-xl);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.boxHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.boxTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.boxSub {
+  font-size: 0.825rem;
+  color: #94a3b8;
+}
+
+.optionsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.optionLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.75rem 0.85rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  user-select: none;
+}
+
+.optionLabel:hover {
+  background: rgba(1, 72, 163, 0.15);
+  border-color: rgba(96, 165, 250, 0.5);
+}
+
+.optionLabel.selected {
+  background: rgba(1, 72, 163, 0.3);
+  border-color: #60a5fa;
+  color: #ffffff;
+}
+
+.checkboxInput {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1.5px solid #64748b;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.checkboxInput:checked {
+  background: #0148A3;
+  border-color: #60a5fa;
+}
+
+.checkboxInput:checked::after {
+  content: "✓";
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  position: absolute;
+}
+
+.optionText {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.interactiveSubmitBtn {
+  width: 100%;
+  padding: 0.95rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0148A3 0%, #0284c7 100%);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 18px rgba(1, 72, 163, 0.4);
+  transition: all var(--transition-normal);
+  margin-top: 0.5rem;
+}
+
+.interactiveSubmitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(1, 72, 163, 0.6);
+  filter: brightness(1.1);
+}
+
+/* Responsive */
+@media (max-width: 1040px) {
+  .layoutGrid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .finalCtaSection {
+    padding: 4.5rem 0 5.5rem;
+  }
+
+  .interactiveBox {
+    padding: 1.5rem;
+  }
+
+  .optionsGrid {
+    grid-template-columns: 1fr;
+  }
+}

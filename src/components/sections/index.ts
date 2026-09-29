@@ -1,1 +1,17 @@
 export { HeroSection } from "./HeroSection";
+export { TrustStripSection } from "./TrustStripSection";
+export { ProblemSection } from "./ProblemSection";
+export { VoiceAgentSection } from "./VoiceAgentSection";
+export { WorkforceSection } from "./WorkforceSection";
+export { AgenticSection } from "./AgenticSection";
+export { JourneySection } from "./JourneySection";
+export { ServicesSection } from "./ServicesSection";
+export { UseCasesSection } from "./UseCasesSection";
+export { IntegrationSection } from "./IntegrationSection";
+export { ProcessSection } from "./ProcessSection";
+export { IndustrySection } from "./IndustrySection";
+export { ResultsSection } from "./ResultsSection";
+export { BeforeAfterSection } from "./BeforeAfterSection";
+export { WhyUsSection } from "./WhyUsSection";
+export { FinalCtaSection } from "./FinalCtaSection";
+export { FaqSection } from "./FaqSection";
