@@ -27,65 +27,65 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Column 01 — AI Agents */}
+          {/* Column 01 — AI Agents & Models */}
           <div className={styles.column}>
-            <h3 className={styles.colTitle}>AI Agents</h3>
+            <h3 className={styles.colTitle}>AI Engineering</h3>
             <ul className={styles.linkList}>
               <li>
-                <Link href="#voice-agents" className={styles.link}>
-                  AI Voice Agent
+                <Link href="/services/ai-agent-development-services/" className={styles.link}>
+                  AI Agent Development
                 </Link>
               </li>
               <li>
-                <Link href="#ai-workforce" className={styles.link}>
-                  AI Receptionist
+                <Link href="/services/ai-chatbot-development-services/" className={styles.link}>
+                  AI Chatbot Development
                 </Link>
               </li>
               <li>
-                <Link href="#ai-workforce" className={styles.link}>
-                  AI Sales Agent
+                <Link href="/services/custom-ai-development/" className={styles.link}>
+                  Custom AI Development
                 </Link>
               </li>
               <li>
-                <Link href="#ai-workforce" className={styles.link}>
-                  AI Support Agent
+                <Link href="/services/rag-development-services/" className={styles.link}>
+                  RAG Knowledge Systems
                 </Link>
               </li>
               <li>
-                <Link href="#services" className={styles.link}>
-                  AI Chat Agent
+                <Link href="/#voice-agents" className={styles.link}>
+                  AI Voice Agents
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 02 — Automation */}
+          {/* Column 02 — Automation & CRM */}
           <div className={styles.column}>
-            <h3 className={styles.colTitle}>Automation</h3>
+            <h3 className={styles.colTitle}>Automation &amp; CRM</h3>
             <ul className={styles.linkList}>
               <li>
-                <Link href="#agentic-ai" className={styles.link}>
-                  Agentic AI
+                <Link href="/services/ai-automation-services/" className={styles.link}>
+                  AI Automation Services
                 </Link>
               </li>
               <li>
-                <Link href="#services" className={styles.link}>
+                <Link href="/services/workflow-automation-services/" className={styles.link}>
                   Workflow Automation
                 </Link>
               </li>
               <li>
-                <Link href="#services" className={styles.link}>
-                  CRM Automation
+                <Link href="/services/ai-integration-services/" className={styles.link}>
+                  AI Integration Services
                 </Link>
               </li>
               <li>
-                <Link href="#integrations" className={styles.link}>
-                  GoHighLevel Automation
+                <Link href="/services/ghl-setup-services/" className={styles.link}>
+                  GHL Setup Services
                 </Link>
               </li>
               <li>
-                <Link href="#integrations" className={styles.link}>
-                  n8n Automation
+                <Link href="/services/gohighlevel-white-label-support/" className={styles.link}>
+                  GHL White Label Support
                 </Link>
               </li>
             </ul>
@@ -96,28 +96,28 @@ export function Footer() {
             <h3 className={styles.colTitle}>Solutions</h3>
             <ul className={styles.linkList}>
               <li>
-                <Link href="#use-cases" className={styles.link}>
-                  Lead Qualification
+                <Link href="/solutions/saas-crm/" className={styles.link}>
+                  SaaS CRM Architecture
                 </Link>
               </li>
               <li>
-                <Link href="#use-cases" className={styles.link}>
+                <Link href="/services/ai-consulting-services/" className={styles.link}>
+                  AI Consulting Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/#contact" className={styles.link}>
                   Appointment Booking
                 </Link>
               </li>
               <li>
-                <Link href="#use-cases" className={styles.link}>
-                  Lead Reactivation
+                <Link href="/#contact" className={styles.link}>
+                  Speed-to-Lead Triage
                 </Link>
               </li>
               <li>
-                <Link href="#use-cases" className={styles.link}>
-                  Customer Support
-                </Link>
-              </li>
-              <li>
-                <Link href="#use-cases" className={styles.link}>
-                  Sales Follow-Up
+                <Link href="/#contact" className={styles.link}>
+                  Missed Call Text-Back
                 </Link>
               </li>
             </ul>
@@ -128,23 +128,23 @@ export function Footer() {
             <h3 className={styles.colTitle}>Company</h3>
             <ul className={styles.linkList}>
               <li>
-                <Link href="#why-ghlvertex" className={styles.link}>
-                  About
+                <Link href="/#why-ghlvertex" className={styles.link}>
+                  Why GHLVertex
                 </Link>
               </li>
               <li>
-                <Link href="#results" className={styles.link}>
-                  Case Studies
+                <Link href="/#results" className={styles.link}>
+                  Execution Flow
                 </Link>
               </li>
               <li>
-                <Link href="#faq" className={styles.link}>
-                  Blog
+                <Link href="/#faq" className={styles.link}>
+                  FAQs
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className={styles.link}>
-                  Contact
+                <Link href="/#contact" className={styles.link}>
+                  Contact &amp; Strategy Call
                 </Link>
               </li>
             </ul>
@@ -155,11 +155,11 @@ export function Footer() {
         <div className={styles.bottom}>
           <p>© {currentYear} GHLVertex. All rights reserved.</p>
           <div className={styles.legalLinks}>
-            <Link href="#contact" className={styles.legalLink}>
+            <Link href="/#contact" className={styles.legalLink}>
               Privacy Policy
             </Link>
-            <Link href="#contact" className={styles.legalLink}>
-              Terms
+            <Link href="/#contact" className={styles.legalLink}>
+              Terms of Service
             </Link>
           </div>
         </div>

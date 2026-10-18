@@ -17,28 +17,27 @@ export function MegaMenu({
   onMouseLeave,
 }: MegaMenuProps) {
   const aiAgents = [
-    { name: "AI Voice Agent", href: "#ai-voice-agent" },
-    { name: "AI Receptionist Agent", href: "#ai-receptionist-agent" },
-    { name: "AI Sales Agent", href: "#ai-sales-agent" },
-    { name: "AI Support Agent", href: "#ai-support-agent" },
-    { name: "AI Chat Agent", href: "#ai-chat-agent" },
+    { name: "AI Agent Development", href: "/services/ai-agent-development-services/" },
+    { name: "AI Chatbot Development", href: "/services/ai-chatbot-development-services/" },
+    { name: "Custom AI Development", href: "/services/custom-ai-development/" },
+    { name: "RAG Development Services", href: "/services/rag-development-services/" },
+    { name: "AI Voice Agents", href: "/#voice-agents" },
   ];
 
   const automations = [
-    { name: "Agentic AI Automation", href: "#agentic-ai-automation" },
-    { name: "AI Workflow Automation", href: "#ai-workflow-automation" },
-    { name: "CRM Automation", href: "#crm-automation" },
-    { name: "GoHighLevel Automation", href: "#gohighlevel-automation" },
-    { name: "n8n Automation", href: "#n8n-automation" },
+    { name: "AI Automation Services", href: "/services/ai-automation-services/" },
+    { name: "Workflow Automation Services", href: "/services/workflow-automation-services/" },
+    { name: "AI Integration Services", href: "/services/ai-integration-services/" },
+    { name: "GHL Setup Services", href: "/services/ghl-setup-services/" },
+    { name: "GHL White Label Support", href: "/services/gohighlevel-white-label-support/" },
   ];
 
   const solutions = [
-    { name: "Appointment Booking", href: "#appointment-booking" },
-    { name: "Lead Qualification", href: "#lead-qualification" },
-    { name: "Lead Follow-Up", href: "#lead-follow-up" },
-    { name: "Lead Reactivation", href: "#lead-reactivation" },
-    { name: "Customer Support", href: "#customer-support" },
-    { name: "Missed Call Recovery", href: "#missed-call-recovery" },
+    { name: "SaaS CRM Implementation", href: "/solutions/saas-crm/" },
+    { name: "AI Consulting Services", href: "/services/ai-consulting-services/" },
+    { name: "Appointment Booking Systems", href: "/#contact" },
+    { name: "Speed-to-Lead Triage", href: "/#contact" },
+    { name: "Missed Call Text-Back", href: "/#contact" },
   ];
 
   return (
@@ -62,7 +61,7 @@ export function MegaMenu({
                 <line x1="16" y1="16" x2="16" y2="16" />
               </svg>
             </span>
-            <h3 className={styles.columnTitle}>AI Agents</h3>
+            <h3 className={styles.columnTitle}>AI Agents &amp; Models</h3>
           </div>
           <ul className={styles.linkList}>
             {aiAgents.map((item) => (
@@ -86,7 +85,7 @@ export function MegaMenu({
                 <line x1="12" y1="2" x2="12" y2="22" />
               </svg>
             </span>
-            <h3 className={styles.columnTitle}>Automation</h3>
+            <h3 className={styles.columnTitle}>Automation &amp; CRM</h3>
           </div>
           <ul className={styles.linkList}>
             {automations.map((item) => (
@@ -109,7 +108,7 @@ export function MegaMenu({
                 <polygon points="10 8 16 12 10 16 10 8" />
               </svg>
             </span>
-            <h3 className={styles.columnTitle}>Solutions</h3>
+            <h3 className={styles.columnTitle}>Solutions &amp; Strategy</h3>
           </div>
           <ul className={styles.linkList}>
             {solutions.map((item) => (
@@ -123,26 +122,26 @@ export function MegaMenu({
           </ul>
         </div>
 
-        {/* Column 4: Featured Promo / Case Study Card */}
+        {/* Column 4: Featured Card */}
         <div className={styles.featuredCard}>
           <div>
-            <div className={styles.featuredBadge}>Proven Client ROI</div>
+            <div className={styles.featuredBadge}>Production Engineering</div>
             <div className={styles.featuredStat}>
-              <span>310%</span>
+              <span>24/7</span>
             </div>
             <h4 className={styles.statLabel}>
-              Increase in qualified bookings & pipeline efficiency
+              Autonomous Operations with Human Safeguards
             </h4>
             <p className={styles.featuredDesc}>
-              Autonomous GoHighLevel agents and multi-step workflows that turn leads into revenue on autopilot.
+              Production AI agents, custom GoHighLevel CRM architectures, and resilient n8n pipelines built for scalable business operations.
             </p>
           </div>
           <Link
-            href="#contact"
+            href="/#contact"
             className={`btn btn-primary ${styles.featuredCta}`}
             onClick={onClose}
           >
-            <span>Book AI Strategy Call</span>
+            <span>Book Strategy Call</span>
             <span aria-hidden="true">→</span>
           </Link>
         </div>

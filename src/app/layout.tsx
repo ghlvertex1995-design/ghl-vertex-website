@@ -93,12 +93,16 @@ export default function RootLayout({
   const websiteSchema = getWebSiteSchema();
 
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <head>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${geistSans.variable} ${geistMono.variable}`}
+    >
+      <head suppressHydrationWarning>
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>

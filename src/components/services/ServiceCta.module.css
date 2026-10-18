@@ -1,0 +1,124 @@
+.section {
+  position: relative;
+  padding: 5rem 0;
+  background-color: var(--bg-page);
+  overflow: hidden;
+}
+
+.glow {
+  position: absolute;
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 350px;
+  background: radial-gradient(ellipse at center, rgba(1, 72, 163, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+  border: 1px solid var(--border-brand);
+  border-radius: var(--radius-xl);
+  padding: 4rem 2.5rem;
+  text-align: center;
+  box-shadow: 0 15px 40px -10px rgba(1, 72, 163, 0.12);
+  max-width: 940px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--brand-primary);
+  margin-bottom: 0.75rem;
+}
+
+.heading {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.25rem;
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 660px;
+  margin: 0 auto 2.5rem;
+}
+
+.btnRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.75rem;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--gradient-brand-cta);
+  color: #ffffff;
+  padding: 0.95rem 2rem;
+  border-radius: var(--radius-pill);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: var(--shadow-cta);
+  transition: all var(--transition-normal);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-cta-hover);
+  color: #ffffff;
+}
+
+.arrow {
+  transition: transform var(--transition-fast);
+}
+
+.primaryBtn:hover .arrow {
+  transform: translateX(3px);
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  background-color: #ffffff;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-medium);
+  padding: 0.95rem 1.75rem;
+  border-radius: var(--radius-pill);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.secondaryBtn:hover {
+  background-color: var(--brand-primary-subtle);
+  color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+.reassurance {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}

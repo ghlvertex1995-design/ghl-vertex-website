@@ -123,49 +123,37 @@ export function Header() {
             </li>
 
             <li className={styles.navItem}>
-              <Link href="#services" className={styles.navLink}>
+              <Link href="/#services" className={styles.navLink}>
                 Services
               </Link>
             </li>
 
             <li className={styles.navItem}>
-              <Link href="#pricing" className={styles.navLink}>
-                Pricing
+              <Link href="/services/ai-automation-services/" className={styles.navLink}>
+                AI Automation
               </Link>
             </li>
 
             <li className={styles.navItem}>
-              <Link href="#faq" className={styles.navLink}>
+              <Link href="/services/ghl-setup-services/" className={styles.navLink}>
+                GHL Setup
+              </Link>
+            </li>
+
+            <li className={styles.navItem}>
+              <Link href="/#faq" className={styles.navLink}>
                 FAQ
               </Link>
             </li>
 
             <li className={styles.navItem}>
-              <Link href="#blog" className={styles.navLink}>
-                Blog
-              </Link>
-            </li>
-
-            <li className={styles.navItem}>
-              <Link href="#industries" className={styles.navLink}>
+              <Link href="/#industries" className={styles.navLink}>
                 Industries
               </Link>
             </li>
 
             <li className={styles.navItem}>
-              <Link href="#case-studies" className={styles.navLink}>
-                Case Studies
-              </Link>
-            </li>
-
-            <li className={styles.navItem}>
-              <Link href="#resources" className={styles.navLink}>
-                Resources
-              </Link>
-            </li>
-
-            <li className={styles.navItem}>
-              <Link href="#contact" className={styles.navLink}>
+              <Link href="/#contact" className={styles.navLink}>
                 Contact
               </Link>
             </li>
@@ -268,122 +256,87 @@ export function Header() {
 
               {mobileAccordionOpen && (
                 <div className={styles.accordionSection}>
-                  <div className={styles.accordionGroupTitle}>AI Agents</div>
+                  <div className={styles.accordionGroupTitle}>AI Engineering</div>
                   <Link
-                    href="#ai-voice-agent"
+                    href="/services/ai-agent-development-services/"
                     className={styles.accordionSubLink}
                     onClick={closeMobile}
                   >
-                    AI Voice Agent
+                    AI Agent Development
                   </Link>
                   <Link
-                    href="#ai-receptionist-agent"
+                    href="/services/ai-chatbot-development-services/"
                     className={styles.accordionSubLink}
                     onClick={closeMobile}
                   >
-                    AI Receptionist Agent
+                    AI Chatbot Development
                   </Link>
                   <Link
-                    href="#ai-sales-agent"
+                    href="/services/custom-ai-development/"
                     className={styles.accordionSubLink}
                     onClick={closeMobile}
                   >
-                    AI Sales Agent
+                    Custom AI Development
                   </Link>
                   <Link
-                    href="#ai-support-agent"
+                    href="/services/rag-development-services/"
                     className={styles.accordionSubLink}
                     onClick={closeMobile}
                   >
-                    AI Support Agent
-                  </Link>
-                  <Link
-                    href="#ai-chat-agent"
-                    className={styles.accordionSubLink}
-                    onClick={closeMobile}
-                  >
-                    AI Chat Agent
+                    RAG Knowledge Systems
                   </Link>
 
-                  <div className={styles.accordionGroupTitle}>Automation</div>
+                  <div className={styles.accordionGroupTitle}>Automation &amp; CRM</div>
                   <Link
-                    href="#agentic-ai-automation"
+                    href="/services/ai-automation-services/"
                     className={styles.accordionSubLink}
                     onClick={closeMobile}
                   >
-                    Agentic AI Automation
+                    AI Automation Services
                   </Link>
                   <Link
-                    href="#ai-workflow-automation"
+                    href="/services/workflow-automation-services/"
                     className={styles.accordionSubLink}
                     onClick={closeMobile}
                   >
-                    AI Workflow Automation
+                    Workflow Automation
                   </Link>
                   <Link
-                    href="#crm-automation"
+                    href="/services/ai-integration-services/"
                     className={styles.accordionSubLink}
                     onClick={closeMobile}
                   >
-                    CRM Automation
+                    AI Integration Services
                   </Link>
                   <Link
-                    href="#gohighlevel-automation"
+                    href="/services/ghl-setup-services/"
                     className={styles.accordionSubLink}
                     onClick={closeMobile}
                   >
-                    GoHighLevel Automation
+                    GHL Setup Services
                   </Link>
                   <Link
-                    href="#n8n-automation"
+                    href="/services/gohighlevel-white-label-support/"
                     className={styles.accordionSubLink}
                     onClick={closeMobile}
                   >
-                    n8n Automation
+                    GHL White Label Support
                   </Link>
 
-                  <div className={styles.accordionGroupTitle}>Solutions</div>
+                  <div className={styles.accordionGroupTitle}>Solutions &amp; Strategy</div>
                   <Link
-                    href="#appointment-booking"
+                    href="/solutions/saas-crm/"
                     className={styles.accordionSubLink}
                     onClick={closeMobile}
                   >
-                    Appointment Booking
+                    SaaS CRM Implementation
                   </Link>
                   <Link
-                    href="#lead-qualification"
+                    href="/services/ai-consulting-services/"
                     className={styles.accordionSubLink}
                     onClick={closeMobile}
                   >
-                    Lead Qualification
-                  </Link>
-                  <Link
-                    href="#lead-follow-up"
-                    className={styles.accordionSubLink}
-                    onClick={closeMobile}
-                  >
-                    Lead Follow-Up
-                  </Link>
-                  <Link
-                    href="#lead-reactivation"
-                    className={styles.accordionSubLink}
-                    onClick={closeMobile}
-                  >
-                    Lead Reactivation
-                  </Link>
-                  <Link
-                    href="#customer-support"
-                    className={styles.accordionSubLink}
-                    onClick={closeMobile}
-                  >
-                    Customer Support
-                  </Link>
-                  <Link
-                    href="#missed-call-recovery"
-                    className={styles.accordionSubLink}
-                    onClick={closeMobile}
-                  >
-                    Missed Call Recovery
+                    AI Consulting Services
                   </Link>
                 </div>
               )}
@@ -391,7 +344,7 @@ export function Header() {
 
             <li className={styles.mobileNavItem}>
               <Link
-                href="#services"
+                href="/#services"
                 className={styles.mobileNavLink}
                 onClick={closeMobile}
               >
@@ -400,16 +353,25 @@ export function Header() {
             </li>
             <li className={styles.mobileNavItem}>
               <Link
-                href="#pricing"
+                href="/services/ai-automation-services/"
                 className={styles.mobileNavLink}
                 onClick={closeMobile}
               >
-                Pricing
+                AI Automation
               </Link>
             </li>
             <li className={styles.mobileNavItem}>
               <Link
-                href="#faq"
+                href="/services/ghl-setup-services/"
+                className={styles.mobileNavLink}
+                onClick={closeMobile}
+              >
+                GHL Setup
+              </Link>
+            </li>
+            <li className={styles.mobileNavItem}>
+              <Link
+                href="/#faq"
                 className={styles.mobileNavLink}
                 onClick={closeMobile}
               >
@@ -418,16 +380,7 @@ export function Header() {
             </li>
             <li className={styles.mobileNavItem}>
               <Link
-                href="#blog"
-                className={styles.mobileNavLink}
-                onClick={closeMobile}
-              >
-                Blog
-              </Link>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <Link
-                href="#industries"
+                href="/#industries"
                 className={styles.mobileNavLink}
                 onClick={closeMobile}
               >
@@ -436,25 +389,7 @@ export function Header() {
             </li>
             <li className={styles.mobileNavItem}>
               <Link
-                href="#case-studies"
-                className={styles.mobileNavLink}
-                onClick={closeMobile}
-              >
-                Case Studies
-              </Link>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <Link
-                href="#resources"
-                className={styles.mobileNavLink}
-                onClick={closeMobile}
-              >
-                Resources
-              </Link>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <Link
-                href="#contact"
+                href="/#contact"
                 className={styles.mobileNavLink}
                 onClick={closeMobile}
               >
@@ -465,7 +400,7 @@ export function Header() {
 
           <div className={styles.mobileActions}>
             <Link
-              href="#contact"
+              href="/#contact"
               className={styles.ctaBtn}
               onClick={closeMobile}
             >
