@@ -1,75 +1,70 @@
+import React from "react";
+import Link from "next/link";
 import styles from "./JourneySection.module.css";
 
 const stages = [
   {
     step: "01",
     title: "Capture",
-    subheading: "Sources",
-    items: ["Website", "Forms", "Ads", "Calls", "Social", "Chat"],
+    items: ["Forms", "Calls", "Ads", "Chat", "Website"],
   },
   {
     step: "02",
     title: "Respond",
-    subheading: "AI Channels",
-    items: ["Voice Call", "Live Chat", "Instant SMS", "WhatsApp", "Email"],
+    items: ["SMS", "Email", "Voice", "Conversation AI"],
   },
   {
     step: "03",
     title: "Qualify",
-    subheading: "AI Identifies",
-    items: ["Caller Intent", "Location / ZIP", "Specific Need", "Budget Range", "Eligibility"],
+    items: ["Questions", "Lead Data", "AI", "Routing Logic"],
   },
   {
     step: "04",
     title: "Convert",
-    subheading: "Actions",
-    items: ["Appointment Booking", "Sales Follow-Up", "Pipeline Movement", "Quote Follow-Up"],
+    items: ["CRM", "Pipeline", "Calendar", "Appointment"],
   },
   {
     step: "05",
+    title: "Follow Up",
+    items: ["Reminders", "Nurture", "Reactivation", "No-Show Recovery"],
+  },
+  {
+    step: "06",
     title: "Retain",
-    subheading: "Nurture",
-    items: ["Customer Support", "Review Generation", "Re-engagement", "Targeted Upsells", "Lead Reactivation"],
+    items: ["Onboarding", "Support", "Reviews", "Customer Workflows"],
   },
 ];
 
 export function JourneySection() {
   return (
-    <section id="customer-journey" className={styles.journeySection} aria-label="Customer Journey Automation Section">
+    <section id="customer-journey" className={styles.journeySection} aria-labelledby="journey-heading">
       <div className={styles.container}>
         <div className={styles.headerArea}>
-          <span className={styles.eyebrow}>Full-Funnel Automation</span>
-          <h2 className={styles.heading}>
-            Automate the <span className={styles.headingHighlight}>Entire Customer Journey</span>
+          <span className={styles.eyebrow}>ONE CONNECTED SYSTEM</span>
+          <h2 id="journey-heading" className={styles.heading}>
+            Automate the Customer Journey from{" "}
+            <span className={styles.headingHighlight}>First Lead to Follow-Up</span>
           </h2>
           <p className={styles.supporting}>
-            From the exact millisecond a lead discovers your business to post-service retention and review generation, our AI systems maintain an unbroken, automated relationship at every touchpoint.
+            Instead of building isolated automations, we connect each stage so information and actions
+            move through the same GoHighLevel system.
           </p>
         </div>
 
+        {/* 6-Stage Visual Timeline Flow */}
         <div className={styles.timelineWrapper}>
-          {/* Animated Connecting Track */}
-          <div className={styles.trackLine} aria-hidden="true">
-            <span className={styles.movingLeadDot} />
-          </div>
-
           <div className={styles.timelineGrid}>
             {stages.map((stage) => (
               <div key={stage.step} className={styles.stageCard}>
                 <div className={styles.stageHeader}>
                   <span className={styles.stageNumCircle}>{stage.step}</span>
-                  <div className={styles.stageTitleGroup}>
-                    <span className={styles.stageLabel}>Stage {stage.step}</span>
-                    <h3 className={styles.stageTitle}>{stage.title}</h3>
-                  </div>
+                  <h3 className={styles.stageTitle}>{stage.title}</h3>
                 </div>
-
-                <span className={styles.stageSubheading}>{stage.subheading}</span>
 
                 <div className={styles.tagsList}>
                   {stage.items.map((item, idx) => (
                     <div key={idx} className={styles.tagItem}>
-                      <span className={styles.tagBullet} aria-hidden="true" />
+                      <span className={styles.tagBullet} aria-hidden="true">•</span>
                       <span>{item}</span>
                     </div>
                   ))}
@@ -77,6 +72,14 @@ export function JourneySection() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* CTA */}
+        <div className={styles.ctaRow}>
+          <Link href="#contact" className={styles.journeyCta}>
+            <span>Map My Customer Journey</span>
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </div>
     </section>

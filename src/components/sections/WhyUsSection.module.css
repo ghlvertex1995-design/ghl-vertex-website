@@ -1,7 +1,7 @@
 .whyUsSection {
   position: relative;
   width: 100%;
-  padding: 6.5rem 0 7.5rem;
+  padding: 6.5rem 0 7rem;
   background: transparent;
   z-index: 1;
 }
@@ -13,11 +13,10 @@
   padding: 0 1.5rem;
 }
 
-/* Header */
 .headerArea {
   text-align: center;
   max-width: 760px;
-  margin: 0 auto 4rem;
+  margin: 0 auto 3.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,19 +59,19 @@
   color: #475569;
 }
 
-/* 4-Block Grid */
 .blocksGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   width: 100%;
+  margin-bottom: 3.5rem;
 }
 
 .pillarCard {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: var(--radius-lg);
-  padding: 2.5rem 2rem;
+  padding: 2rem 1.75rem;
   display: flex;
   flex-direction: column;
   transition: all var(--transition-normal);
@@ -85,51 +84,80 @@
   box-shadow: 0 16px 36px -10px rgba(1, 72, 163, 0.14);
 }
 
-.iconBox {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
-  background: #eff6ff;
-  border: 1px solid #bfdbfe;
-  color: var(--brand-primary);
+.cardHeader {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 1.25rem;
-  transition: background var(--transition-fast), color var(--transition-fast);
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
 }
 
-.pillarCard:hover .iconBox {
+.accentBar {
+  width: 4px;
+  height: 22px;
+  border-radius: 2px;
   background: var(--brand-primary);
-  color: #ffffff;
+  flex-shrink: 0;
 }
 
 .cardTitle {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: #0f172a;
-  margin-bottom: 0.65rem;
 }
 
 .cardDesc {
-  font-size: 1rem;
+  font-size: 0.925rem;
   line-height: 1.6;
   color: #475569;
+  margin: 0;
 }
 
-/* Responsive */
-@media (max-width: 860px) {
+.ctaRow {
+  display: flex;
+  justify-content: center;
+}
+
+.whyCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 2rem;
+  border-radius: var(--radius-pill);
+  background: var(--brand-primary);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  box-shadow: 0 4px 18px rgba(1, 72, 163, 0.25);
+  transition: all var(--transition-fast);
+}
+
+.whyCta:hover {
+  background: #01357a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(1, 72, 163, 0.35);
+}
+
+@media (max-width: 960px) {
+  .blocksGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .whyUsSection {
+    padding: 3.5rem 0 4.5rem;
+  }
   .blocksGrid {
     grid-template-columns: 1fr;
+    gap: 1.15rem;
   }
-}
-
-@media (max-width: 640px) {
-  .whyUsSection {
-    padding: 4rem 0 4.5rem;
-  }
-
   .pillarCard {
-    padding: 1.75rem 1.25rem;
+    padding: 1.5rem 1.25rem;
+  }
+  .whyCta {
+    width: 100%;
+    justify-content: center;
   }
 }
+

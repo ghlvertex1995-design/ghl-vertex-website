@@ -1,158 +1,79 @@
-import Image from "next/image";
-import Link from "next/link";
+import React from "react";
 import styles from "./IndustrySection.module.css";
 
 const industries = [
   {
-    title: "HVAC",
-    image: "/images/industries/hvac.jpg",
-    alt: "HVAC technician inspecting residential AC heat pump unit",
-    automate: [
-      "Inbound emergency calls",
-      "Urgency qualification",
-      "Technician dispatch booking",
-      "Missed call recovery",
-      "Seasonal tune-up follow-up",
-    ],
-    ctaText: "Explore HVAC Automation",
-  },
-  {
-    title: "Dental",
-    image: "/images/industries/dental.jpg",
-    alt: "Modern dental clinic treatment room with chair and equipment",
-    automate: [
-      "New patient booking",
-      "Hygiene recall reminders",
-      "Insurance FAQ answers",
-      "Post-procedure follow-ups",
-      "After-hours emergency intake",
-    ],
-    ctaText: "Explore Dental Automation",
-  },
-  {
-    title: "Plumbing",
-    image: "/images/industries/plumbing.jpg",
-    alt: "Professional licensed plumber repairing pipe connections under sink",
-    automate: [
-      "Emergency leak intake",
-      "Location & ZIP screening",
-      "Instant calendar scheduling",
-      "Review generation sequences",
-      "Quote follow-up calls",
-    ],
-    ctaText: "Explore Plumbing Automation",
-  },
-  {
-    title: "Roofing",
-    image: "/images/industries/roofing.jpg",
-    alt: "Roofing contractor inspecting architectural shingles with safety harness",
-    automate: [
-      "Storm damage inbound leads",
-      "Inspection appointments",
-      "Drone estimate follow-ups",
-      "Insurance claim updates",
-      "Customer reviews on Google",
-    ],
-    ctaText: "Explore Roofing Automation",
-  },
-  {
-    title: "Real Estate",
-    image: "/images/industries/real_estate.jpg",
-    alt: "Real estate agent with tablet in front of luxury suburban home",
-    automate: [
-      "Zillow & FB ad qualification",
-      "Showing tour scheduling",
-      "Buyer budget pre-screening",
-      "Dormant lead reactivation",
-      "Open house SMS follow-up",
-    ],
-    ctaText: "Explore Real Estate Automation",
-  },
-  {
-    title: "Law Firms",
-    image: "/images/industries/law.jpg",
-    alt: "Professional law firm conference room with legal team",
-    automate: [
-      "24/7 confidential client intake",
-      "Case eligibility screening",
-      "Consultation scheduling",
-      "Conflict check workflows",
-      "Retainer agreement follow-up",
-    ],
-    ctaText: "Explore Legal Automation",
-  },
-  {
-    title: "Med Spas",
-    image: "/images/industries/medspa.jpg",
-    alt: "Luxury medical spa treatment room with modern skincare technology",
-    automate: [
-      "Consultation bookings",
-      "Deposit collection reminders",
-      "Pre & post care instructions",
-      "Treatment package upsells",
-      "No-show reduction SMS",
-    ],
-    ctaText: "Explore Med Spa Automation",
+    title: "Agencies",
+    desc: "Scale client subaccounts, snapshots, white-label delivery, and automated fulfillment.",
   },
   {
     title: "Home Services",
-    image: "/images/industries/homeservices.jpg",
-    alt: "Home services technician speaking with customer at front door",
-    automate: [
-      "Multichannel inquiry routing",
-      "Same-day dispatch booking",
-      "Instant missed-call text back",
-      "Job completion surveys",
-      "Annual maintenance renewals",
-    ],
-    ctaText: "Explore Home Services Automation",
+    desc: "Immediate lead recovery, emergency intake, scheduling, and review generation.",
+  },
+  {
+    title: "HVAC",
+    desc: "Seasonal tune-up outreach, emergency dispatch booking, and missed call follow-up.",
+  },
+  {
+    title: "Plumbing",
+    desc: "Fast emergency intake, ZIP code screening, and automated technician calendar dispatch.",
+  },
+  {
+    title: "Roofing",
+    desc: "Storm damage response, inspection bookings, and insurance claim tracking pipelines.",
+  },
+  {
+    title: "Dental",
+    desc: "Patient appointment scheduling, hygiene recall campaigns, and treatment reminders.",
+  },
+  {
+    title: "Med Spas",
+    desc: "Consultation bookings, deposit confirmation flows, and recurring treatment reminders.",
+  },
+  {
+    title: "Real Estate",
+    desc: "Instant lead qualification, showing scheduling, and long-term buyer nurture sequences.",
+  },
+  {
+    title: "Law Firms",
+    desc: "Confidential case intake, eligibility screening, and automated consultation booking.",
+  },
+  {
+    title: "Professional Services",
+    desc: "Discovery call qualification, proposal follow-up, and automated client onboarding.",
+  },
+  {
+    title: "SaaS",
+    desc: "Trial sign-up nurture, product onboarding sequences, and recurring revenue retention.",
+  },
+  {
+    title: "Multi-Location Businesses",
+    desc: "Centralized lead routing, localized subaccounts, and unified reporting dashboards.",
   },
 ];
 
 export function IndustrySection() {
   return (
-    <section id="industries" className={styles.industrySection} aria-label="Industry Specific AI Solutions">
+    <section id="industries" className={styles.section} aria-labelledby="industries-heading">
       <div className={styles.container}>
         <div className={styles.headerArea}>
-          <span className={styles.eyebrow}>Industry Solutions</span>
-          <h2 className={styles.heading}>
-            AI Automation Built Around <span className={styles.headingHighlight}>Your Industry</span>
+          <span className={styles.eyebrow}>INDUSTRIES</span>
+          <h2 id="industries-heading" className={styles.heading}>
+            GoHighLevel Systems Built Around <span className={styles.headingHighlight}>How Your Business Actually Operates</span>
           </h2>
           <p className={styles.supporting}>
-            Every industry has distinct operational nuances, qualification criteria, and customer expectations. We engineer specialized AI architectures tuned to your specific vertical.
+            Every sector has unique customer lifecycles and operational handoffs. We build GHL systems tailored to your specific trade.
           </p>
         </div>
 
-        <div className={styles.industryGrid}>
+        <div className={styles.grid}>
           {industries.map((ind, idx) => (
-            <div key={idx} className={styles.industryCard}>
-              <div className={styles.imageContainer}>
-                <Image
-                  src={ind.image}
-                  alt={ind.alt}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                  className={styles.industryImage}
-                />
-                <span className={styles.imageOverlayBadge}>Verified Workflow</span>
+            <div key={idx} className={styles.card}>
+              <div className={styles.cardHeader}>
+                <span className={styles.accentDot} aria-hidden="true" />
+                <h3 className={styles.cardTitle}>{ind.title}</h3>
               </div>
-
-              <div className={styles.cardBody}>
-                <h3 className={styles.industryTitle}>{ind.title}</h3>
-
-                <div className={styles.automateList}>
-                  {ind.automate.map((item, i) => (
-                    <div key={i} className={styles.automateItem}>
-                      <span className={styles.checkBullet}>✓</span>
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <Link href="#contact" className={styles.cardCta}>
-                  {ind.ctaText} <span>→</span>
-                </Link>
-              </div>
+              <p className={styles.cardDesc}>{ind.desc}</p>
             </div>
           ))}
         </div>

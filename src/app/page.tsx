@@ -2,86 +2,141 @@ import type { Metadata } from "next";
 import {
   HeroSection,
   TrustStripSection,
+  DefinitionSection,
   ProblemSection,
-  VoiceAgentSection,
-  WorkforceSection,
-  AgenticSection,
-  JourneySection,
   ServicesSection,
-  UseCasesSection,
+  WorkforceSection,
+  JourneySection,
+  AudienceSplitSection,
   IntegrationSection,
   ProcessSection,
+  UseCasesSection,
   IndustrySection,
   ResultsSection,
-  BeforeAfterSection,
   WhyUsSection,
-  FinalCtaSection,
+  RelatedServicesSection,
   FaqSection,
+  FinalCtaSection,
 } from "@/components/sections";
+import { JsonLd } from "@/components/seo/JsonLd";
+import {
+  getOrganizationSchema,
+  getWebSiteSchema,
+  getWebPageSchema,
+  getFaqSchema,
+} from "@/components/seo/schema";
+import { homepageFaqs } from "@/data/homepageFaqs";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "AI Automation Agency | AI Agents & Voice Automation | GHLVertex",
+  title: "GoHighLevel Agency for CRM, Automation & AI | GHLVertex",
   description:
-    "GHLVertex builds AI voice agents, intelligent AI agents and business automation systems using GoHighLevel, n8n and modern AI tools to automate lead response, qualification, booking and follow-up.",
+    "GHLVertex is a GoHighLevel agency helping businesses and agencies build CRM systems, workflows, AI agents, integrations and scalable automation.",
   alternates: {
-    canonical: "/",
+    canonical: "https://ghlvertex.com/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: "GoHighLevel Agency for CRM, Automation & AI | GHLVertex",
+    description:
+      "GHLVertex is a GoHighLevel agency helping businesses and agencies build CRM systems, workflows, AI agents, integrations and scalable automation.",
+    url: "https://ghlvertex.com/",
+    siteName: "GHLVertex",
+    type: "website",
+    images: [
+      {
+        url: "https://ghlvertex.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "GoHighLevel Agency for CRM, Automation & AI | GHLVertex",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GoHighLevel Agency for CRM, Automation & AI | GHLVertex",
+    description:
+      "GHLVertex is a GoHighLevel agency helping businesses and agencies build CRM systems, workflows, AI agents, integrations and scalable automation.",
+    images: ["https://ghlvertex.com/og-image.jpg"],
   },
 };
 
 export default function Home() {
+  const schemas = [
+    getOrganizationSchema(),
+    getWebSiteSchema(),
+    getWebPageSchema({
+      title: "GoHighLevel Agency for CRM, Automation & AI | GHLVertex",
+      description:
+        "GHLVertex is a GoHighLevel agency helping businesses and agencies build CRM systems, workflows, AI agents, integrations and scalable automation.",
+      url: "https://ghlvertex.com/",
+    }),
+    getFaqSchema(
+      homepageFaqs.map((faq) => ({
+        question: faq.q,
+        answer: faq.a,
+      }))
+    ),
+  ];
+
   return (
-    <div className={styles.homepage}>
-      {/* 02. Hero Section */}
-      <HeroSection />
+    <>
+      <JsonLd data={schemas} />
+      <div className={styles.homepage}>
+        {/* 01. Hero Section */}
+        <HeroSection />
 
-      {/* 03. Technology Trust Strip */}
-      <TrustStripSection />
+        {/* 02. Technology / Integration Strip */}
+        <TrustStripSection />
 
-      {/* 04. Problem Section */}
-      <ProblemSection />
+        {/* 03. Direct Definition / What Does a GoHighLevel Agency Do? */}
+        <DefinitionSection />
 
-      {/* 05. AI Voice Agent (Flagship) */}
-      <VoiceAgentSection />
+        {/* 04. Problem Section */}
+        <ProblemSection />
 
-      {/* 06. Build Your AI Workforce */}
-      <WorkforceSection />
+        {/* 05. Main GoHighLevel Services */}
+        <ServicesSection />
 
-      {/* 07. Agentic AI Section */}
-      <AgenticSection />
+        {/* 06. AI Agents within GoHighLevel */}
+        <WorkforceSection />
 
-      {/* 08. Customer Journey Automation */}
-      <JourneySection />
+        {/* 07. Customer Journey Automation */}
+        <JourneySection />
 
-      {/* 09. Core Services Section */}
-      <ServicesSection />
+        {/* 08. Business vs Agency */}
+        <AudienceSplitSection />
 
-      {/* 10. Use Cases Section */}
-      <UseCasesSection />
+        {/* 09. Integrations */}
+        <IntegrationSection />
 
-      {/* 11. Integrations Section */}
-      <IntegrationSection />
+        {/* 10. Implementation Process */}
+        <ProcessSection />
 
-      {/* 12. How It Works (Process) */}
-      <ProcessSection />
+        {/* 11. Use Cases */}
+        <UseCasesSection />
 
-      {/* 13. Industry Solutions Section */}
-      <IndustrySection />
+        {/* 12. Industries */}
+        <IndustrySection />
 
-      {/* 14. Results & Outcomes (Sample Workflow) */}
-      <ResultsSection />
+        {/* 13. Results / Case Study / Example Workflow */}
+        <ResultsSection />
 
-      {/* 15. Before vs After Comparison */}
-      <BeforeAfterSection />
+        {/* 14. Why GHLVertex */}
+        <WhyUsSection />
 
-      {/* 16. Why GHLVertex */}
-      <WhyUsSection />
+        {/* 15. Related Services */}
+        <RelatedServicesSection />
 
-      {/* 17. Final Interactive CTA */}
-      <FinalCtaSection />
+        {/* 16. FAQ */}
+        <FaqSection />
 
-      {/* 18. FAQ Section */}
-      <FaqSection />
-    </div>
+        {/* 17. Final CTA */}
+        <FinalCtaSection />
+      </div>
+    </>
   );
 }

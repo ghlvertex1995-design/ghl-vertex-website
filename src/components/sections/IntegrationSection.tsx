@@ -1,70 +1,68 @@
+import React from "react";
+import Link from "next/link";
 import styles from "./IntegrationSection.module.css";
 
-const platforms = [
-  { name: "GoHighLevel", role: "CRM & Pipelines" },
-  { name: "n8n", role: "Workflow Engine" },
-  { name: "OpenAI", role: "GPT-4o & Reasoning" },
-  { name: "Claude", role: "Anthropic LLMs" },
-  { name: "Gemini", role: "Multimodal AI" },
-  { name: "Twilio", role: "Telephony & SMS" },
-  { name: "Vapi", role: "Voice Orchestration" },
-  { name: "Retell AI", role: "Ultra-Low Latency" },
-  { name: "Slack", role: "Team Notifications" },
-  { name: "Google Workspace", role: "Gmail & Calendar" },
-  { name: "Stripe", role: "Billing & Invoicing" },
-  { name: "Calendars", role: "Bi-Directional Sync" },
-  { name: "Meta", role: "IG & FB Ads / DMs" },
-  { name: "WhatsApp", role: "Business API" },
+const systems = [
+  { name: "n8n", category: "Workflow Engine" },
+  { name: "OpenAI", category: "Language Models" },
+  { name: "Stripe", category: "Payments & Invoicing" },
+  { name: "Twilio", category: "Telephony & SMS" },
+  { name: "Google Calendar", category: "Scheduling" },
+  { name: "Gmail", category: "Email Infrastructure" },
+  { name: "Slack", category: "Team Communication" },
+  { name: "Webhooks", category: "Event Relays" },
+  { name: "APIs", category: "Custom Endpoints" },
+  { name: "Databases", category: "Postgres / MySQL / Airtable" },
+  { name: "Custom Applications", category: "Proprietary Software" },
 ];
 
 export function IntegrationSection() {
   return (
-    <section id="integrations" className={styles.integrationSection} aria-label="Connected Integrations Section">
+    <section id="integrations" className={styles.integrationSection} aria-labelledby="integrations-heading">
       <div className={styles.container}>
         <div className={styles.headerArea}>
-          <span className={styles.eyebrow}>Connected Systems</span>
-          <h2 className={styles.heading}>
-            Connect Your <span className={styles.headingHighlight}>Entire Business Stack</span>
+          <span className={styles.eyebrow}>CONNECTED STACK</span>
+          <h2 id="integrations-heading" className={styles.heading}>
+            GoHighLevel at the <span className={styles.headingHighlight}>Center of Your Business Stack</span>
           </h2>
           <p className={styles.supporting}>
-            Your AI agents should never exist in a silo. We build bidirectional integrations connecting your voice systems, LLMs, CRMs, calendars, and communications tools into one unified engine.
+            When native integrations are not enough, we design API, webhook and automation workflows that move the right information between GHL and your external systems.
           </p>
         </div>
 
         <div className={styles.orbitCanvas}>
-          {/* Center: GHLVertex AI Engine */}
+          {/* Center Hub: GoHighLevel */}
           <div className={styles.hubCenter}>
             <div className={styles.hubPulseGlow} aria-hidden="true" />
             <div className={styles.hubIcon} aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <polygon points="12 2 2 7 12 12 22 7 12 2"/>
                 <polyline points="2 17 12 22 22 17"/>
                 <polyline points="2 12 12 17 22 12"/>
               </svg>
             </div>
-            <h3 className={styles.hubTitle}>GHLVertex AI Engine</h3>
-            <span className={styles.hubBadge}>Central Orchestration Hub</span>
+            <h3 className={styles.hubTitle}>GoHighLevel</h3>
+            <span className={styles.hubBadge}>Core Operations & CRM Hub</span>
           </div>
 
-          {/* Connected Platforms Grid */}
+          {/* Surrounding Connected Systems Grid */}
           <div className={styles.nodesGrid}>
-            {platforms.map((platform, idx) => (
+            {systems.map((system, idx) => (
               <div key={idx} className={styles.platformNode}>
-                <div className={styles.platformIcon} aria-hidden="true">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0148A3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="m9 12 2 2 4-4"/>
-                  </svg>
-                </div>
-                <span className={styles.platformName}>{platform.name}</span>
-                <span className={styles.platformRole}>{platform.role}</span>
+                <div className={styles.nodeIndicator} aria-hidden="true" />
+                <span className={styles.platformName}>{system.name}</span>
+                <span className={styles.platformRole}>{system.category}</span>
               </div>
             ))}
           </div>
 
-          <p className={styles.bottomTrustNote}>
-            + Custom REST APIs, Webhooks, SQL Databases, and Zapier bridges supported out of the box.
-          </p>
+          {/* CTA */}
+          <div className={styles.ctaRow}>
+            <Link href="/services/ai-integration-services/" className={styles.integrationCta}>
+              <span>Connect My Business Stack</span>
+              <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

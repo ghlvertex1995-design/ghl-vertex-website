@@ -1,9 +1,11 @@
+import React from "react";
+import Link from "next/link";
 import styles from "./UseCasesSection.module.css";
 
 const useCases = [
   {
     title: "Lead Qualification",
-    desc: "AI talks to new leads in real-time, asks qualifying questions, and identifies high-intent opportunities instantly.",
+    desc: "Capture information and route suitable opportunities.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
@@ -14,7 +16,7 @@ const useCases = [
   },
   {
     title: "Appointment Booking",
-    desc: "AI checks live technician or closer availability and schedules confirmed appointments directly onto your calendar.",
+    desc: "Move qualified prospects into the right calendar.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
@@ -26,7 +28,7 @@ const useCases = [
   },
   {
     title: "Missed Call Recovery",
-    desc: "Automatically reconnect via AI phone call or instant SMS within 15 seconds to rescue leads when your team is busy.",
+    desc: "Trigger follow-up when calls go unanswered.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="m3 2 18 18M10.68 13.31a16 16 0 0 0 3.41 2.6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.42 19.42 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"/>
@@ -34,17 +36,8 @@ const useCases = [
     ),
   },
   {
-    title: "Lead Reactivation",
-    desc: "Wake up stale, unclosed leads sitting in your CRM with personalized, non-pushy conversational re-engagement campaigns.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
-      </svg>
-    ),
-  },
-  {
-    title: "Sales Follow-Up",
-    desc: "Keep warm prospects persistently engaged across voice, SMS, and email until they respond, ask questions, or convert.",
+    title: "Lead Follow-Up",
+    desc: "Keep conversations moving without relying entirely on manual outreach.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="23 4 23 10 17 10"/>
@@ -54,8 +47,17 @@ const useCases = [
     ),
   },
   {
+    title: "Lead Reactivation",
+    desc: "Re-engage older opportunities inside the CRM.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+      </svg>
+    ),
+  },
+  {
     title: "Customer Support",
-    desc: "Handle repetitive customer questions, warranty policies, service details, and FAQs with zero human hold times.",
+    desc: "Use AI and workflows for common requests and route exceptions.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
@@ -63,28 +65,18 @@ const useCases = [
     ),
   },
   {
-    title: "Inbound Calls",
-    desc: "Deliver continuous 24/7/365 phone support that sounds remarkably human, eliminates queues, and logs everything in your CRM.",
+    title: "Client Onboarding",
+    desc: "Trigger tasks, communication and setup after a sale.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-      </svg>
-    ),
-  },
-  {
-    title: "Outbound Calls",
-    desc: "Automate outbound follow-up calls, quote reminder discussions, past-client check-ins, and schedule confirmations.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91"/>
-        <line x1="17" y1="7" x2="22" y2="2"/>
-        <polyline points="17 2 22 2 22 7"/>
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+        <polyline points="22 4 12 14.01 9 11.01"/>
       </svg>
     ),
   },
   {
     title: "CRM Management",
-    desc: "Automatically create contacts, update opportunity stages, append transcripts, assign tags, and log deal values effortlessly.",
+    desc: "Automatically update contacts, opportunities and pipeline stages.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <ellipse cx="12" cy="5" rx="9" ry="3"/>
@@ -97,28 +89,35 @@ const useCases = [
 
 export function UseCasesSection() {
   return (
-    <section id="use-cases" className={styles.useCasesSection} aria-label="High Impact Use Cases Section">
+    <section id="use-cases" className={styles.useCasesSection} aria-labelledby="usecases-heading">
       <div className={styles.container}>
         <div className={styles.headerArea}>
-          <span className={styles.eyebrow}>High-Impact Solutions</span>
-          <h2 className={styles.heading}>
-            What Would You Like <span className={styles.headingHighlight}>AI to Handle?</span>
+          <span className={styles.eyebrow}>WHAT DO YOU WANT TO AUTOMATE?</span>
+          <h2 id="usecases-heading" className={styles.heading}>
+            Start with the <span className={styles.headingHighlight}>Business Problem</span>
           </h2>
           <p className={styles.supporting}>
-            Every business has bottleneck tasks that drain time and cost revenue. Choose where you want to deploy autonomous systems first.
+            Every automation we build maps to a distinct operational bottleneck, eliminating lost revenue and manual drudgery.
           </p>
         </div>
 
-        <div className={styles.grid}>
+        <div className={styles.cardsGrid}>
           {useCases.map((uc, idx) => (
-            <div key={idx} className={styles.card}>
-              <div className={styles.iconBox} aria-hidden="true">
+            <div key={idx} className={styles.caseCard}>
+              <div className={styles.iconCircle} aria-hidden="true">
                 {uc.icon}
               </div>
               <h3 className={styles.cardTitle}>{uc.title}</h3>
               <p className={styles.cardDesc}>{uc.desc}</p>
             </div>
           ))}
+        </div>
+
+        <div className={styles.ctaRow}>
+          <Link href="#contact" className={styles.useCaseCta}>
+            <span>Tell Us What You Want to Automate</span>
+            <span aria-hidden="true">→</span>
+          </Link>
         </div>
       </div>
     </section>

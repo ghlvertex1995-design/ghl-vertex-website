@@ -1,106 +1,55 @@
-"use client";
-
-import { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import styles from "./FinalCtaSection.module.css";
 
-const automationOptions = [
-  "Inbound & Outbound Calls",
-  "Lead Qualification",
-  "Appointment Booking",
-  "Omnichannel Follow-Up",
-  "Customer Support & FAQs",
-  "CRM & Pipeline Sync",
+const microcopyItems = [
+  "Setup",
+  "CRM",
+  "Workflows",
+  "AI",
+  "Integrations",
+  "White-Label Support",
 ];
 
 export function FinalCtaSection() {
-  const [selected, setSelected] = useState<string[]>([
-    "Inbound & Outbound Calls",
-    "Appointment Booking",
-  ]);
-
-  const toggleOption = (opt: string) => {
-    setSelected((prev) =>
-      prev.includes(opt) ? prev.filter((item) => item !== opt) : [...prev, opt]
-    );
-  };
-
-  const handleShowPossibilities = () => {
-    const contactElem = document.getElementById("contact");
-    if (contactElem) {
-      contactElem.scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.location.hash = "contact";
-    }
-  };
-
   return (
-    <section id="cta" className={styles.finalCtaSection} aria-label="Build Your AI System Call to Action">
-      <div className={styles.ambientGlow} aria-hidden="true" />
-
+    <section id="contact" className={styles.section} aria-labelledby="final-cta-heading">
       <div className={styles.container}>
-        <div className={styles.layoutGrid}>
-          {/* Left Column: Bold Value Proposition */}
-          <div className={styles.contentCol}>
-            <span className={styles.badge}>Next-Generation Operations</span>
-            
-            <h2 className={styles.heading}>
-              What Would You Automate If You Had an{" "}
-              <span className={styles.headingHighlight}>AI Employee Working 24/7?</span>
+        <div className={styles.card}>
+          <div className={styles.ambientGlow} aria-hidden="true" />
+
+          <div className={styles.content}>
+            <span className={styles.eyebrow}>READY TO BUILD?</span>
+
+            <h2 id="final-cta-heading" className={styles.heading}>
+              Turn GoHighLevel Into a System{" "}
+              <span className={styles.headingHighlight}>Your Business Can Actually Run On</span>
             </h2>
 
             <p className={styles.supporting}>
-              Tell us how your business currently handles calls, leads, and follow-up. We&apos;ll identify where autonomous AI systems can save dozens of staff hours and capture more high-value clients.
+              Whether you are starting from scratch, fixing an existing account, adding AI or scaling an agency, we can help design and implement the right GHL system around your workflow.
             </p>
 
-            <div className={styles.ctaButtonGroup}>
-              <Link href="#contact" className={styles.primaryBtn}>
-                Build My AI System
+            <div className={styles.ctaGroup}>
+              <Link href="https://calendly.com" target="_blank" rel="noopener noreferrer" className={styles.primaryBtn}>
+                <span>Book a Free GHL Strategy Call</span>
                 <span aria-hidden="true">→</span>
               </Link>
-              <Link href="#contact" className={styles.secondaryBtn}>
-                Book Strategy Call
+              <Link href="/services/ghl-setup-services/" className={styles.secondaryBtn}>
+                <span>Explore GoHighLevel Services</span>
               </Link>
             </div>
-          </div>
 
-          {/* Right Column: Interactive Automation Configurator */}
-          <div className={styles.interactiveBox}>
-            <div className={styles.boxHeader}>
-              <h3 className={styles.boxTitle}>What do you want to automate?</h3>
-              <p className={styles.boxSub}>
-                Select the operational bottlenecks you want your AI workforce to solve:
-              </p>
+            <div className={styles.microcopyRow}>
+              {microcopyItems.map((item, idx) => (
+                <React.Fragment key={idx}>
+                  <span className={styles.microItem}>{item}</span>
+                  {idx < microcopyItems.length - 1 && (
+                    <span className={styles.microDot} aria-hidden="true">•</span>
+                  )}
+                </React.Fragment>
+              ))}
             </div>
-
-            <div className={styles.optionsGrid}>
-              {automationOptions.map((opt) => {
-                const isChecked = selected.includes(opt);
-                return (
-                  <label
-                    key={opt}
-                    className={`${styles.optionLabel} ${isChecked ? styles.selected : ""}`}
-                  >
-                    <input
-                      type="checkbox"
-                      className={styles.checkboxInput}
-                      checked={isChecked}
-                      onChange={() => toggleOption(opt)}
-                    />
-                    <span className={styles.optionText}>{opt}</span>
-                  </label>
-                );
-              })}
-            </div>
-
-            <button
-              type="button"
-              onClick={handleShowPossibilities}
-              className={styles.interactiveSubmitBtn}
-            >
-              Show Me What&apos;s Possible ({selected.length} Selected)
-              <span aria-hidden="true">→</span>
-            </button>
           </div>
         </div>
       </div>

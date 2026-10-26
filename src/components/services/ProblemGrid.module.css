@@ -36,7 +36,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.75rem;
 }
 
@@ -108,3 +108,17 @@
   color: #881337;
   line-height: 1.45;
 }
+
+@media (max-width: 640px) {
+  .section {
+    padding: 3rem 0;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .card {
+    padding: 1.35rem 1.25rem;
+  }
+}
+

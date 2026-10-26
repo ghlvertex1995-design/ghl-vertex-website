@@ -324,3 +324,24 @@
     height: 36px;
   }
 }
+
+@media (max-width: 640px) {
+  .headerContainer {
+    padding: 0.5rem 0.75rem;
+  }
+  .navbarPill {
+    height: 58px;
+    padding: 0 0.85rem;
+  }
+  .actions .ctaBtn {
+    display: none;
+  }
+  .logoImage {
+    height: 32px;
+  }
+  .mobileToggle {
+    width: 38px;
+    height: 38px;
+  }
+}
+

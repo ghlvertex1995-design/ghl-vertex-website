@@ -82,3 +82,19 @@
   margin-top: 0.5rem;
   flex-shrink: 0;
 }
+
+@media (max-width: 640px) {
+  .section {
+    padding: 2rem 0;
+  }
+  .answerCard {
+    padding: 1.5rem 1.25rem;
+  }
+  .takeawaysBox {
+    padding: 1rem 1rem;
+  }
+  .takeawaysList {
+    grid-template-columns: 1fr;
+  }
+}
+

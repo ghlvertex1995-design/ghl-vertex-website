@@ -163,7 +163,7 @@ export function Header() {
         {/* Right Action: Primary CTA (Contact button removed as requested) */}
         <div className={styles.actions}>
           <Link href="#contact" className={styles.ctaBtn}>
-            <span>Book AI Strategy Call</span>
+            <span>Book GHL Strategy Call</span>
             <span className={styles.ctaArrow} aria-hidden="true">
               →
             </span>

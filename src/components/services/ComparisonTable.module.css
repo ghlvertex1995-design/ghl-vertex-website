@@ -47,10 +47,12 @@
 .tableResponsive {
   width: 100%;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .table {
   width: 100%;
+  min-width: 620px;
   border-collapse: collapse;
   text-align: left;
   font-size: 0.95rem;
@@ -123,3 +125,15 @@
   font-weight: 800;
   margin-right: 0.5rem;
 }
+
+@media (max-width: 640px) {
+  .section {
+    padding: 3rem 0;
+  }
+  .table th,
+  .table td {
+    padding: 0.85rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+

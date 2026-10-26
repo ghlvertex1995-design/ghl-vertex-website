@@ -10,7 +10,7 @@ export function Footer() {
     <footer className={styles.footer} role="contentinfo">
       <div className={`container ${styles.inner}`}>
         <div className={styles.top}>
-          {/* Logo + Positioning */}
+          {/* Logo + Brand Description */}
           <div className={styles.brandCol}>
             <Link href="/" className={styles.brand} aria-label={`${siteConfig.name} - Home`}>
               <Image
@@ -23,14 +23,56 @@ export function Footer() {
               />
             </Link>
             <p className={styles.tagline}>
-              AI Agents &amp; Automation Systems for Modern Businesses.
+              GHLVertex is a GoHighLevel agency helping businesses and agencies build CRM systems, workflow automation, AI agents, integrations and scalable customer journeys.
             </p>
           </div>
 
-          {/* Column 01 — AI Agents & Models */}
+          {/* Group 01 — GOHIGHLEVEL */}
           <div className={styles.column}>
-            <h3 className={styles.colTitle}>AI Engineering</h3>
+            <h3 className={styles.colTitle}>GoHighLevel</h3>
             <ul className={styles.linkList}>
+              <li>
+                <Link href="/services/ghl-setup-services/" className={styles.link}>
+                  GHL Setup Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/workflow-automation-services/" className={styles.link}>
+                  Workflow Automation
+                </Link>
+              </li>
+              <li>
+                <Link href="/solutions/saas-crm/" className={styles.link}>
+                  SaaS CRM
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/gohighlevel-white-label-support/" className={styles.link}>
+                  White-Label GHL Support
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/ai-automation-services/" className={styles.link}>
+                  GHL AI Automation
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Group 02 — AI SERVICES */}
+          <div className={styles.column}>
+            <h3 className={styles.colTitle}>AI Services</h3>
+            <ul className={styles.linkList}>
+              <li>
+                <Link href="/services/ai-consulting-services/" className={styles.link}>
+                  AI Consulting
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/ai-automation-services/" className={styles.link}>
+                  AI Automation
+                </Link>
+              </li>
               <li>
                 <Link href="/services/ai-agent-development-services/" className={styles.link}>
                   AI Agent Development
@@ -48,103 +90,51 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/services/rag-development-services/" className={styles.link}>
-                  RAG Knowledge Systems
-                </Link>
-              </li>
-              <li>
-                <Link href="/#voice-agents" className={styles.link}>
-                  AI Voice Agents
+                  RAG Development
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 02 — Automation & CRM */}
-          <div className={styles.column}>
-            <h3 className={styles.colTitle}>Automation &amp; CRM</h3>
-            <ul className={styles.linkList}>
-              <li>
-                <Link href="/services/ai-automation-services/" className={styles.link}>
-                  AI Automation Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/workflow-automation-services/" className={styles.link}>
-                  Workflow Automation
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/ai-integration-services/" className={styles.link}>
-                  AI Integration Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/ghl-setup-services/" className={styles.link}>
-                  GHL Setup Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/gohighlevel-white-label-support/" className={styles.link}>
-                  GHL White Label Support
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 03 — Solutions */}
-          <div className={styles.column}>
-            <h3 className={styles.colTitle}>Solutions</h3>
-            <ul className={styles.linkList}>
-              <li>
-                <Link href="/solutions/saas-crm/" className={styles.link}>
-                  SaaS CRM Architecture
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/ai-consulting-services/" className={styles.link}>
-                  AI Consulting Services
-                </Link>
-              </li>
-              <li>
-                <Link href="/#contact" className={styles.link}>
-                  Appointment Booking
-                </Link>
-              </li>
-              <li>
-                <Link href="/#contact" className={styles.link}>
-                  Speed-to-Lead Triage
-                </Link>
-              </li>
-              <li>
-                <Link href="/#contact" className={styles.link}>
-                  Missed Call Text-Back
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 04 — Company */}
+          {/* Group 03 — COMPANY */}
           <div className={styles.column}>
             <h3 className={styles.colTitle}>Company</h3>
             <ul className={styles.linkList}>
               <li>
                 <Link href="/#why-ghlvertex" className={styles.link}>
-                  Why GHLVertex
+                  About
                 </Link>
               </li>
               <li>
                 <Link href="/#results" className={styles.link}>
-                  Execution Flow
+                  Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link href="/#contact" className={styles.link}>
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Group 04 — RESOURCES */}
+          <div className={styles.column}>
+            <h3 className={styles.colTitle}>Resources</h3>
+            <ul className={styles.linkList}>
+              <li>
+                <Link href="/#contact" className={styles.link}>
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/#process" className={styles.link}>
+                  Guides
                 </Link>
               </li>
               <li>
                 <Link href="/#faq" className={styles.link}>
                   FAQs
-                </Link>
-              </li>
-              <li>
-                <Link href="/#contact" className={styles.link}>
-                  Contact &amp; Strategy Call
                 </Link>
               </li>
             </ul>

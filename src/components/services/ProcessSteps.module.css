@@ -131,3 +131,17 @@
   font-weight: 800;
   flex-shrink: 0;
 }
+
+@media (max-width: 640px) {
+  .section {
+    padding: 3rem 0;
+  }
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .stepCard {
+    padding: 1.35rem 1.25rem;
+  }
+}
+

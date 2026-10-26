@@ -93,3 +93,17 @@
   line-height: 1.55;
   color: var(--text-secondary);
 }
+
+@media (max-width: 640px) {
+  .section {
+    padding: 3rem 0;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .card {
+    padding: 1.35rem 1.25rem;
+  }
+}
+

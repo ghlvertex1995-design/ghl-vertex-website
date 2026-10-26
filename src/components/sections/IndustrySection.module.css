@@ -1,8 +1,8 @@
-.industrySection {
+.section {
   position: relative;
   width: 100%;
-  padding: 6.5rem 0 7.5rem;
-  background: transparent;
+  padding: 6.5rem 0 7rem;
+  background: #f8fafc;
   z-index: 1;
 }
 
@@ -13,11 +13,10 @@
   padding: 0 1.5rem;
 }
 
-/* Header */
 .headerArea {
   text-align: center;
   max-width: 760px;
-  margin: 0 auto 4rem;
+  margin: 0 auto 3.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -60,129 +59,72 @@
   color: #475569;
 }
 
-/* 8-Card Grid (4 cols on large screens, 2 on tablet, 1 on mobile) */
-.industryGrid {
+.grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: 1.25rem;
   width: 100%;
 }
 
-.industryCard {
+.card {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  padding: 1.5rem 1.25rem;
   display: flex;
   flex-direction: column;
   transition: all var(--transition-normal);
   box-shadow: 0 4px 18px rgba(15, 23, 42, 0.03);
 }
 
-.industryCard:hover {
-  transform: translateY(-5px);
+.card:hover {
+  transform: translateY(-3px);
   border-color: rgba(1, 72, 163, 0.35);
-  box-shadow: 0 20px 40px -15px rgba(1, 72, 163, 0.16);
+  box-shadow: 0 14px 28px -6px rgba(1, 72, 163, 0.12);
 }
 
-.imageContainer {
-  position: relative;
-  width: 100%;
-  height: 160px;
-  background: #f1f5f9;
-  overflow: hidden;
-}
-
-.industryImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--transition-normal);
-}
-
-.industryCard:hover .industryImage {
-  transform: scale(1.05);
-}
-
-.imageOverlayBadge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(8px);
-  color: #ffffff;
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 0.25rem 0.6rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.cardBody {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.industryTitle {
-  font-size: 1.25rem;
-  font-weight: 850;
-  color: #0f172a;
-  margin-bottom: 0.85rem;
-}
-
-.automateList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  margin-bottom: 1.5rem;
-}
-
-.automateItem {
+.cardHeader {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.825rem;
-  color: #475569;
-  font-weight: 500;
+  gap: 0.6rem;
+  margin-bottom: 0.65rem;
 }
 
-.checkBullet {
-  color: var(--brand-primary);
+.accentDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand-primary);
+  flex-shrink: 0;
+}
+
+.cardTitle {
+  font-size: 1.15rem;
   font-weight: 800;
-  font-size: 0.8rem;
+  color: #0f172a;
 }
 
-.cardCta {
-  margin-top: auto;
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--brand-primary);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  transition: gap var(--transition-fast);
+.cardDesc {
+  font-size: 0.885rem;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0;
 }
 
-.cardCta:hover {
-  gap: 0.65rem;
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-/* Responsive */
-@media (max-width: 1200px) {
-  .industryGrid {
+@media (max-width: 768px) {
+  .grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 640px) {
-  .industrySection {
-    padding: 4rem 0 4.5rem;
-  }
-
-  .industryGrid {
+@media (max-width: 500px) {
+  .grid {
     grid-template-columns: 1fr;
   }
 }

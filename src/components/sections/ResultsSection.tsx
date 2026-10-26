@@ -1,80 +1,57 @@
+import React from "react";
+import Link from "next/link";
 import styles from "./ResultsSection.module.css";
 
-const systemTasks = [
-  "Handled 100% of incoming daytime & after-hours calls",
-  "Qualified caller intent, service emergency & geographic location",
-  "Booked confirmed technician appointments directly into calendar",
-  "Automated multi-touch follow-up via voice call, SMS & email",
-];
-
-const metrics = [
-  {
-    value: "+42%",
-    label: "Booked Appointments",
-    subtext: "Increased conversion from inbound callers",
-  },
-  {
-    value: "< 30s",
-    label: "Faster Response Time",
-    subtext: "Instant engagement on every inbound channel",
-  },
-  {
-    value: "120+ hrs",
-    label: "Saved Monthly",
-    subtext: "Eliminated repetitive front-desk admin work",
-  },
-  {
-    value: "3.8x",
-    label: "More Leads Contacted",
-    subtext: "Zero abandoned inquiries or missed calls",
-  },
+const workflowSteps = [
+  { step: "01", label: "Lead Capture", desc: "A home-service enquiry enters from a form or inbound call." },
+  { step: "02", label: "Opportunity Creation", desc: "Instantly creates a tracked CRM opportunity and assigns tags." },
+  { step: "03", label: "Immediate Follow-Up", desc: "Sub-minute automated response via SMS, email or voice." },
+  { step: "04", label: "Smart Qualification", desc: "Gathers requirements and confirms geographic serviceability." },
+  { step: "05", label: "Appointment Booking", desc: "Direct calendar self-scheduling with real-time availability." },
+  { step: "06", label: "Pipeline & Handoff", desc: "Moved through pipeline and handed to a team member when necessary." },
 ];
 
 export function ResultsSection() {
   return (
-    <section id="results" className={styles.resultsSection} aria-label="Business Outcomes and Results Section">
+    <section id="results" className={styles.resultsSection} aria-labelledby="results-heading">
       <div className={styles.container}>
         <div className={styles.headerArea}>
-          <span className={styles.eyebrow}>Results</span>
-          <h2 className={styles.heading}>
-            AI Is Valuable When It{" "}
-            <span className={styles.headingHighlight}>Produces Business Outcomes</span>
+          <span className={styles.eyebrow}>OUR WORK</span>
+          <h2 id="results-heading" className={styles.heading}>
+            See How Better GoHighLevel Systems <span className={styles.headingHighlight}>Work in Practice</span>
           </h2>
           <p className={styles.supporting}>
-            We design every agentic workflow with direct commercial impact in mind: more booked appointments, faster lead response, and lower operational overhead.
+            We design every workflow with operational rigor: zero dropped leads, immediate response times, and clear team handoffs.
           </p>
         </div>
 
-        <div className={styles.outcomeCard}>
-          {/* Left: Business Context */}
-          <div className={styles.contextCol}>
-            <span className={styles.contextBadge}>Sample Workflow & Performance Benchmark</span>
-            <h3 className={styles.contextTitle}>
-              Home Services AI Workforce Implementation
-            </h3>
-            <p className={styles.contextDesc}>
-              A representative deployment featuring an inbound AI Receptionist integrated with GoHighLevel CRM and automated dispatch workflows.
-            </p>
-
-            <div className={styles.taskList}>
-              {systemTasks.map((task, idx) => (
-                <div key={idx} className={styles.taskItem}>
-                  <span className={styles.taskCheck}>✓</span>
-                  <span>{task}</span>
-                </div>
-              ))}
-            </div>
+        <div className={styles.workflowCard}>
+          <div className={styles.badgeRow}>
+            <span className={styles.cardBadge}>Example GoHighLevel Workflow</span>
           </div>
+          
+          <h3 className={styles.workflowTitle}>
+            Typical Implementation Scenario: Inbound Service Automation
+          </h3>
+          <p className={styles.workflowDescription}>
+            A home-service enquiry enters from a form, creates a CRM opportunity, receives an immediate follow-up, is qualified, offered an appointment, moved through the pipeline and handed to a team member when necessary.
+          </p>
 
-          {/* Right: Quantifiable Metrics */}
-          <div className={styles.metricsGrid}>
-            {metrics.map((m, idx) => (
-              <div key={idx} className={styles.metricBlock}>
-                <span className={styles.metricNumber}>{m.value}</span>
-                <span className={styles.metricLabel}>{m.label}</span>
-                <span className={styles.metricSub}>{m.subtext}</span>
+          <div className={styles.stepsTimeline}>
+            {workflowSteps.map((ws) => (
+              <div key={ws.step} className={styles.timelineStep}>
+                <div className={styles.stepNumBadge}>{ws.step}</div>
+                <h4 className={styles.stepLabel}>{ws.label}</h4>
+                <p className={styles.stepDetail}>{ws.desc}</p>
               </div>
             ))}
+          </div>
+
+          <div className={styles.cardCtaRow}>
+            <Link href="#contact" className={styles.resultsCta}>
+              <span>View Case Studies</span>
+              <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
       </div>

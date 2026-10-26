@@ -307,3 +307,29 @@
     order: 2;
   }
 }
+
+@media (max-width: 640px) {
+  .heroSection {
+    padding: 2rem 0 3.5rem;
+  }
+  .heading {
+    font-size: 2.15rem;
+  }
+  .ctaRow {
+    flex-direction: column;
+    width: 100%;
+  }
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+  .metaPills {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .diagramCard {
+    border-radius: var(--radius-md);
+  }
+}
+

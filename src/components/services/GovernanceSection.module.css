@@ -125,3 +125,20 @@
   margin-top: 0.2rem;
   flex-shrink: 0;
 }
+
+@media (max-width: 640px) {
+  .section {
+    padding: 3rem 0;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .card {
+    padding: 1.35rem 1.25rem;
+  }
+  .guardrailBox {
+    padding: 1.35rem 1.25rem;
+  }
+}
+
