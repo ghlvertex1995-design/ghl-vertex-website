@@ -53,7 +53,7 @@ export function AgenticSection() {
               <span className={styles.colBadgeMuted}>Legacy Systems</span>
               <h3 className={styles.colTitleMuted}>Traditional Automation</h3>
               <p className={styles.colDescMuted}>
-                Rigid, linear 'if-this-then-that' rules. Cannot adapt to unexpected questions or nuanced responses.
+                Rigid, linear &apos;if-this-then-that&apos; rules. Cannot adapt to unexpected questions or nuanced responses.
               </p>
             </div>
 

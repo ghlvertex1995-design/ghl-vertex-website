@@ -1,3 +1,6 @@
+/* ==========================================================================
+   HEADER CONTAINER & FLOATING PILL NAVBAR
+   ========================================================================== */
 .headerContainer {
   position: sticky;
   top: 0;
@@ -17,7 +20,6 @@
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   padding: 0.6rem 1.5rem;
-  border-bottom: none;
 }
 
 .navbarPill {
@@ -38,11 +40,13 @@
 
 .headerContainer.scrolled .navbarPill {
   box-shadow: var(--shadow-navbar-scrolled);
-  border-color: rgba(1, 72, 163, 0.12);
+  border-color: rgba(1, 72, 163, 0.14);
   height: 70px;
 }
 
-/* Brand Logo */
+/* ==========================================================================
+   BRAND LOGO
+   ========================================================================== */
 .brand {
   display: flex;
   align-items: center;
@@ -50,21 +54,24 @@
   flex-shrink: 0;
   text-decoration: none;
   padding: 0.25rem 0;
+  border-radius: var(--radius-sm);
 }
 
 .logoImage {
-  height: 44px;
+  height: 42px;
   width: auto;
   object-fit: contain;
   display: block;
   image-rendering: -webkit-optimize-contrast;
 }
 
-/* Navigation Links */
+/* ==========================================================================
+   CENTER PRIMARY NAVIGATION
+   ========================================================================== */
 .nav {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -76,31 +83,40 @@
   align-items: center;
 }
 
-.navLink,
 .navButton {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.55rem 0.85rem;
+  padding: 0.6rem 1rem;
   border-radius: var(--radius-pill);
-  font-size: 0.935rem;
+  font-size: 0.94rem;
   font-weight: 500;
   color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
   transition: all var(--transition-fast);
   white-space: nowrap;
+  font-family: inherit;
 }
 
-.navLink:hover,
 .navButton:hover,
+.navButton.open,
 .navButton.active {
   color: var(--brand-primary);
   background-color: var(--brand-primary-subtle);
+}
+
+.navButton.active {
+  font-weight: 600;
 }
 
 .chevron {
   font-size: 0.65rem;
   transition: transform var(--transition-fast);
   color: var(--text-muted);
+  display: inline-block;
+  line-height: 1;
 }
 
 .chevron.open {
@@ -108,7 +124,9 @@
   color: var(--brand-primary);
 }
 
-/* Right Section Actions */
+/* ==========================================================================
+   HEADER RIGHT ACTIONS (CONTACT + BOOK CALL)
+   ========================================================================== */
 .actions {
   display: flex;
   align-items: center;
@@ -116,18 +134,45 @@
   flex-shrink: 0;
 }
 
+/* Secondary outline CTA: Contact */
+.contactBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.68rem 1.25rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.915rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+  background: #ffffff;
+  border: 1.5px solid rgba(1, 72, 163, 0.35);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.contactBtn:hover {
+  background: var(--brand-primary-subtle);
+  border-color: var(--brand-primary);
+  color: var(--brand-primary-hover);
+  transform: translateY(-1px);
+}
+
+/* Primary high-emphasis CTA: Book GHL Strategy Call */
 .ctaBtn {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.72rem 1.6rem;
+  gap: 0.45rem;
+  padding: 0.72rem 1.55rem;
   border-radius: var(--radius-pill);
-  font-size: 0.925rem;
+  font-size: 0.915rem;
   font-weight: 600;
   color: #ffffff;
   background: var(--gradient-brand-cta);
   box-shadow: var(--shadow-cta);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   transition: all var(--transition-fast);
+  text-decoration: none;
   white-space: nowrap;
 }
 
@@ -146,7 +191,9 @@
   transform: translateX(3px);
 }
 
-/* Mobile Toggle */
+/* ==========================================================================
+   MOBILE HAMBURGER & DRAWER NAVIGATION
+   ========================================================================== */
 .mobileToggle {
   display: none;
   width: 44px;
@@ -157,9 +204,14 @@
   background: var(--brand-primary-subtle);
   color: var(--brand-primary);
   border: 1px solid rgba(1, 72, 163, 0.15);
+  cursor: pointer;
+  transition: background var(--transition-fast);
 }
 
-/* Mobile Drawer Overlay */
+.mobileToggle:hover {
+  background: rgba(1, 72, 163, 0.12);
+}
+
 .mobileDrawer {
   display: none;
   position: fixed;
@@ -184,8 +236,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 86vw;
-  max-width: 380px;
+  width: 88vw;
+  max-width: 420px;
   height: 100%;
   background: #ffffff;
   box-shadow: -10px 0 30px rgba(0, 0, 0, 0.12);
@@ -193,6 +245,7 @@
   flex-direction: column;
   padding: 1.5rem;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   transform: translateX(100%);
   transition: transform var(--transition-smooth);
 }
@@ -205,27 +258,36 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #e2e8f0;
 }
 
 .closeBtn {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--bg-surface-alt);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text-secondary);
+  border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.closeBtn:hover {
+  background: var(--brand-primary-subtle);
+  color: var(--brand-primary);
+  border-color: rgba(1, 72, 163, 0.2);
 }
 
 .mobileNavList {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.65rem;
   margin: 0;
   padding: 0;
   margin-bottom: 1.5rem;
@@ -236,50 +298,91 @@
   flex-direction: column;
 }
 
-.mobileNavLink {
+.mobileAccordionTrigger {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.65rem 0.5rem;
-  font-size: 0.975rem;
+  width: 100%;
+  padding: 0.75rem 0.65rem;
+  font-size: 1.02rem;
   font-weight: 600;
   color: var(--text-main);
+  background: transparent;
+  border: none;
   border-radius: var(--radius-sm);
-  transition: color var(--transition-fast);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  transition: all var(--transition-fast);
 }
 
-.mobileNavLink:hover {
+.mobileAccordionTrigger:hover,
+.mobileAccordionTrigger.expanded {
+  color: var(--brand-primary);
+  background: var(--brand-primary-subtle);
+}
+
+.accordionChevron {
+  font-size: 0.75rem;
+  transition: transform var(--transition-fast);
+  color: var(--text-muted);
+}
+
+.mobileAccordionTrigger.expanded .accordionChevron {
+  transform: rotate(180deg);
   color: var(--brand-primary);
 }
 
-.accordionSection {
-  padding-left: 0.75rem;
-  border-left: 2px solid var(--brand-primary-light);
+.mobileAccordionContent {
+  padding-left: 0.85rem;
+  border-left: 2px solid rgba(1, 72, 163, 0.2);
   margin-top: 0.35rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
+  margin-left: 0.5rem;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
-.accordionGroupTitle {
+.mobileGroupHeading {
   font-size: 0.75rem;
   text-transform: uppercase;
   font-weight: 700;
   color: var(--brand-primary);
-  letter-spacing: 0.05em;
-  margin-top: 0.25rem;
+  letter-spacing: 0.06em;
+  margin-top: 0.5rem;
+  margin-bottom: 0.2rem;
 }
 
-.accordionSubLink {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  padding: 0.25rem 0;
-  display: block;
+.mobileSubLink {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: var(--radius-xs);
+  text-decoration: none;
+  transition: background var(--transition-fast);
 }
 
-.accordionSubLink:hover {
+.mobileSubLink:hover {
+  background: var(--brand-primary-subtle);
+}
+
+.mobileSubLinkTitle {
+  font-size: 0.915rem;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: color var(--transition-fast);
+}
+
+.mobileSubLink:hover .mobileSubLinkTitle {
   color: var(--brand-primary);
+}
+
+.mobileSubLinkDesc {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+  line-height: 1.35;
 }
 
 .mobileActions {
@@ -291,15 +394,62 @@
   border-top: 1px solid #e2e8f0;
 }
 
-/* Responsive Breakpoints */
-@media (max-width: 1200px) {
-  .nav {
-    gap: 0.2rem;
+.mobileContactBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: var(--brand-primary);
+  background: #ffffff;
+  border: 1.5px solid rgba(1, 72, 163, 0.35);
+  text-decoration: none;
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.mobileContactBtn:hover {
+  background: var(--brand-primary-subtle);
+}
+
+.mobilePrimaryBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: var(--gradient-brand-cta);
+  box-shadow: var(--shadow-cta);
+  text-decoration: none;
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.mobilePrimaryBtn:hover {
+  box-shadow: var(--shadow-cta-hover);
+  filter: brightness(1.05);
+}
+
+/* ==========================================================================
+   BREAKPOINTS & RESPONSIVENESS
+   ========================================================================== */
+@media (max-width: 1180px) {
+  .actions {
+    gap: 0.5rem;
   }
-  .navLink,
-  .navButton {
-    padding: 0.45rem 0.65rem;
-    font-size: 0.885rem;
+  .contactBtn {
+    padding: 0.62rem 1rem;
+    font-size: 0.875rem;
+  }
+  .ctaBtn {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.875rem;
   }
 }
 
@@ -333,6 +483,7 @@
     height: 58px;
     padding: 0 0.85rem;
   }
+  .actions .contactBtn,
   .actions .ctaBtn {
     display: none;
   }
@@ -344,4 +495,3 @@
     height: 38px;
   }
 }
-

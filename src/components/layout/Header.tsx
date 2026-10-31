@@ -1,46 +1,87 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/config/site";
-import { MegaMenu } from "./MegaMenu";
+import { ServicesMegaMenu } from "./ServicesMegaMenu";
+import { ResultsMegaMenu } from "./ResultsMegaMenu";
+import { CompanyMegaMenu } from "./CompanyMegaMenu";
+import { servicesMegaMenuData, resultsMenuData, companyMenuData } from "./navData";
 import styles from "./Header.module.css";
 
-export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [mobileAccordionOpen, setMobileAccordionOpen] = useState(false);
-  const navItemRef = useRef<HTMLLIElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+type OpenMenuType = "services" | "results" | "company" | null;
 
-  // Scroll detection for sticky header elevation
+export function Header() {
+  const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeMenu, setActiveMenu] = useState<OpenMenuType>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Mobile accordion state
+  const [mobileAccordion, setMobileAccordion] = useState<{
+    services: boolean;
+    results: boolean;
+    company: boolean;
+  }>({
+    services: false,
+    results: false,
+    company: false,
+  });
+
+  const headerRef = useRef<HTMLElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const servicesBtnRef = useRef<HTMLButtonElement>(null);
+  const resultsBtnRef = useRef<HTMLButtonElement>(null);
+  const companyBtnRef = useRef<HTMLButtonElement>(null);
+  const mobileToggleRef = useRef<HTMLButtonElement>(null);
+
+  // Scroll detection for navbar shadow/elevation
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 15);
     };
-
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mega menu on click outside or Escape
+  // Body scroll lock when mobile drawer is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
+  // Click outside and Escape handling
+  const closeAllMenus = useCallback(() => {
+    setActiveMenu(null);
+  }, []);
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (
-        !target.closest(`.${styles.navItem}`) &&
-        !target.closest(`.${styles.headerContainer}`)
-      ) {
-        setIsMegaMenuOpen(false);
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        closeAllMenus();
       }
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        setIsMegaMenuOpen(false);
-        setIsMobileMenuOpen(false);
+        if (isMobileMenuOpen) {
+          setIsMobileMenuOpen(false);
+          mobileToggleRef.current?.focus();
+        } else if (activeMenu) {
+          const prevMenu = activeMenu;
+          closeAllMenus();
+          if (prevMenu === "services") servicesBtnRef.current?.focus();
+          else if (prevMenu === "results") resultsBtnRef.current?.focus();
+          else if (prevMenu === "company") companyBtnRef.current?.focus();
+        }
       }
     };
 
@@ -50,42 +91,59 @@ export function Header() {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [activeMenu, isMobileMenuOpen, closeAllMenus]);
 
-  const handleMouseEnter = () => {
-    if (timeoutRef.current) clearTimeout(timeoutRef.current);
-    setIsMegaMenuOpen(true);
+  // Mouse hover handlers with debounced exit
+  const handleMouseEnter = (menu: OpenMenuType) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setActiveMenu(menu);
   };
 
   const handleMouseLeave = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
-      setIsMegaMenuOpen(false);
-    }, 200);
+      setActiveMenu(null);
+    }, 180);
   };
 
-  const toggleMegaMenu = () => {
-    setIsMegaMenuOpen((prev) => !prev);
+  const toggleMenu = (menu: "services" | "results" | "company") => {
+    setActiveMenu((prev) => (prev === menu ? null : menu));
   };
 
   const closeMobile = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const toggleMobileAccordion = (section: "services" | "results" | "company") => {
+    setMobileAccordion((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
+
+  // Determine active section from pathname
+  const isServicesActive = pathname.startsWith("/services") || pathname.startsWith("/solutions");
+
   return (
     <header
+      ref={headerRef}
       className={`${styles.headerContainer} ${isScrolled ? styles.scrolled : ""}`}
       role="banner"
     >
       <div className={styles.navbarPill}>
-        {/* Section 1: Crisp Logo Setup */}
+        {/* 1. GHLVertex Logo */}
         <Link
           href="/"
           className={styles.brand}
-          aria-label={`${siteConfig.name} - Home`}
+          aria-label="GHLVertex home"
+          onClick={closeAllMenus}
         >
           <Image
             src="/images/logo.png"
-            alt="GHL Vertex - HighLevel CRM & AI Automation Agency"
+            alt={`${siteConfig.name} - GoHighLevel CRM, Automation & AI Agency`}
             width={215}
             height={44}
             priority
@@ -94,27 +152,30 @@ export function Header() {
           />
         </Link>
 
-        {/* Section 2: Header Menu (Center Navigation) */}
+        {/* 2. Main Navigation: Services, Results, Company */}
         <nav className={styles.nav} aria-label="Main Navigation">
-          <ul className={styles.nav}>
-            {/* Mega Menu Trigger: AI Agents */}
+          <ul className={styles.nav} role="menubar">
+            {/* Services Dropdown */}
             <li
-              ref={navItemRef}
               className={styles.navItem}
-              onMouseEnter={handleMouseEnter}
+              onMouseEnter={() => handleMouseEnter("services")}
               onMouseLeave={handleMouseLeave}
+              role="none"
             >
               <button
+                ref={servicesBtnRef}
                 type="button"
-                className={`${styles.navButton} ${isMegaMenuOpen ? styles.active : ""}`}
-                onClick={toggleMegaMenu}
-                aria-expanded={isMegaMenuOpen}
+                role="menuitem"
+                className={`${styles.navButton} ${activeMenu === "services" ? styles.open : ""} ${isServicesActive ? styles.active : ""}`}
+                onClick={() => toggleMenu("services")}
+                aria-expanded={activeMenu === "services"}
                 aria-haspopup="true"
-                aria-label="Toggle AI Agents and Solutions Dropdown"
+                aria-controls="services-mega-menu"
+                aria-label="Services menu"
               >
-                <span>AI Agents</span>
+                <span>Services</span>
                 <span
-                  className={`${styles.chevron} ${isMegaMenuOpen ? styles.open : ""}`}
+                  className={`${styles.chevron} ${activeMenu === "services" ? styles.open : ""}`}
                   aria-hidden="true"
                 >
                   ▼
@@ -122,60 +183,94 @@ export function Header() {
               </button>
             </li>
 
-            <li className={styles.navItem}>
-              <Link href="/#services" className={styles.navLink}>
-                Services
-              </Link>
+            {/* Results Dropdown */}
+            <li
+              className={styles.navItem}
+              onMouseEnter={() => handleMouseEnter("results")}
+              onMouseLeave={handleMouseLeave}
+              role="none"
+            >
+              <button
+                ref={resultsBtnRef}
+                type="button"
+                role="menuitem"
+                className={`${styles.navButton} ${activeMenu === "results" ? styles.open : ""}`}
+                onClick={() => toggleMenu("results")}
+                aria-expanded={activeMenu === "results"}
+                aria-haspopup="true"
+                aria-controls="results-mega-menu"
+                aria-label="Results menu"
+              >
+                <span>Results</span>
+                <span
+                  className={`${styles.chevron} ${activeMenu === "results" ? styles.open : ""}`}
+                  aria-hidden="true"
+                >
+                  ▼
+                </span>
+              </button>
             </li>
 
-            <li className={styles.navItem}>
-              <Link href="/services/ai-automation-services/" className={styles.navLink}>
-                AI Automation
-              </Link>
-            </li>
-
-            <li className={styles.navItem}>
-              <Link href="/services/ghl-setup-services/" className={styles.navLink}>
-                GHL Setup
-              </Link>
-            </li>
-
-            <li className={styles.navItem}>
-              <Link href="/#faq" className={styles.navLink}>
-                FAQ
-              </Link>
-            </li>
-
-            <li className={styles.navItem}>
-              <Link href="/#industries" className={styles.navLink}>
-                Industries
-              </Link>
-            </li>
-
-            <li className={styles.navItem}>
-              <Link href="/#contact" className={styles.navLink}>
-                Contact
-              </Link>
+            {/* Company Dropdown */}
+            <li
+              className={styles.navItem}
+              onMouseEnter={() => handleMouseEnter("company")}
+              onMouseLeave={handleMouseLeave}
+              role="none"
+            >
+              <button
+                ref={companyBtnRef}
+                type="button"
+                role="menuitem"
+                className={`${styles.navButton} ${activeMenu === "company" ? styles.open : ""}`}
+                onClick={() => toggleMenu("company")}
+                aria-expanded={activeMenu === "company"}
+                aria-haspopup="true"
+                aria-controls="company-mega-menu"
+                aria-label="Company menu"
+              >
+                <span>Company</span>
+                <span
+                  className={`${styles.chevron} ${activeMenu === "company" ? styles.open : ""}`}
+                  aria-hidden="true"
+                >
+                  ▼
+                </span>
+              </button>
             </li>
           </ul>
         </nav>
 
-        {/* Right Action: Primary CTA (Contact button removed as requested) */}
+        {/* 3. Header Action CTAs: Contact + Book GHL Strategy Call */}
         <div className={styles.actions}>
-          <Link href="#contact" className={styles.ctaBtn}>
+          <Link
+            href="/#contact"
+            className={styles.contactBtn}
+            onClick={closeAllMenus}
+          >
+            Contact
+          </Link>
+
+          <Link
+            href="/#contact"
+            className={styles.ctaBtn}
+            onClick={closeAllMenus}
+          >
             <span>Book GHL Strategy Call</span>
             <span className={styles.ctaArrow} aria-hidden="true">
               →
             </span>
           </Link>
 
-          {/* Mobile Menu Hamburger Toggle */}
+          {/* Mobile Hamburger Button */}
           <button
+            ref={mobileToggleRef}
             type="button"
             className={styles.mobileToggle}
             onClick={() => setIsMobileMenuOpen(true)}
-            aria-label="Open mobile navigation menu"
+            aria-label="Open navigation menu"
             aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-drawer"
           >
             <svg
               width="24"
@@ -186,6 +281,7 @@ export function Header() {
               strokeWidth="2.2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-hidden="true"
             >
               <line x1="4" x2="20" y1="12" y2="12" />
               <line x1="4" x2="20" y1="6" y2="6" />
@@ -195,46 +291,68 @@ export function Header() {
         </div>
       </div>
 
-      {/* Section 3: Navigation Dropdown (Mega Menu positioned relative to Header Container, perfectly centered over screen) */}
-      <MegaMenu
-        isOpen={isMegaMenuOpen}
-        onClose={() => setIsMegaMenuOpen(false)}
-        onMouseEnter={handleMouseEnter}
+      {/* 4. Desktop Mega Menus */}
+      <ServicesMegaMenu
+        isOpen={activeMenu === "services"}
+        onClose={closeAllMenus}
+        onMouseEnter={() => handleMouseEnter("services")}
         onMouseLeave={handleMouseLeave}
+        activePath={pathname}
       />
 
-      {/* Mobile Drawer Navigation */}
+      <ResultsMegaMenu
+        isOpen={activeMenu === "results"}
+        onClose={closeAllMenus}
+        onMouseEnter={() => handleMouseEnter("results")}
+        onMouseLeave={handleMouseLeave}
+        activePath={pathname}
+      />
+
+      <CompanyMegaMenu
+        isOpen={activeMenu === "company"}
+        onClose={closeAllMenus}
+        onMouseEnter={() => handleMouseEnter("company")}
+        onMouseLeave={handleMouseLeave}
+        activePath={pathname}
+      />
+
+      {/* 5. Accessible Mobile Drawer Navigation */}
       <div
+        id="mobile-drawer"
         className={`${styles.mobileDrawer} ${isMobileMenuOpen ? styles.open : ""}`}
         role="dialog"
         aria-modal="true"
         aria-label="Mobile Navigation"
       >
         <div className={styles.drawerContent}>
+          {/* Drawer Header */}
           <div className={styles.drawerHeader}>
-            <Image
-              src="/images/logo.png"
-              alt="GHL Vertex"
-              width={160}
-              height={34}
-              unoptimized
-              className={styles.logoImage}
-            />
+            <Link href="/" onClick={closeMobile} aria-label="GHLVertex home">
+              <Image
+                src="/images/logo.png"
+                alt="GHLVertex"
+                width={160}
+                height={34}
+                unoptimized
+                className={styles.logoImage}
+              />
+            </Link>
             <button
               type="button"
               className={styles.closeBtn}
               onClick={closeMobile}
-              aria-label="Close mobile navigation menu"
+              aria-label="Close navigation menu"
             >
               <svg
-                width="18"
-                height="18"
+                width="20"
+                height="20"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
+                aria-hidden="true"
               >
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
@@ -242,172 +360,137 @@ export function Header() {
             </button>
           </div>
 
-          <ul className={styles.mobileNavList}>
-            {/* Accordion for Mega Menu items */}
+          {/* Drawer Navigation List with Accordions */}
+          <ul className={styles.mobileNavList} role="list">
+            {/* Accordion 1: Services */}
             <li className={styles.mobileNavItem}>
               <button
                 type="button"
-                className={styles.mobileNavLink}
-                onClick={() => setMobileAccordionOpen((prev) => !prev)}
+                className={`${styles.mobileAccordionTrigger} ${mobileAccordion.services ? styles.expanded : ""}`}
+                onClick={() => toggleMobileAccordion("services")}
+                aria-expanded={mobileAccordion.services}
+                aria-controls="mobile-services-accordion"
               >
-                <span>AI Agents & Solutions</span>
-                <span>{mobileAccordionOpen ? "▲" : "▼"}</span>
+                <span>Services</span>
+                <span className={styles.accordionChevron} aria-hidden="true">
+                  ▼
+                </span>
               </button>
 
-              {mobileAccordionOpen && (
-                <div className={styles.accordionSection}>
-                  <div className={styles.accordionGroupTitle}>AI Engineering</div>
-                  <Link
-                    href="/services/ai-agent-development-services/"
-                    className={styles.accordionSubLink}
-                    onClick={closeMobile}
-                  >
-                    AI Agent Development
-                  </Link>
-                  <Link
-                    href="/services/ai-chatbot-development-services/"
-                    className={styles.accordionSubLink}
-                    onClick={closeMobile}
-                  >
-                    AI Chatbot Development
-                  </Link>
-                  <Link
-                    href="/services/custom-ai-development/"
-                    className={styles.accordionSubLink}
-                    onClick={closeMobile}
-                  >
-                    Custom AI Development
-                  </Link>
-                  <Link
-                    href="/services/rag-development-services/"
-                    className={styles.accordionSubLink}
-                    onClick={closeMobile}
-                  >
-                    RAG Knowledge Systems
-                  </Link>
-
-                  <div className={styles.accordionGroupTitle}>Automation &amp; CRM</div>
-                  <Link
-                    href="/services/ai-automation-services/"
-                    className={styles.accordionSubLink}
-                    onClick={closeMobile}
-                  >
-                    AI Automation Services
-                  </Link>
-                  <Link
-                    href="/services/workflow-automation-services/"
-                    className={styles.accordionSubLink}
-                    onClick={closeMobile}
-                  >
-                    Workflow Automation
-                  </Link>
-                  <Link
-                    href="/services/ai-integration-services/"
-                    className={styles.accordionSubLink}
-                    onClick={closeMobile}
-                  >
-                    AI Integration Services
-                  </Link>
-                  <Link
-                    href="/services/ghl-setup-services/"
-                    className={styles.accordionSubLink}
-                    onClick={closeMobile}
-                  >
-                    GHL Setup Services
-                  </Link>
-                  <Link
-                    href="/services/gohighlevel-white-label-support/"
-                    className={styles.accordionSubLink}
-                    onClick={closeMobile}
-                  >
-                    GHL White Label Support
-                  </Link>
-
-                  <div className={styles.accordionGroupTitle}>Solutions &amp; Strategy</div>
-                  <Link
-                    href="/solutions/saas-crm/"
-                    className={styles.accordionSubLink}
-                    onClick={closeMobile}
-                  >
-                    SaaS CRM Implementation
-                  </Link>
-                  <Link
-                    href="/services/ai-consulting-services/"
-                    className={styles.accordionSubLink}
-                    onClick={closeMobile}
-                  >
-                    AI Consulting Services
-                  </Link>
+              {mobileAccordion.services && (
+                <div id="mobile-services-accordion" className={styles.mobileAccordionContent}>
+                  {servicesMegaMenuData.groups.map((group) => (
+                    <div key={group.heading}>
+                      <div className={styles.mobileGroupHeading}>{group.heading}</div>
+                      {group.links.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className={styles.mobileSubLink}
+                          onClick={closeMobile}
+                        >
+                          <span className={styles.mobileSubLinkTitle}>{link.name}</span>
+                          <span className={styles.mobileSubLinkDesc}>{link.description}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  ))}
                 </div>
               )}
             </li>
 
+            {/* Accordion 2: Results */}
             <li className={styles.mobileNavItem}>
-              <Link
-                href="/#services"
-                className={styles.mobileNavLink}
-                onClick={closeMobile}
+              <button
+                type="button"
+                className={`${styles.mobileAccordionTrigger} ${mobileAccordion.results ? styles.expanded : ""}`}
+                onClick={() => toggleMobileAccordion("results")}
+                aria-expanded={mobileAccordion.results}
+                aria-controls="mobile-results-accordion"
               >
-                Services
-              </Link>
+                <span>Results</span>
+                <span className={styles.accordionChevron} aria-hidden="true">
+                  ▼
+                </span>
+              </button>
+
+              {mobileAccordion.results && (
+                <div id="mobile-results-accordion" className={styles.mobileAccordionContent}>
+                  {resultsMenuData.groups.map((group) => (
+                    <div key={group.heading}>
+                      <div className={styles.mobileGroupHeading}>{group.heading}</div>
+                      {group.links.map((link) => (
+                        <Link
+                          key={`${group.heading}-${link.name}`}
+                          href={link.href}
+                          className={styles.mobileSubLink}
+                          onClick={closeMobile}
+                        >
+                          <span className={styles.mobileSubLinkTitle}>{link.name}</span>
+                          <span className={styles.mobileSubLinkDesc}>{link.description}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              )}
             </li>
+
+            {/* Accordion 3: Company */}
             <li className={styles.mobileNavItem}>
-              <Link
-                href="/services/ai-automation-services/"
-                className={styles.mobileNavLink}
-                onClick={closeMobile}
+              <button
+                type="button"
+                className={`${styles.mobileAccordionTrigger} ${mobileAccordion.company ? styles.expanded : ""}`}
+                onClick={() => toggleMobileAccordion("company")}
+                aria-expanded={mobileAccordion.company}
+                aria-controls="mobile-company-accordion"
               >
-                AI Automation
-              </Link>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <Link
-                href="/services/ghl-setup-services/"
-                className={styles.mobileNavLink}
-                onClick={closeMobile}
-              >
-                GHL Setup
-              </Link>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <Link
-                href="/#faq"
-                className={styles.mobileNavLink}
-                onClick={closeMobile}
-              >
-                FAQ
-              </Link>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <Link
-                href="/#industries"
-                className={styles.mobileNavLink}
-                onClick={closeMobile}
-              >
-                Industries
-              </Link>
-            </li>
-            <li className={styles.mobileNavItem}>
-              <Link
-                href="/#contact"
-                className={styles.mobileNavLink}
-                onClick={closeMobile}
-              >
-                Contact
-              </Link>
+                <span>Company</span>
+                <span className={styles.accordionChevron} aria-hidden="true">
+                  ▼
+                </span>
+              </button>
+
+              {mobileAccordion.company && (
+                <div id="mobile-company-accordion" className={styles.mobileAccordionContent}>
+                  {companyMenuData.groups.map((group) => (
+                    <div key={group.heading}>
+                      <div className={styles.mobileGroupHeading}>{group.heading}</div>
+                      {group.links.map((link) => (
+                        <Link
+                          key={`${group.heading}-${link.name}`}
+                          href={link.href}
+                          className={styles.mobileSubLink}
+                          onClick={closeMobile}
+                        >
+                          <span className={styles.mobileSubLinkTitle}>{link.name}</span>
+                          <span className={styles.mobileSubLinkDesc}>{link.description}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              )}
             </li>
           </ul>
 
+          {/* Mobile Drawer Bottom Actions */}
           <div className={styles.mobileActions}>
             <Link
               href="/#contact"
-              className={styles.ctaBtn}
+              className={styles.mobileContactBtn}
               onClick={closeMobile}
             >
-              <span>Book AI Strategy Call</span>
-              <span className={styles.ctaArrow} aria-hidden="true">
-                →
-              </span>
+              Contact
+            </Link>
+
+            <Link
+              href="/#contact"
+              className={styles.mobilePrimaryBtn}
+              onClick={closeMobile}
+            >
+              <span>Book GHL Strategy Call</span>
+              <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
