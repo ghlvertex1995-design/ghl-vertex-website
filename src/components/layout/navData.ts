@@ -220,3 +220,51 @@ export const companyMenuData: {
   },
 };
 
+export const industryMenuData: {
+  heading: string;
+  shortDescription: string;
+  links: NavLinkItem[];
+  cta: MegaMenuCta;
+} = {
+  heading: "Industries We Serve",
+  shortDescription: "Tailored GoHighLevel CRM, workflows and automation architectures.",
+  links: [
+    {
+      name: "Real Estate",
+      href: "/#industries",
+      description: "Instant lead qualification, showing scheduling, and buyer nurture sequences.",
+    },
+    {
+      name: "Dental Practices",
+      href: "/#industries",
+      description: "Patient appointment scheduling, hygiene recall campaigns, and treatment reminders.",
+    },
+    {
+      name: "HVAC Contractors",
+      href: "/#industries",
+      description: "Seasonal tune-up outreach, emergency dispatch booking, and missed call follow-up.",
+    },
+    {
+      name: "Home Services",
+      href: "/#industries",
+      description: "Immediate lead recovery, emergency intake, scheduling, and review generation.",
+    },
+    {
+      name: "Law Firms",
+      href: "/#industries",
+      description: "Confidential case intake, eligibility screening, and consultation booking.",
+    },
+  ],
+  cta: {
+    eyebrow: "TAILORED SYSTEMS",
+    heading: "Built Around Your Specific Trade",
+    copy: "Every industry has unique customer lifecycles and team handoffs. We build GHL systems tailored to your workflow.",
+    primaryCtaText: "Book an Industry Strategy Call",
+    primaryCtaHref: "/#contact",
+    secondaryCtaText: "Explore All Industries →",
+    secondaryCtaHref: "/#industries",
+    trustLabels: ["Custom Pipelines", "Speed-to-Lead", "Review Workflows"],
+  },
+};
+
+

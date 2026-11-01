@@ -8,10 +8,16 @@ import { siteConfig } from "@/config/site";
 import { ServicesMegaMenu } from "./ServicesMegaMenu";
 import { ResultsMegaMenu } from "./ResultsMegaMenu";
 import { CompanyMegaMenu } from "./CompanyMegaMenu";
-import { servicesMegaMenuData, resultsMenuData, companyMenuData } from "./navData";
+import { IndustryMegaMenu } from "./IndustryMegaMenu";
+import {
+  servicesMegaMenuData,
+  resultsMenuData,
+  companyMenuData,
+  industryMenuData,
+} from "./navData";
 import styles from "./Header.module.css";
 
-type OpenMenuType = "services" | "results" | "company" | null;
+type OpenMenuType = "services" | "results" | "company" | "industries" | null;
 
 export function Header() {
   const pathname = usePathname();
@@ -24,10 +30,12 @@ export function Header() {
     services: boolean;
     results: boolean;
     company: boolean;
+    industries: boolean;
   }>({
     services: false,
     results: false,
     company: false,
+    industries: false,
   });
 
   const headerRef = useRef<HTMLElement>(null);
@@ -35,6 +43,7 @@ export function Header() {
   const servicesBtnRef = useRef<HTMLButtonElement>(null);
   const resultsBtnRef = useRef<HTMLButtonElement>(null);
   const companyBtnRef = useRef<HTMLButtonElement>(null);
+  const industriesBtnRef = useRef<HTMLButtonElement>(null);
   const mobileToggleRef = useRef<HTMLButtonElement>(null);
 
   // Scroll detection for navbar shadow/elevation
@@ -81,6 +90,7 @@ export function Header() {
           if (prevMenu === "services") servicesBtnRef.current?.focus();
           else if (prevMenu === "results") resultsBtnRef.current?.focus();
           else if (prevMenu === "company") companyBtnRef.current?.focus();
+          else if (prevMenu === "industries") industriesBtnRef.current?.focus();
         }
       }
     };
@@ -109,7 +119,7 @@ export function Header() {
     }, 180);
   };
 
-  const toggleMenu = (menu: "services" | "results" | "company") => {
+  const toggleMenu = (menu: "services" | "results" | "company" | "industries") => {
     setActiveMenu((prev) => (prev === menu ? null : menu));
   };
 
@@ -117,7 +127,7 @@ export function Header() {
     setIsMobileMenuOpen(false);
   };
 
-  const toggleMobileAccordion = (section: "services" | "results" | "company") => {
+  const toggleMobileAccordion = (section: "services" | "results" | "company" | "industries") => {
     setMobileAccordion((prev) => ({
       ...prev,
       [section]: !prev[section],
@@ -238,6 +248,34 @@ export function Header() {
                 </span>
               </button>
             </li>
+
+            {/* Industry We Serve Dropdown */}
+            <li
+              className={styles.navItem}
+              onMouseEnter={() => handleMouseEnter("industries")}
+              onMouseLeave={handleMouseLeave}
+              role="none"
+            >
+              <button
+                ref={industriesBtnRef}
+                type="button"
+                role="menuitem"
+                className={`${styles.navButton} ${activeMenu === "industries" ? styles.open : ""}`}
+                onClick={() => toggleMenu("industries")}
+                aria-expanded={activeMenu === "industries"}
+                aria-haspopup="true"
+                aria-controls="industries-mega-menu"
+                aria-label="Industry We Serve menu"
+              >
+                <span>Industry We Serve</span>
+                <span
+                  className={`${styles.chevron} ${activeMenu === "industries" ? styles.open : ""}`}
+                  aria-hidden="true"
+                >
+                  ▼
+                </span>
+              </button>
+            </li>
           </ul>
         </nav>
 
@@ -312,6 +350,14 @@ export function Header() {
         isOpen={activeMenu === "company"}
         onClose={closeAllMenus}
         onMouseEnter={() => handleMouseEnter("company")}
+        onMouseLeave={handleMouseLeave}
+        activePath={pathname}
+      />
+
+      <IndustryMegaMenu
+        isOpen={activeMenu === "industries"}
+        onClose={closeAllMenus}
+        onMouseEnter={() => handleMouseEnter("industries")}
         onMouseLeave={handleMouseLeave}
         activePath={pathname}
       />
@@ -468,6 +514,38 @@ export function Header() {
                         </Link>
                       ))}
                     </div>
+                  ))}
+                </div>
+              )}
+            </li>
+
+            {/* Accordion 4: Industry We Serve */}
+            <li className={styles.mobileNavItem}>
+              <button
+                type="button"
+                className={`${styles.mobileAccordionTrigger} ${mobileAccordion.industries ? styles.expanded : ""}`}
+                onClick={() => toggleMobileAccordion("industries")}
+                aria-expanded={mobileAccordion.industries}
+                aria-controls="mobile-industries-accordion"
+              >
+                <span>Industry We Serve</span>
+                <span className={styles.accordionChevron} aria-hidden="true">
+                  ▼
+                </span>
+              </button>
+
+              {mobileAccordion.industries && (
+                <div id="mobile-industries-accordion" className={styles.mobileAccordionContent}>
+                  {industryMenuData.links.map((link) => (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className={styles.mobileSubLink}
+                      onClick={closeMobile}
+                    >
+                      <span className={styles.mobileSubLinkTitle}>{link.name}</span>
+                      <span className={styles.mobileSubLinkDesc}>{link.description}</span>
+                    </Link>
                   ))}
                 </div>
               )}

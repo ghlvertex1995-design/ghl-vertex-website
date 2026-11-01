@@ -439,17 +439,24 @@
 /* ==========================================================================
    BREAKPOINTS & RESPONSIVENESS
    ========================================================================== */
-@media (max-width: 1180px) {
+@media (max-width: 1220px) {
+  .nav {
+    gap: 0.25rem;
+  }
+  .navButton {
+    padding: 0.55rem 0.75rem;
+    font-size: 0.885rem;
+  }
   .actions {
     gap: 0.5rem;
   }
   .contactBtn {
-    padding: 0.62rem 1rem;
-    font-size: 0.875rem;
+    padding: 0.6rem 0.95rem;
+    font-size: 0.865rem;
   }
   .ctaBtn {
-    padding: 0.65rem 1.25rem;
-    font-size: 0.875rem;
+    padding: 0.62rem 1.2rem;
+    font-size: 0.865rem;
   }
 }
 

@@ -39,6 +39,10 @@
   max-width: 1180px;
 }
 
+.megaMenuWrapper.industryWrapper {
+  max-width: 860px;
+}
+
 /* ==========================================================================
    MEGA MENU CARD (WHITE MODERN SURFACE)
    ========================================================================== */
@@ -62,6 +66,10 @@
 .resultsGrid,
 .companyGrid {
   grid-template-columns: 1fr 1fr 1fr 1.18fr;
+}
+
+.industryGrid {
+  grid-template-columns: 1.35fr 1fr;
 }
 
 /* ==========================================================================
