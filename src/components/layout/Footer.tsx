@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
+import { SocialLinks } from "./SocialLinks";
 import styles from "./Footer.module.css";
 
 export function Footer() {
@@ -25,6 +26,9 @@ export function Footer() {
             <p className={styles.tagline}>
               GHLVertex is a GoHighLevel agency helping businesses and agencies build CRM systems, workflow automation, AI agents, integrations and scalable customer journeys.
             </p>
+            <div className={styles.socialWrapper}>
+              <SocialLinks />
+            </div>
           </div>
 
           {/* Group 01 — GOHIGHLEVEL */}

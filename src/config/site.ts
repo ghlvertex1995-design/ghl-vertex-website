@@ -24,10 +24,13 @@ export const siteConfig = {
     url: "https://ghlvertex.com",
   },
   links: {
-    twitter: "https://twitter.com/ghlvertex",
-    linkedin: "https://linkedin.com/company/ghlvertex",
-    facebook: "https://facebook.com/ghlvertex",
-    youtube: "https://youtube.com/@ghlvertex"
+    facebook: "https://www.facebook.com/ghlvertex",
+    instagram: "https://www.instagram.com/ghlvertex",
+    linkedin: "https://www.linkedin.com/company/ghlvertex",
+    twitter: "https://x.com/ghlvertex",
+    youtube: "https://www.youtube.com/@ghlvertex",
+    tiktok: "https://www.tiktok.com/@ghlvertex",
+    pinterest: "https://www.pinterest.com/ghlvertex"
   },
   contact: {
     email: "contact@ghlvertex.com",

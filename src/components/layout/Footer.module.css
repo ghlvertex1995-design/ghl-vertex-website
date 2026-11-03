@@ -44,6 +44,10 @@
   line-height: 1.6;
 }
 
+.socialWrapper {
+  margin-top: 0.25rem;
+}
+
 .column {
   display: flex;
   flex-direction: column;

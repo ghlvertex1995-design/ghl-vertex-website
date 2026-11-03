@@ -9,6 +9,7 @@ import { ServicesMegaMenu } from "./ServicesMegaMenu";
 import { ResultsMegaMenu } from "./ResultsMegaMenu";
 import { CompanyMegaMenu } from "./CompanyMegaMenu";
 import { IndustryMegaMenu } from "./IndustryMegaMenu";
+import { SocialLinks } from "./SocialLinks";
 import {
   servicesMegaMenuData,
   resultsMenuData,
@@ -570,6 +571,11 @@ export function Header() {
               <span>Book GHL Strategy Call</span>
               <span aria-hidden="true">→</span>
             </Link>
+
+            <div className={styles.mobileSocialRow}>
+              <span className={styles.mobileSocialTitle}>Follow GHLVertex</span>
+              <SocialLinks compact />
+            </div>
           </div>
         </div>
       </div>

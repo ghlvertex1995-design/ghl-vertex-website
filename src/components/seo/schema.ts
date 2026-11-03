@@ -12,10 +12,13 @@ export function getOrganizationSchema() {
     image: siteConfig.ogImage,
     description: "GHLVertex provides GoHighLevel CRM, automation, AI agent, integration and implementation services.",
     sameAs: [
-      siteConfig.links.twitter,
-      siteConfig.links.linkedin,
       siteConfig.links.facebook,
+      siteConfig.links.instagram,
+      siteConfig.links.linkedin,
+      siteConfig.links.twitter,
       siteConfig.links.youtube,
+      siteConfig.links.tiktok,
+      siteConfig.links.pinterest,
     ].filter(Boolean),
   };
 }
