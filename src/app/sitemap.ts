@@ -1,8 +1,10 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/config/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const serviceRoutes = [
+  const baseUrl = "https://ghlvertex.com";
+
+  const routes = [
+    "/",
     "/services/ghl-setup-services/",
     "/services/workflow-automation-services/",
     "/solutions/saas-crm/",
@@ -16,23 +18,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/rag-development-services/",
   ];
 
-  const coreRoutes = [
-    "",
-  ];
-
-  const allServiceEntries = serviceRoutes.map((route) => ({
-    url: `${siteConfig.url}${route}`,
+  return routes.map((route) => ({
+    url: route === "/" ? `${baseUrl}/` : `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.9,
+    changeFrequency: route === "/" ? ("daily" as const) : ("weekly" as const),
+    priority: route === "/" ? 1.0 : 0.9,
   }));
-
-  const coreEntries = coreRoutes.map((route) => ({
-    url: `${siteConfig.url}${route}`,
-    lastModified: new Date(),
-    changeFrequency: "daily" as const,
-    priority: 1.0,
-  }));
-
-  return [...coreEntries, ...allServiceEntries];
 }

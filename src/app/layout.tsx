@@ -26,16 +26,17 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL("https://ghlvertex.com"),
   title: {
-    default: `${siteConfig.name} | ${siteConfig.tagline}`,
-    template: `%s | ${siteConfig.name}`,
+    default: "GoHighLevel Agency for CRM, Automation & AI | GHLVertex",
+    template: "%s | GHLVertex",
   },
-  description: siteConfig.description,
+  description:
+    "GHLVertex is a premier GoHighLevel (GHL) agency specializing in end-to-end CRM architecture, workflow automation, custom snapshots, and high-converting marketing funnels.",
   keywords: [...siteConfig.keywords],
-  authors: [{ name: siteConfig.name, url: siteConfig.url }],
-  creator: siteConfig.name,
-  publisher: siteConfig.name,
+  authors: [{ name: "GHLVertex", url: "https://ghlvertex.com" }],
+  creator: "GHLVertex",
+  publisher: "GHLVertex",
   alternates: {
     canonical: "/",
   },
@@ -53,24 +54,26 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: siteConfig.url,
-    title: `${siteConfig.name} | ${siteConfig.tagline}`,
-    description: siteConfig.description,
-    siteName: siteConfig.name,
+    url: "https://ghlvertex.com/",
+    title: "GoHighLevel Agency for CRM, Automation & AI | GHLVertex",
+    description:
+      "GHLVertex is a premier GoHighLevel (GHL) agency specializing in end-to-end CRM architecture, workflow automation, custom snapshots, and high-converting marketing funnels.",
+    siteName: "GHLVertex",
     images: [
       {
-        url: siteConfig.ogImage,
+        url: "https://ghlvertex.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} - HighLevel CRM Agency`,
+        alt: "GHLVertex - HighLevel CRM Agency",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | ${siteConfig.tagline}`,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
+    title: "GoHighLevel Agency for CRM, Automation & AI | GHLVertex",
+    description:
+      "GHLVertex is a premier GoHighLevel (GHL) agency specializing in end-to-end CRM architecture, workflow automation, custom snapshots, and high-converting marketing funnels.",
+    images: ["https://ghlvertex.com/og-image.jpg"],
     creator: "@ghlvertex",
   },
   icons: {

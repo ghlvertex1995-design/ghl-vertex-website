@@ -1,15 +1,17 @@
 import { siteConfig } from "@/config/site";
 
+const PROD_URL = "https://ghlvertex.com";
+
 export function getOrganizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": `${siteConfig.url}/#organization`,
+    "@id": `${PROD_URL}/#organization`,
     name: "GHLVertex",
     legalName: "GHLVertex",
-    url: siteConfig.url,
-    logo: `${siteConfig.url}/logo.png`,
-    image: siteConfig.ogImage,
+    url: `${PROD_URL}/`,
+    logo: `${PROD_URL}/images/logo.png`,
+    image: `${PROD_URL}/og-image.jpg`,
     description: "GHLVertex provides GoHighLevel CRM, automation, AI agent, integration and implementation services.",
     sameAs: [
       siteConfig.links.facebook,
@@ -27,12 +29,12 @@ export function getWebSiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": `${siteConfig.url}/#website`,
-    url: siteConfig.url,
-    name: siteConfig.name,
+    "@id": `${PROD_URL}/#website`,
+    url: `${PROD_URL}/`,
+    name: "GHLVertex",
     description: siteConfig.description,
     publisher: {
-      "@id": `${siteConfig.url}/#organization`,
+      "@id": `${PROD_URL}/#organization`,
     },
     inLanguage: "en-US",
   };
@@ -47,7 +49,9 @@ export function getBreadcrumbSchema(
     itemListElement: items.map((item, index) => {
       const name = "name" in item ? item.name : item.label;
       const rawUrl = "url" in item ? item.url : item.href;
-      const url = rawUrl.startsWith("http") ? rawUrl : `${siteConfig.url}${rawUrl}`;
+      const url = rawUrl.startsWith("http")
+        ? rawUrl
+        : `${PROD_URL}${rawUrl.startsWith("/") ? rawUrl : `/${rawUrl}`}`;
       return {
         "@type": "ListItem",
         position: index + 1,
@@ -79,7 +83,9 @@ export function getWebPageSchema(page: {
   url: string;
   breadcrumbUrl?: string;
 }) {
-  const fullUrl = page.url.startsWith("http") ? page.url : `${siteConfig.url}${page.url}`;
+  const fullUrl = page.url.startsWith("http")
+    ? page.url
+    : `${PROD_URL}${page.url.startsWith("/") ? page.url : `/${page.url}`}`;
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -88,7 +94,7 @@ export function getWebPageSchema(page: {
     name: page.title,
     description: page.description,
     isPartOf: {
-      "@id": `${siteConfig.url}/#website`,
+      "@id": `${PROD_URL}/#website`,
     },
     breadcrumb: {
       "@id": `${fullUrl}#breadcrumb`,
@@ -104,7 +110,9 @@ export function getServiceSchema(service: {
   serviceType?: string;
   provider?: string;
 }) {
-  const fullUrl = service.url.startsWith("http") ? service.url : `${siteConfig.url}${service.url}`;
+  const fullUrl = service.url.startsWith("http")
+    ? service.url
+    : `${PROD_URL}${service.url.startsWith("/") ? service.url : `/${service.url}`}`;
   return {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -116,9 +124,9 @@ export function getServiceSchema(service: {
     mainEntityOfPage: `${fullUrl}#webpage`,
     provider: {
       "@type": "ProfessionalService",
-      "@id": `${siteConfig.url}/#organization`,
-      name: service.provider || siteConfig.name,
-      url: siteConfig.url,
+      "@id": `${PROD_URL}/#organization`,
+      name: service.provider || "GHLVertex",
+      url: `${PROD_URL}/`,
     },
     areaServed: {
       "@type": "Country",

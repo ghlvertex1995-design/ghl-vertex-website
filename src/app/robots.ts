@@ -1,7 +1,21 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/config/site";
 
 export default function robots(): MetadataRoute.Robots {
+  const isPreview =
+    process.env.VERCEL_ENV === "preview" ||
+    process.env.NEXT_PUBLIC_VERCEL_ENV === "preview";
+
+  if (isPreview) {
+    return {
+      rules: [
+        {
+          userAgent: "*",
+          disallow: "/",
+        },
+      ],
+    };
+  }
+
   return {
     rules: [
       {
@@ -15,7 +29,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/_next/"],
       },
     ],
-    sitemap: `${siteConfig.url}/sitemap.xml`,
-    host: siteConfig.url,
+    sitemap: "https://ghlvertex.com/sitemap.xml",
+    host: "https://ghlvertex.com",
   };
 }

@@ -1,15 +1,16 @@
 export const siteConfig = {
-  name: "GHL Vertex",
-  legalName: "GHL Vertex Agency",
+  name: "GHLVertex",
+  legalName: "GHLVertex",
   tagline: "HighLevel (GHL) CRM, Automation & Systems Agency",
   description:
-    "GHL Vertex is a premier GoHighLevel (GHL) agency specializing in end-to-end CRM architecture, workflow automation, custom snapshots, and high-converting marketing funnels.",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://ghlvertex.com",
+    "GHLVertex is a premier GoHighLevel (GHL) agency specializing in end-to-end CRM architecture, workflow automation, custom snapshots, and high-converting marketing funnels.",
+  url: "https://ghlvertex.com",
   ogImage: "https://ghlvertex.com/og-image.jpg",
+  logo: "https://ghlvertex.com/images/logo.png",
   themeColor: "#0f172a",
   keywords: [
     "GoHighLevel Agency",
-    "GHL Vertex",
+    "GHLVertex",
     "GoHighLevel CRM Specialist",
     "GHL Workflow Automation",
     "Custom GHL Snapshots",
@@ -20,7 +21,7 @@ export const siteConfig = {
     "GoHighLevel Integration"
   ],
   author: {
-    name: "GHL Vertex Team",
+    name: "GHLVertex Team",
     url: "https://ghlvertex.com",
   },
   links: {
