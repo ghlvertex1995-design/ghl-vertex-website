@@ -102,10 +102,30 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
       <head suppressHydrationWarning>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-WJ6ZGT2T"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());`,
+          }}
+        />
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
       </head>
       <body suppressHydrationWarning>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-WJ6ZGT2T"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
