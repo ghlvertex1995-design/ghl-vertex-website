@@ -67,7 +67,12 @@ export function ServiceHero({
 
             {/* CTAs */}
             <div className={styles.ctaRow}>
-              <Link href={primaryCtaHref} className={styles.primaryBtn}>
+              <Link
+                href={primaryCtaHref}
+                className={styles.primaryBtn}
+                target={primaryCtaHref.startsWith("http") ? "_blank" : undefined}
+                rel={primaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined}
+              >
                 <span>{primaryCtaText}</span>
                 <span className={styles.arrow} aria-hidden="true">
                   →

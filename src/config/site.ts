@@ -31,7 +31,8 @@ export const siteConfig = {
     twitter: "https://x.com/ghlvertex",
     youtube: "https://www.youtube.com/@ghlvertex",
     tiktok: "https://www.tiktok.com/@ghlvertex",
-    pinterest: "https://www.pinterest.com/ghlvertex"
+    pinterest: "https://www.pinterest.com/ghlvertex",
+    calendly: "https://calendly.com/ghl-vertex1995/30min?month=2026-11"
   },
   contact: {
     email: "info@ghlvertex.com",

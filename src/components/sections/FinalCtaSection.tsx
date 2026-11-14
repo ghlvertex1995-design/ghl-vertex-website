@@ -31,7 +31,12 @@ export function FinalCtaSection() {
             </p>
 
             <div className={styles.ctaGroup}>
-              <Link href="https://calendly.com" target="_blank" rel="noopener noreferrer" className={styles.primaryBtn}>
+              <Link
+                href="https://calendly.com/ghl-vertex1995/30min?month=2026-11"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.primaryBtn}
+              >
                 <span>Book a Free GHL Strategy Call</span>
                 <span aria-hidden="true">→</span>
               </Link>

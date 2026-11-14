@@ -86,7 +86,12 @@ export function HeroSection() {
 
           {/* Primary & Secondary Call To Actions */}
           <div className={styles.ctaGroup}>
-            <Link href="#contact" className={styles.primaryCta}>
+            <Link
+              href="https://calendly.com/ghl-vertex1995/30min?month=2026-11"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.primaryCta}
+            >
               <span>Book a Free GHL Strategy Call</span>
               <span className={styles.ctaArrow} aria-hidden="true">
                 →

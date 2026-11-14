@@ -291,7 +291,9 @@ export function Header() {
           </Link>
 
           <Link
-            href="/#contact"
+            href="https://calendly.com/ghl-vertex1995/30min?month=2026-11"
+            target="_blank"
+            rel="noopener noreferrer"
             className={styles.ctaBtn}
             onClick={closeAllMenus}
           >
@@ -564,7 +566,9 @@ export function Header() {
             </Link>
 
             <Link
-              href="/#contact"
+              href="https://calendly.com/ghl-vertex1995/30min?month=2026-11"
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.mobilePrimaryBtn}
               onClick={closeMobile}
             >

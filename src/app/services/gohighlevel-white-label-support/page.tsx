@@ -126,7 +126,7 @@ export default function GoHighLevelWhiteLabelSupportPage() {
         h1="GoHighLevel White Label Support & Technical Fulfillment for Agencies"
         description="Scale your SaaS or marketing agency without the overhead of hiring, training, and managing in-house GHL technicians. We deliver 100% white-label client onboarding, ticket resolution, snapshot deployment, and workflow troubleshooting under your agency brand."
         primaryCtaText="Book a White Label Strategy Call"
-        primaryCtaHref="/#contact"
+        primaryCtaHref="https://calendly.com/ghl-vertex1995/30min?month=2026-11"
         secondaryCtaText="Explore Support Deliverables"
         secondaryCtaHref="#service-capabilities"
         targetAudience="SaaS Agency Owners, Marketing Consultants & GHL Resellers"
@@ -513,7 +513,7 @@ export default function GoHighLevelWhiteLabelSupportPage() {
         heading="Delegate Your GoHighLevel Technical Support to Certified Specialists."
         subtitle="Schedule an agency partnership call to discuss your sub-account volume and support requirements."
         primaryBtnText="Book a White Label Strategy Call"
-        primaryBtnHref="/#contact"
+        primaryBtnHref="https://calendly.com/ghl-vertex1995/30min?month=2026-11"
         secondaryBtnText="Explore GHL Setup Services"
         secondaryBtnHref="/services/ghl-setup-services/"
       />

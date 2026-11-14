@@ -103,6 +103,8 @@ export function ResultsMegaMenu({
               href={cta.primaryCtaHref}
               className={styles.primaryCtaBtn}
               onClick={onClose}
+              target={cta.primaryCtaHref.startsWith("http") ? "_blank" : undefined}
+              rel={cta.primaryCtaHref.startsWith("http") ? "noopener noreferrer" : undefined}
             >
               <span>{cta.primaryCtaText}</span>
               <span aria-hidden="true">→</span>

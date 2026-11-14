@@ -14,3 +14,4 @@ export * from "./WhyGHLVertex";
 export * from "./RelatedServices";
 export * from "./FaqAccordion";
 export * from "./ServiceCta";
+export * from "./LlmIntegrationSection";

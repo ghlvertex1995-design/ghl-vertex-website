@@ -24,6 +24,7 @@ import {
   RelatedServices,
   FaqAccordion,
   ServiceCta,
+  LlmIntegrationSection,
 } from "@/components/services";
 
 export const metadata: Metadata = {
@@ -93,6 +94,46 @@ const faqs = [
     answer:
       "We deploy comprehensive test suites simulating malformed webhooks, network timeouts, duplicate events, and edge-case inputs to verify that error handling, queue retries, and data validation operate flawlessly.",
   },
+  {
+    question: "What are LLM integration services?",
+    answer:
+      "LLM integration services connect large language models with existing software, business data, APIs, CRM systems, and workflows. A production-ready integration can include model selection, prompt and output design, authentication, retrieval, validation, guardrails, monitoring, and cost control so the model can operate reliably within real business processes.",
+  },
+  {
+    question: "Can you integrate OpenAI into existing software?",
+    answer:
+      "Yes. We connect OpenAI models into custom applications, CRMs, internal tools, and databases via secure API middleware, implementing structured outputs, automated retries, and token cost monitoring.",
+  },
+  {
+    question: "Can you integrate Claude or Gemini?",
+    answer:
+      "Yes. We integrate Anthropic Claude for long-context analysis and deep reasoning, and Google Gemini for multimodal and Google ecosystem tasks, frequently engineering multi-model fallback gateways between them.",
+  },
+  {
+    question: "Can LLMs connect to our CRM or database?",
+    answer:
+      "Yes. We build bi-directional connectors that allow LLMs to read contextual records from platforms like GoHighLevel, PostgreSQL, and MySQL, and safely write validated updates back through strict permission gates.",
+  },
+  {
+    question: "Can an LLM use our internal business data?",
+    answer:
+      "Yes. Using Retrieval-Augmented Generation (RAG) and secure database connectors, LLMs can query approved internal documents, knowledge bases, and CRM data without exposing sensitive information or training public models.",
+  },
+  {
+    question: "What is RAG in LLM integration?",
+    answer:
+      "Retrieval-Augmented Generation (RAG) retrieves relevant business data from your private documents, vector stores, or databases and passes that specific context to the LLM before it generates a response, reducing hallucination risk.",
+  },
+  {
+    question: "Can LLMs trigger workflows or business actions?",
+    answer:
+      "Yes. Through structured tool calling and API webhooks, LLMs can evaluate incoming requests and trigger verified actions—such as creating CRM deals, sending notification alerts, or initiating n8n automations.",
+  },
+  {
+    question: "How do you monitor LLM performance, usage, and cost?",
+    answer:
+      "We configure centralized telemetry logging that tracks request latency, token consumption, provider error rates, model drift, and cost per workflow, alerting teams when anomalies or budget thresholds are reached.",
+  },
 ];
 
 export default function AiIntegrationServicesPage() {
@@ -104,9 +145,9 @@ export default function AiIntegrationServicesPage() {
   });
   const serviceSchema = getServiceSchema({
     name: "AI Integration Services",
-    description: metadata.description as string,
+    description: "Enterprise AI and LLM integration services connecting foundational models, APIs, and agents to CRMs, databases, and operational business workflows.",
     url: currentUrl,
-    serviceType: "Enterprise AI System Integration & API Middleware",
+    serviceType: "Enterprise AI & LLM System Integration Middleware",
   });
   const breadcrumbSchema = getBreadcrumbSchema(breadcrumbs);
   const faqSchema = getFaqSchema(faqs);
@@ -252,6 +293,9 @@ export default function AiIntegrationServicesPage() {
           },
         ]}
       />
+
+      {/* 05b. Dedicated LLM Integration Section */}
+      <LlmIntegrationSection />
 
       {/* 06. Architecture / Workflow */}
       <WorkflowDiagram

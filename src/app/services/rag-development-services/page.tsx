@@ -126,7 +126,7 @@ export default function RagDevelopmentServicesPage() {
         h1="Enterprise RAG Development Services: Grounding AI in Your Proprietary Knowledge"
         description="We build production-grade Retrieval-Augmented Generation (RAG) architectures that eliminate hallucinations. Ground foundation models in your company's private documentation, databases, and SOPs with verifiable citations and strict role-based access."
         primaryCtaText="Book a Free RAG Strategy Call"
-        primaryCtaHref="/#contact"
+        primaryCtaHref="https://calendly.com/ghl-vertex1995/30min?month=2026-11"
         secondaryCtaText="Explore RAG Architecture"
         secondaryCtaHref="#service-capabilities"
         targetAudience="Enterprises, Knowledge-Intensive Teams & SaaS Founders"
@@ -513,7 +513,7 @@ export default function RagDevelopmentServicesPage() {
         heading="Eliminate AI Hallucinations with an Enterprise-Grade RAG Knowledge System."
         subtitle="Schedule a technical consultation with a RAG architect to audit your documentation and design your retrieval pipeline."
         primaryBtnText="Book a Free RAG Strategy Call"
-        primaryBtnHref="/#contact"
+        primaryBtnHref="https://calendly.com/ghl-vertex1995/30min?month=2026-11"
         secondaryBtnText="Explore AI Agent Development"
         secondaryBtnHref="/services/ai-agent-development-services/"
       />

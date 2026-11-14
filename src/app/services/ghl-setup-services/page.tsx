@@ -126,7 +126,7 @@ export default function GhlSetupServicesPage() {
         h1="Complete GoHighLevel (GHL) Setup & Implementation Services"
         description="We architect, configure, and optimize high-performance GoHighLevel environments tailored to your sales cycle. From clean contact migrations to advanced multi-tier pipelines, automated calendar routing, and reliable deliverability protocols."
         primaryCtaText="Book a Free GHL Strategy Call"
-        primaryCtaHref="/#contact"
+        primaryCtaHref="https://calendly.com/ghl-vertex1995/30min?month=2026-11"
         secondaryCtaText="Explore Core Setup Deliverables"
         secondaryCtaHref="#service-capabilities"
         targetAudience="Scaling Agencies, B2B Teams & Local Service Operators"
@@ -513,7 +513,7 @@ export default function GhlSetupServicesPage() {
         heading="Stop Fighting Broken Workflows. Get Your GHL Account Architected Right."
         subtitle="Schedule a free strategy call to audit your current setup or plan a zero-downtime migration to GoHighLevel."
         primaryBtnText="Book a Free GHL Strategy Call"
-        primaryBtnHref="/#contact"
+        primaryBtnHref="https://calendly.com/ghl-vertex1995/30min?month=2026-11"
         secondaryBtnText="See What We Can Automate"
         secondaryBtnHref="/services/workflow-automation-services/"
       />

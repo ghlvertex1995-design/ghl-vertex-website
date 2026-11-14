@@ -32,7 +32,12 @@ export function ServiceCta({
           <p className={styles.subtitle}>{subtitle}</p>
 
           <div className={styles.btnRow}>
-            <Link href={primaryBtnHref} className={styles.primaryBtn}>
+            <Link
+              href={primaryBtnHref}
+              className={styles.primaryBtn}
+              target={primaryBtnHref.startsWith("http") ? "_blank" : undefined}
+              rel={primaryBtnHref.startsWith("http") ? "noopener noreferrer" : undefined}
+            >
               <span>{primaryBtnText}</span>
               <span className={styles.arrow} aria-hidden="true">
                 →
