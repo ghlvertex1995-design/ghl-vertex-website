@@ -34,14 +34,15 @@ export const siteConfig = {
     pinterest: "https://www.pinterest.com/ghlvertex"
   },
   contact: {
-    email: "contact@ghlvertex.com",
+    email: "info@ghlvertex.com",
     phone: "+1 (555) 000-0000",
     address: {
-      streetAddress: "123 Business Way",
-      addressLocality: "New York",
+      streetAddress: "8834 144th St",
+      addressLocality: "Queens",
       addressRegion: "NY",
-      postalCode: "10001",
-      addressCountry: "US"
+      postalCode: "11435",
+      addressCountry: "US",
+      full: "8834 144th St, Queens, NY 11435, United States"
     }
   }
 } as const;

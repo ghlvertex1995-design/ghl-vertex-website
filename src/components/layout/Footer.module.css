@@ -15,11 +15,14 @@
 .top {
   display: grid;
   grid-template-columns: 1.8fr 1fr 1fr 1fr 1fr;
-  gap: 2.5rem;
+  row-gap: 1.75rem;
+  column-gap: 2.5rem;
   margin-bottom: 3.5rem;
 }
 
 .brandCol {
+  grid-column: 1;
+  grid-row: 1 / span 2;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -52,6 +55,83 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.ghlCol {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+}
+
+.aiCol {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+
+.companyCol {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+.resourcesCol {
+  grid-column: 5;
+  grid-row: 1;
+}
+
+.contactBlock {
+  grid-column: 4 / 6;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.contactTitle {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #0f172a;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.contactItem {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.45;
+  font-style: normal;
+}
+
+.contactIcon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--brand-primary, #0284c7);
+}
+
+.emailLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.emailLink:hover {
+  color: var(--brand-primary);
+  transform: translateX(2px);
 }
 
 .colTitle {
@@ -94,6 +174,12 @@
   font-size: 0.875rem;
 }
 
+.copyright {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
 .legalLinks {
   display: flex;
   align-items: center;
@@ -103,6 +189,7 @@
 .legalLink {
   color: var(--text-muted);
   text-decoration: none;
+  font-size: 0.875rem;
   transition: color var(--transition-fast);
 }
 
@@ -113,9 +200,33 @@
 @media (max-width: 1100px) {
   .top {
     grid-template-columns: repeat(3, 1fr);
+    row-gap: 2rem;
   }
   .brandCol {
     grid-column: span 3;
+    grid-row: auto;
+  }
+  .ghlCol {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .aiCol {
+    grid-column: 2;
+    grid-row: auto;
+  }
+  .companyCol {
+    grid-column: 3;
+    grid-row: auto;
+  }
+  .resourcesCol {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .contactBlock {
+    grid-column: 2 / span 2;
+    grid-row: auto;
+    border-top: none;
+    padding-top: 0;
   }
 }
 
@@ -124,12 +235,23 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  .brandCol {
+  .brandCol,
+  .ghlCol,
+  .aiCol,
+  .companyCol,
+  .resourcesCol,
+  .contactBlock {
     grid-column: span 1;
+    grid-row: auto;
+    border-top: none;
+    padding-top: 0;
   }
   .bottom {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
+  }
+  .legalLinks {
+    justify-content: center;
   }
 }

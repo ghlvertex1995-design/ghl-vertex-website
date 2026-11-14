@@ -13,6 +13,15 @@ export function getOrganizationSchema() {
     logo: `${PROD_URL}/images/logo.png`,
     image: `${PROD_URL}/og-image.jpg`,
     description: "GHLVertex provides GoHighLevel CRM, automation, AI agent, integration and implementation services.",
+    email: siteConfig.contact.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.contact.address.streetAddress,
+      addressLocality: siteConfig.contact.address.addressLocality,
+      addressRegion: siteConfig.contact.address.addressRegion,
+      postalCode: siteConfig.contact.address.postalCode,
+      addressCountry: "United States",
+    },
     sameAs: [
       siteConfig.links.facebook,
       siteConfig.links.instagram,
