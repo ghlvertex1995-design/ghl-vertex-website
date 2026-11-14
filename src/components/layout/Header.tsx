@@ -283,7 +283,7 @@ export function Header() {
         {/* 3. Header Action CTAs: Contact + Book GHL Strategy Call */}
         <div className={styles.actions}>
           <Link
-            href="/#contact"
+            href="/contact/"
             className={styles.contactBtn}
             onClick={closeAllMenus}
           >
@@ -558,7 +558,7 @@ export function Header() {
           {/* Mobile Drawer Bottom Actions */}
           <div className={styles.mobileActions}>
             <Link
-              href="/#contact"
+              href="/contact/"
               className={styles.mobileContactBtn}
               onClick={closeMobile}
             >

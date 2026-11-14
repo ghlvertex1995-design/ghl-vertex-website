@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/custom-ai-development/",
     "/services/ai-integration-services/",
     "/services/rag-development-services/",
+    "/contact/",
   ];
 
   return routes.map((route) => ({

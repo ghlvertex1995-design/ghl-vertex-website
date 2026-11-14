@@ -193,7 +193,7 @@ export const companyMenuData: {
       links: [
         {
           name: "Contact",
-          href: "/#contact",
+          href: "/contact/",
           description: "Talk to our team about your GoHighLevel, automation or AI requirements.",
         },
       ],

@@ -1,0 +1,614 @@
+/* Hero Section */
+.heroSection {
+  padding: 4.5rem 0 3.5rem;
+  background: radial-gradient(circle at 50% 0%, rgba(1, 72, 163, 0.08) 0%, transparent 70%), #ffffff;
+  position: relative;
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.heroContent {
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--brand-primary);
+  margin-bottom: 0.75rem;
+}
+
+.h1 {
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.25rem;
+}
+
+.heroSubtitle {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.primaryBtn {
+  background: var(--gradient-brand-cta);
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-cta);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-cta-hover);
+}
+
+.secondaryBtn {
+  background: #ffffff;
+  color: var(--text-main);
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-medium);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.secondaryBtn:hover {
+  border-color: var(--brand-primary);
+  background: #f8fafc;
+}
+
+.pillsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.pill {
+  background: #f1f5f9;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.825rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+}
+
+/* Two Paths Section */
+.twoPathsSection {
+  padding: 3.5rem 0;
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.twoPathsHeader {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+.sectionHeading {
+  font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.twoPathsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pathCard {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-card);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.pathCard:hover {
+  border-color: var(--brand-primary-light);
+  transform: translateY(-2px);
+}
+
+.pathTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+}
+
+.pathCopy {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 1.75rem;
+  flex-grow: 1;
+}
+
+.pathBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 0.925rem;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.pathBtnPrimary {
+  background: var(--gradient-brand-cta);
+  color: #ffffff;
+  box-shadow: var(--shadow-cta);
+}
+
+.pathBtnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-cta-hover);
+}
+
+.pathBtnSecondary {
+  background: #f8fafc;
+  color: var(--brand-primary);
+  border: 1px solid var(--border-brand);
+}
+
+.pathBtnSecondary:hover {
+  background: var(--brand-primary-subtle);
+}
+
+/* Contact Grid: Form + Direct Details */
+.contactGridSection {
+  padding: 5rem 0;
+  background: #ffffff;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Direct Contact Info Card */
+.infoCard {
+  background: #f8fafc;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  box-shadow: var(--shadow-card);
+}
+
+.infoHead {
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 1.25rem;
+}
+
+.infoTitle {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-top: 0.25rem;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.infoIconWrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  color: var(--brand-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.infoContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.infoLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.infoValue {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+  line-height: 1.45;
+  text-decoration: none;
+}
+
+.infoLink {
+  color: var(--brand-primary);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.infoLink:hover {
+  color: var(--brand-primary-hover);
+  text-decoration: underline;
+}
+
+/* Map / Location Visual */
+.mapCard {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mapCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mapBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+}
+
+.mapAddressText {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  font-style: normal;
+}
+
+.viewLocationBtn {
+  background: #f8fafc;
+  border: 1px solid var(--border-medium);
+  color: var(--text-main);
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.viewLocationBtn:hover {
+  background: #ffffff;
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+/* What Happens Next */
+.processSection {
+  padding: 5rem 0;
+  background: #f8fafc;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.processHeader {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.stepCard {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.stepNumber {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  font-family: monospace;
+}
+
+.stepTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+
+.stepDesc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* How We Can Help */
+.helpSection {
+  padding: 5rem 0;
+  background: #ffffff;
+}
+
+.helpHeader {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3.5rem;
+}
+
+.helpGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.helpCard {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-card);
+  text-decoration: none;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.helpCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand-primary-light);
+  box-shadow: 0 8px 24px rgba(1, 72, 163, 0.08);
+}
+
+.helpCardTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.helpCardTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.helpArrow {
+  color: var(--brand-primary);
+  font-weight: 700;
+  transition: transform var(--transition-fast);
+}
+
+.helpCard:hover .helpArrow {
+  transform: translateX(4px);
+}
+
+.helpCardCopy {
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Final CTA Section */
+.finalCtaSection {
+  padding: 5rem 0;
+  background: #f8fafc;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.finalCtaCard {
+  background: var(--gradient-brand);
+  border-radius: var(--radius-xl);
+  padding: 3.5rem 2.5rem;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: var(--shadow-cta-hover);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.finalCtaEyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #93c5fd;
+  margin-bottom: 0.75rem;
+}
+
+.finalCtaHeading {
+  font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.finalCtaCopy {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: #e2e8f0;
+  max-width: 680px;
+  margin: 0 auto 2rem;
+}
+
+.finalCtaButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.finalPrimaryBtn {
+  background: #ffffff;
+  color: var(--brand-primary);
+  font-weight: 700;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.finalPrimaryBtn:hover {
+  transform: translateY(-2px);
+  background: #f8fafc;
+}
+
+.finalSecondaryBtn {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: 600;
+  padding: 0.85rem 1.75rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(8px);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.finalSecondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ffffff;
+}
+
+/* Responsive Queries */
+@media (max-width: 1024px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .stepsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .helpGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .heroSection {
+    padding: 3rem 0 2.5rem;
+  }
+  .ctaGroup {
+    flex-direction: column;
+    width: 100%;
+  }
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+  .twoPathsGrid {
+    grid-template-columns: 1fr;
+  }
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+  .helpGrid {
+    grid-template-columns: 1fr;
+  }
+  .finalCtaCard {
+    padding: 2.5rem 1.5rem;
+  }
+  .finalCtaButtons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .finalPrimaryBtn,
+  .finalSecondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

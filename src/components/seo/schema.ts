@@ -112,6 +112,34 @@ export function getWebPageSchema(page: {
   };
 }
 
+export function getContactPageSchema(page: {
+  title: string;
+  description: string;
+  url: string;
+}) {
+  const fullUrl = page.url.startsWith("http")
+    ? page.url
+    : `${PROD_URL}${page.url.startsWith("/") ? page.url : `/${page.url}`}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": `${fullUrl}#webpage`,
+    url: fullUrl,
+    name: page.title,
+    description: page.description,
+    isPartOf: {
+      "@id": `${PROD_URL}/#website`,
+    },
+    about: {
+      "@id": `${PROD_URL}/#organization`,
+    },
+    mainEntity: {
+      "@id": `${PROD_URL}/#organization`,
+    },
+    inLanguage: "en-US",
+  };
+}
+
 export function getServiceSchema(service: {
   name: string;
   description: string;
