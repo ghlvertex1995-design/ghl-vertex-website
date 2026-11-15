@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import styles from "./ContactForm.module.css";
 
 const serviceOptions = [
@@ -28,14 +29,8 @@ const budgetOptions = [
   "$10,000+",
 ];
 
-const contactMethodOptions = [
-  "Email",
-  "Phone",
-  "WhatsApp",
-  "Strategy Call",
-];
-
 export function ContactForm() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     fullName: "",
     workEmail: "",
@@ -46,12 +41,12 @@ export function ContactForm() {
     websiteUrl: "",
     currentTools: "",
     budgetRange: "Not sure yet",
-    preferredContactMethod: "Email",
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -96,8 +91,10 @@ export function ContactForm() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError("");
+
     if (!validate()) {
       const firstErrorField = document.querySelector("[aria-invalid='true']") as HTMLElement;
       if (firstErrorField) firstErrorField.focus();
@@ -105,11 +102,49 @@ export function ContactForm() {
     }
 
     setIsSubmitting(true);
-    // Simulate safe client processing / preparation for backend webhook
-    setTimeout(() => {
+
+    try {
+      const accessKey =
+        process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "49505373-3dda-46bc-a3c5-31a049b28549";
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `New GHLVertex Inquiry: ${formData.fullName} - ${formData.serviceInterest}`,
+          from_name: "GHLVertex Contact Form",
+          name: formData.fullName,
+          email: formData.workEmail,
+          company: formData.companyName,
+          phone: formData.phone || "Not provided",
+          website: formData.websiteUrl || "Not provided",
+          service: formData.serviceInterest,
+          budget: formData.budgetRange,
+          tools: formData.currentTools || "None specified",
+          message: formData.projectDetails,
+          botcheck: "",
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitted(true);
+        router.push("/thank-you/");
+      } else {
+        setSubmitError(data.message || "Unable to send your message. Please try again.");
+      }
+    } catch {
+      setSubmitError(
+        "Network error. Please try again or email us directly at info@ghlvertex.com."
+      );
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 600);
+    }
   };
 
   const handleReset = () => {
@@ -123,9 +158,9 @@ export function ContactForm() {
       websiteUrl: "",
       currentTools: "",
       budgetRange: "Not sure yet",
-      preferredContactMethod: "Email",
     });
     setErrors({});
+    setSubmitError("");
     setIsSubmitted(false);
   };
 
@@ -277,7 +312,7 @@ export function ContactForm() {
           </div>
         </div>
 
-        {/* Row 3: Website URL & Service Interest */}
+        {/* Row 3: Website URL & Budget Range */}
         <div className={styles.row}>
           <div className={styles.field}>
             <label htmlFor="websiteUrl" className={styles.label}>
@@ -296,37 +331,58 @@ export function ContactForm() {
           </div>
 
           <div className={styles.field}>
-            <label htmlFor="serviceInterest" className={styles.label}>
-              <span>
-                What do you need help with? <span className={styles.required}>*</span>
-              </span>
+            <label htmlFor="budgetRange" className={styles.label}>
+              <span>Budget Range</span>
+              <span className={styles.optionalBadge}>Optional</span>
             </label>
             <select
-              id="serviceInterest"
-              name="serviceInterest"
-              value={formData.serviceInterest}
+              id="budgetRange"
+              name="budgetRange"
+              value={formData.budgetRange}
               onChange={handleChange}
-              aria-required="true"
-              aria-invalid={!!errors.serviceInterest}
-              aria-describedby={errors.serviceInterest ? "serviceInterest-error" : undefined}
-              className={`${styles.select} ${errors.serviceInterest ? styles.inputError : ""}`}
+              className={styles.select}
             >
-              <option value="">Select a service category...</option>
-              {serviceOptions.map((opt) => (
+              {budgetOptions.map((opt) => (
                 <option key={opt} value={opt}>
                   {opt}
                 </option>
               ))}
             </select>
-            {errors.serviceInterest && (
-              <span id="serviceInterest-error" className={styles.errorMessage}>
-                {errors.serviceInterest}
-              </span>
-            )}
           </div>
         </div>
 
-        {/* Row 4: Current Tools & Platforms */}
+        {/* Row 4: Service Interest */}
+        <div className={styles.field}>
+          <label htmlFor="serviceInterest" className={styles.label}>
+            <span>
+              What do you need help with? <span className={styles.required}>*</span>
+            </span>
+          </label>
+          <select
+            id="serviceInterest"
+            name="serviceInterest"
+            value={formData.serviceInterest}
+            onChange={handleChange}
+            aria-required="true"
+            aria-invalid={!!errors.serviceInterest}
+            aria-describedby={errors.serviceInterest ? "serviceInterest-error" : undefined}
+            className={`${styles.select} ${errors.serviceInterest ? styles.inputError : ""}`}
+          >
+            <option value="">Select a service category...</option>
+            {serviceOptions.map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            ))}
+          </select>
+          {errors.serviceInterest && (
+            <span id="serviceInterest-error" className={styles.errorMessage}>
+              {errors.serviceInterest}
+            </span>
+          )}
+        </div>
+
+        {/* Row 5: Current Tools & Platforms */}
         <div className={styles.field}>
           <label htmlFor="currentTools" className={styles.label}>
             <span>Current tools or platforms</span>
@@ -343,7 +399,7 @@ export function ContactForm() {
           />
         </div>
 
-        {/* Row 5: Project Details Textarea */}
+        {/* Row 6: Project Details Textarea */}
         <div className={styles.field}>
           <label htmlFor="projectDetails" className={styles.label}>
             <span>
@@ -369,48 +425,22 @@ export function ContactForm() {
           )}
         </div>
 
-        {/* Row 6: Budget Range & Preferred Contact Method */}
-        <div className={styles.row}>
-          <div className={styles.field}>
-            <label htmlFor="budgetRange" className={styles.label}>
-              <span>Budget Range</span>
-              <span className={styles.optionalBadge}>Optional</span>
-            </label>
-            <select
-              id="budgetRange"
-              name="budgetRange"
-              value={formData.budgetRange}
-              onChange={handleChange}
-              className={styles.select}
-            >
-              {budgetOptions.map((opt) => (
-                <option key={opt} value={opt}>
-                  {opt}
-                </option>
-              ))}
-            </select>
-          </div>
+        {/* Anti-bot Honeypot Field */}
+        <input
+          type="checkbox"
+          name="botcheck"
+          className="hidden"
+          style={{ display: "none" }}
+          tabIndex={-1}
+          autoComplete="off"
+        />
 
-          <div className={styles.field}>
-            <label htmlFor="preferredContactMethod" className={styles.label}>
-              <span>Preferred Contact Method</span>
-              <span className={styles.optionalBadge}>Optional</span>
-            </label>
-            <select
-              id="preferredContactMethod"
-              name="preferredContactMethod"
-              value={formData.preferredContactMethod}
-              onChange={handleChange}
-              className={styles.select}
-            >
-              {contactMethodOptions.map((opt) => (
-                <option key={opt} value={opt}>
-                  {opt}
-                </option>
-              ))}
-            </select>
+        {/* Submit Error Alert if any */}
+        {submitError && (
+          <div className={styles.submitErrorAlert} role="alert">
+            {submitError}
           </div>
-        </div>
+        )}
 
         {/* Submit Button & Trust Microcopy */}
         <div>

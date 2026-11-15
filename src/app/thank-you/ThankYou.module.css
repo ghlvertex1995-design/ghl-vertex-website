@@ -1,0 +1,323 @@
+.pageWrapper {
+  width: 100%;
+  min-height: calc(100vh - var(--header-desktop-height));
+  background-color: var(--bg-page);
+  background-image: var(--gradient-bg-ambient);
+  background-repeat: no-repeat;
+  background-position: top center;
+  padding-bottom: 5rem;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.breadcrumbsWrapper {
+  padding-top: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+/* Hero Section */
+.heroSection {
+  padding: 3rem 0 3.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.successBadge {
+  width: 76px;
+  height: 76px;
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, rgba(1, 72, 163, 0.1) 0%, rgba(16, 185, 129, 0.12) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #10b981;
+  margin-bottom: 1.75rem;
+  box-shadow: 0 8px 24px -4px rgba(16, 185, 129, 0.2);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.825rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--brand-primary);
+  margin-bottom: 0.85rem;
+}
+
+.heading {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.25rem;
+  max-width: 750px;
+}
+
+.supporting {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 680px;
+  margin: 0 auto 2.25rem;
+}
+
+.ctaGroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.primaryBtn {
+  background: var(--gradient-brand-cta);
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.95rem 1.85rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 1rem;
+  box-shadow: var(--shadow-cta);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-cta-hover);
+  color: #ffffff;
+}
+
+.secondaryBtn {
+  background: #ffffff;
+  color: var(--text-main);
+  border: 1px solid var(--border-medium);
+  font-weight: 600;
+  padding: 0.95rem 1.65rem;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.secondaryBtn:hover {
+  background-color: var(--bg-surface-alt);
+  border-color: var(--brand-primary);
+}
+
+/* What to Expect Next Section */
+.nextStepsCard {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.75rem 2.25rem;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 3rem;
+}
+
+.nextStepsHeader {
+  text-align: center;
+  margin-bottom: 2.25rem;
+}
+
+.nextStepsTitle {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.nextStepsSubtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.stepItem {
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.75rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.stepBadge {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background: var(--brand-primary);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.stepItemTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.5rem;
+}
+
+.stepItemDesc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Quick Support Banner */
+.supportBanner {
+  background: linear-gradient(135deg, #f8fafc 0%, #edf4fd 100%);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 2rem 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.supportInfo {
+  max-width: 580px;
+}
+
+.supportTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.supportCopy {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.supportMeta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.supportMetaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.supportMetaLink {
+  color: var(--brand-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+
+.supportMetaLink:hover {
+  color: var(--brand-primary-hover);
+}
+
+/* Popular Services Row */
+.servicesSection {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.servicesTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 1.25rem;
+}
+
+.servicePills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.servicePill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.55rem 1.15rem;
+  background: #ffffff;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.servicePill:hover {
+  background: var(--brand-primary-subtle);
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .stepsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .nextStepsCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .supportBanner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroSection {
+    padding: 2rem 0 2.5rem;
+  }
+
+  .ctaGroup {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
