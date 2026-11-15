@@ -27,13 +27,13 @@ export function IndustryMegaMenu({
       id="industries-mega-menu"
       className={`${styles.megaMenuWrapper} ${styles.industryWrapper} ${isOpen ? styles.isOpen : ""}`}
       role="region"
-      aria-label="Industry We Serve Mega Menu"
+      aria-label="Industries We Serve Mega Menu"
       aria-hidden={!isOpen}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
       <div className={`${styles.megaMenuCard} ${styles.industryGrid}`}>
-        {/* Column 1: The 5 Specialized Industries */}
+        {/* Column 1: The 12 Specialized Industries */}
         <div className={styles.columnCard}>
           <div className={styles.columnHeader}>
             <div className={styles.headerIcon}>
@@ -58,7 +58,7 @@ export function IndustryMegaMenu({
             </div>
           </div>
 
-          <ul className={styles.linkList} role="list">
+          <ul className={styles.linkListTwoCol} role="list">
             {links.map((link) => {
               const isCurrent = activePath === link.href;
               return (

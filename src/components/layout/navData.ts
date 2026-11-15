@@ -230,29 +230,64 @@ export const industryMenuData: {
   shortDescription: "Tailored GoHighLevel CRM, workflows and automation architectures.",
   links: [
     {
-      name: "Real Estate",
-      href: "/#industries",
-      description: "Instant lead qualification, showing scheduling, and buyer nurture sequences.",
-    },
-    {
-      name: "Dental Practices",
-      href: "/#industries",
-      description: "Patient appointment scheduling, hygiene recall campaigns, and treatment reminders.",
-    },
-    {
-      name: "HVAC Contractors",
-      href: "/#industries",
-      description: "Seasonal tune-up outreach, emergency dispatch booking, and missed call follow-up.",
+      name: "Agencies",
+      href: "/industries/agencies/",
+      description: "Scale subaccounts, snapshots, white-label fulfillment, and client onboarding.",
     },
     {
       name: "Home Services",
-      href: "/#industries",
-      description: "Immediate lead recovery, emergency intake, scheduling, and review generation.",
+      href: "/industries/home-services/",
+      description: "Immediate lead recovery, missed-call text back, and estimate scheduling.",
+    },
+    {
+      name: "HVAC",
+      href: "/industries/hvac/",
+      description: "Emergency intake, seasonal tune-up campaigns, and replacement quote follow-up.",
+    },
+    {
+      name: "Plumbing",
+      href: "/industries/plumbing/",
+      description: "Urgent leak triage, territory ZIP screening, and water heater quote follow-up.",
+    },
+    {
+      name: "Roofing",
+      href: "/industries/roofing/",
+      description: "Storm damage response, inspection bookings, and insurance claim tracking.",
+    },
+    {
+      name: "Dental",
+      href: "/industries/dental/",
+      description: "2-way SMS confirmations, 6-month hygiene recall, and treatment plan follow-up.",
+    },
+    {
+      name: "Med Spas",
+      href: "/industries/med-spas/",
+      description: "Consultation deposit booking, pre/post-care, and 90-day neurotoxin recall.",
+    },
+    {
+      name: "Real Estate",
+      href: "/industries/real-estate/",
+      description: "Instant speed-to-lead, buyer/seller pipelines, and 12-month nurture drips.",
     },
     {
       name: "Law Firms",
-      href: "/#industries",
-      description: "Confidential case intake, eligibility screening, and consultation booking.",
+      href: "/industries/law-firms/",
+      description: "Confidential case intake, practice-area routing, and retainer agreement follow-up.",
+    },
+    {
+      name: "Professional Services",
+      href: "/industries/professional-services/",
+      description: "Pre-call discovery screening, proposal tracking, and client onboarding.",
+    },
+    {
+      name: "SaaS",
+      href: "/industries/saas/",
+      description: "Sub-15s demo bookings, PQL milestone tracking, and trial onboarding workflows.",
+    },
+    {
+      name: "Multi-Location Businesses",
+      href: "/industries/multi-location-businesses/",
+      description: "ZIP code territory routing, localized subaccounts, and unified reporting.",
     },
   ],
   cta: {
@@ -262,7 +297,7 @@ export const industryMenuData: {
     primaryCtaText: "Book an Industry Strategy Call",
     primaryCtaHref: "https://calendly.com/ghl-vertex1995/30min?month=2026-11",
     secondaryCtaText: "Explore All Industries →",
-    secondaryCtaHref: "/#industries",
+    secondaryCtaHref: "/industries/",
     trustLabels: ["Custom Pipelines", "Speed-to-Lead", "Review Workflows"],
   },
 };

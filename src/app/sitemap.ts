@@ -17,6 +17,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/ai-integration-services/",
     "/services/rag-development-services/",
     "/contact/",
+    "/industries/",
+    "/industries/agencies/",
+    "/industries/home-services/",
+    "/industries/hvac/",
+    "/industries/plumbing/",
+    "/industries/roofing/",
+    "/industries/dental/",
+    "/industries/med-spas/",
+    "/industries/real-estate/",
+    "/industries/law-firms/",
+    "/industries/professional-services/",
+    "/industries/saas/",
+    "/industries/multi-location-businesses/",
   ];
 
   return routes.map((route) => ({

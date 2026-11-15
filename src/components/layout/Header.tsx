@@ -250,7 +250,7 @@ export function Header() {
               </button>
             </li>
 
-            {/* Industry We Serve Dropdown */}
+            {/* Industries We Serve Dropdown */}
             <li
               className={styles.navItem}
               onMouseEnter={() => handleMouseEnter("industries")}
@@ -266,9 +266,9 @@ export function Header() {
                 aria-expanded={activeMenu === "industries"}
                 aria-haspopup="true"
                 aria-controls="industries-mega-menu"
-                aria-label="Industry We Serve menu"
+                aria-label="Industries We Serve menu"
               >
-                <span>Industry We Serve</span>
+                <span>Industries We Serve</span>
                 <span
                   className={`${styles.chevron} ${activeMenu === "industries" ? styles.open : ""}`}
                   aria-hidden="true"
@@ -522,7 +522,7 @@ export function Header() {
               )}
             </li>
 
-            {/* Accordion 4: Industry We Serve */}
+            {/* Accordion 4: Industries We Serve */}
             <li className={styles.mobileNavItem}>
               <button
                 type="button"
@@ -531,7 +531,7 @@ export function Header() {
                 aria-expanded={mobileAccordion.industries}
                 aria-controls="mobile-industries-accordion"
               >
-                <span>Industry We Serve</span>
+                <span>Industries We Serve</span>
                 <span className={styles.accordionChevron} aria-hidden="true">
                   ▼
                 </span>
@@ -550,6 +550,19 @@ export function Header() {
                       <span className={styles.mobileSubLinkDesc}>{link.description}</span>
                     </Link>
                   ))}
+                  {industryMenuData.cta?.secondaryCtaHref && (
+                    <Link
+                      href={industryMenuData.cta.secondaryCtaHref}
+                      className={styles.mobileSubLink}
+                      onClick={closeMobile}
+                      style={{ borderTop: "1px dashed rgba(1, 72, 163, 0.2)", paddingTop: "0.6rem" }}
+                    >
+                      <span className={styles.mobileSubLinkTitle} style={{ color: "var(--brand-primary)", fontWeight: 700 }}>
+                        {industryMenuData.cta.secondaryCtaText || "Explore All Industries →"}
+                      </span>
+                      <span className={styles.mobileSubLinkDesc}>View our complete industry-tailored CRM solutions</span>
+                    </Link>
+                  )}
                 </div>
               )}
             </li>

@@ -110,6 +110,11 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/industries/" className={styles.link}>
+                  Industries
+                </Link>
+              </li>
+              <li>
                 <Link href="/#results" className={styles.link}>
                   Case Studies
                 </Link>
