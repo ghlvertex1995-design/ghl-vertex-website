@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#071324"/>
+      <stop offset="50%" stop-color="#0c2340"/>
+      <stop offset="100%" stop-color="#05101e"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="cardGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#162e50" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0b1b30" stop-opacity="0.95"/>
+    </linearGradient>
+    <pattern id="grid2" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg2)"/>
+  <rect width="1200" height="630" fill="url(#grid2)"/>
+
+  <!-- Ambient Glows -->
+  <circle cx="280" cy="220" r="260" fill="#0284c7" opacity="0.16" filter="blur(60px)"/>
+  <circle cx="920" cy="380" r="220" fill="#38bdf8" opacity="0.14" filter="blur(60px)"/>
+
+  <!-- Header Badge -->
+  <rect x="80" y="80" width="200" height="36" rx="18" fill="rgba(2, 132, 199, 0.25)" stroke="#38bdf8" stroke-width="1"/>
+  <text x="180" y="103" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="14" font-weight="700" fill="#38bdf8" text-anchor="middle" letter-spacing="1">WORKFLOW BLUEPRINT</text>
+
+  <!-- Title & Subtitle -->
+  <text x="80" y="170" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="44" font-weight="800" fill="#ffffff" letter-spacing="-0.5">
+    The Complete GoHighLevel
+  </text>
+  <text x="80" y="225" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="44" font-weight="800" fill="url(#cyanGrad)" letter-spacing="-0.5">
+    Workflow Automation Guide
+  </text>
+  <text x="80" y="275" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="18" fill="#94a3b8">
+    Conditional Logic • Webhook Handoffs • Multi-Channel Triggers • No-Show Recovery
+  </text>
+
+  <!-- Visual Workflow Diagram (Canvas Tree) -->
+  <g transform="translate(80, 330)">
+    <!-- Trigger Block -->
+    <rect x="0" y="30" width="220" height="110" rx="14" fill="url(#cardGrad2)" stroke="#38bdf8" stroke-width="1.5"/>
+    <text x="20" y="60" font-family="sans-serif" font-size="12" font-weight="700" fill="#38bdf8" letter-spacing="1">TRIGGER EVENT</text>
+    <text x="20" y="88" font-family="sans-serif" font-size="16" font-weight="700" fill="#ffffff">Inbound Form / Call</text>
+    <text x="20" y="112" font-family="sans-serif" font-size="13" fill="#94a3b8">Custom Tag &amp; UTM Parse</text>
+
+    <!-- Branch Connector -->
+    <path d="M 220 85 L 300 85" stroke="#38bdf8" stroke-width="2"/>
+    <polygon points="300,85 292,80 292,90" fill="#38bdf8"/>
+
+    <!-- Condition Block -->
+    <rect x="300" y="20" width="220" height="130" rx="14" fill="url(#cardGrad2)" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+    <text x="320" y="50" font-family="sans-serif" font-size="12" font-weight="700" fill="#f59e0b" letter-spacing="1">IF / ELSE BRANCH</text>
+    <text x="320" y="78" font-family="sans-serif" font-size="16" font-weight="700" fill="#ffffff">Business Hours?</text>
+    <text x="320" y="105" font-family="sans-serif" font-size="13" fill="#10b981">✓ True: Connect Live Rep</text>
+    <text x="320" y="128" font-family="sans-serif" font-size="13" fill="#38bdf8">✗ False: AI Calendar Bot</text>
+
+    <!-- Action Connectors -->
+    <path d="M 520 65 L 600 45" stroke="#10b981" stroke-width="2"/>
+    <polygon points="600,45 592,40 592,50" fill="#10b981"/>
+
+    <path d="M 520 115 L 600 135" stroke="#38bdf8" stroke-width="2"/>
+    <polygon points="600,135 592,130 592,140" fill="#38bdf8"/>
+
+    <!-- Day Action -->
+    <rect x="600" y="0" width="200" height="80" rx="12" fill="url(#cardGrad2)" stroke="rgba(255,255,255,0.12)" stroke-width="1.2"/>
+    <text x="620" y="32" font-family="sans-serif" font-size="15" font-weight="700" fill="#ffffff">Live Bridge Call</text>
+    <text x="620" y="56" font-family="sans-serif" font-size="12" fill="#94a3b8">Instant phone ring to rep</text>
+
+    <!-- Night Action -->
+    <rect x="600" y="100" width="200" height="80" rx="12" fill="url(#cardGrad2)" stroke="rgba(255,255,255,0.12)" stroke-width="1.2"/>
+    <text x="620" y="132" font-family="sans-serif" font-size="15" font-weight="700" fill="#ffffff">Conversational SMS</text>
+    <text x="620" y="156" font-family="sans-serif" font-size="12" fill="#94a3b8">Self-serve calendar link</text>
+
+    <!-- Connectors to Pipeline Update -->
+    <path d="M 800 40 L 880 75" stroke="#38bdf8" stroke-width="2"/>
+    <path d="M 800 140 L 880 95" stroke="#38bdf8" stroke-width="2"/>
+    <polygon points="880,85 872,80 872,90" fill="#38bdf8"/>
+
+    <!-- Final Pipeline Block -->
+    <rect x="880" y="30" width="160" height="110" rx="14" fill="url(#cardGrad2)" stroke="#10b981" stroke-width="1.5"/>
+    <text x="900" y="60" font-family="sans-serif" font-size="12" font-weight="700" fill="#10b981" letter-spacing="1">CRM STATE</text>
+    <text x="900" y="88" font-family="sans-serif" font-size="16" font-weight="700" fill="#ffffff">Stage Updated</text>
+    <text x="900" y="112" font-family="sans-serif" font-size="13" fill="#94a3b8">Ready for Deal</text>
+  </g>
+
+  <!-- Brand Signature -->
+  <text x="1120" y="580" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="16" font-weight="700" fill="#64748b" text-anchor="end">GHLVertex Automation Engine</text>
+</svg>

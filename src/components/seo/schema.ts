@@ -171,3 +171,82 @@ export function getServiceSchema(service: {
     },
   };
 }
+
+export function getBlogCollectionSchema(options?: {
+  posts?: { title: string; url: string; publishedAt: string }[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "@id": `${PROD_URL}/blog/#blog`,
+    url: `${PROD_URL}/blog/`,
+    name: "GoHighLevel, AI Automation & Business Systems Insights",
+    description:
+      "Practical guides, strategies, and technical insights on GoHighLevel, CRM automation, AI agents, integrations, RAG, and scalable business systems.",
+    isPartOf: {
+      "@id": `${PROD_URL}/#website`,
+    },
+    publisher: {
+      "@id": `${PROD_URL}/#organization`,
+    },
+    inLanguage: "en-US",
+    ...(options?.posts && {
+      blogPost: options.posts.map((post) => ({
+        "@type": "BlogPosting",
+        headline: post.title,
+        url: post.url.startsWith("http") ? post.url : `${PROD_URL}${post.url}`,
+        datePublished: post.publishedAt,
+      })),
+    }),
+  };
+}
+
+export function getBlogPostSchema(post: {
+  title: string;
+  description: string;
+  url: string;
+  image: string;
+  publishedAt: string;
+  updatedAt?: string;
+  authorName?: string;
+  keywords?: string[];
+}) {
+  const fullUrl = post.url.startsWith("http")
+    ? post.url
+    : `${PROD_URL}${post.url.startsWith("/") ? post.url : `/${post.url}`}`;
+  const imageUrl = post.image.startsWith("http")
+    ? post.image
+    : `${PROD_URL}${post.image.startsWith("/") ? post.image : `/${post.image}`}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${fullUrl}#article`,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${fullUrl}#webpage`,
+    },
+    headline: post.title,
+    description: post.description,
+    image: [imageUrl],
+    datePublished: post.publishedAt,
+    ...(post.updatedAt && { dateModified: post.updatedAt }),
+    author: {
+      "@type": "Organization",
+      "@id": `${PROD_URL}/#organization`,
+      name: post.authorName || "GHLVertex Team",
+      url: `${PROD_URL}/`,
+    },
+    publisher: {
+      "@type": "Organization",
+      "@id": `${PROD_URL}/#organization`,
+      name: "GHLVertex",
+      logo: {
+        "@type": "ImageObject",
+        url: `${PROD_URL}/images/logo.png`,
+      },
+    },
+    inLanguage: "en-US",
+    ...(post.keywords && post.keywords.length > 0 && { keywords: post.keywords.join(", ") }),
+  };
+}

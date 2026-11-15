@@ -200,8 +200,13 @@ export const companyMenuData: {
     },
     {
       heading: "Resources",
-      shortDescription: "Answers to common implementation questions.",
+      shortDescription: "Guides, architecture insights and implementation answers.",
       links: [
+        {
+          name: "Blog & Insights",
+          href: "/blog/",
+          description: "Technical guides, automation strategies and AI implementation insights.",
+        },
         {
           name: "FAQ",
           href: "/#faq",

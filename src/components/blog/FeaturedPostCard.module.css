@@ -1,0 +1,227 @@
+.featuredSection {
+  padding: 3rem 0;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.015em;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 10px 30px -5px rgba(1, 72, 163, 0.08), 0 2px 8px -2px rgba(15, 23, 42, 0.04);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  border-color: rgba(1, 72, 163, 0.28);
+  box-shadow: 0 16px 40px -8px rgba(1, 72, 163, 0.16);
+  transform: translateY(-2px);
+}
+
+.imageCol {
+  position: relative;
+  background: #091426;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-smooth);
+}
+
+.card:hover .image {
+  transform: scale(1.02);
+}
+
+.contentCol {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.metaTop {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.categoryBadge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background: var(--brand-primary-subtle);
+  border: 1px solid currentColor;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.readingTime {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.title {
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.titleLink {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.titleLink:hover {
+  color: var(--brand-primary);
+}
+
+.excerpt {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
+
+.footerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.authorMeta {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.authorAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--brand-primary-subtle);
+  border: 1px solid rgba(1, 72, 163, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.avatarImg {
+  object-fit: cover;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.publishDate {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--gradient-brand-cta);
+  text-decoration: none;
+  box-shadow: var(--shadow-cta);
+  transition: all var(--transition-fast);
+}
+
+.ctaButton:hover {
+  box-shadow: var(--shadow-cta-hover);
+  transform: translateY(-1px);
+}
+
+.arrow {
+  transition: transform var(--transition-fast);
+}
+
+.ctaButton:hover .arrow {
+  transform: translateX(3px);
+}
+
+@media (max-width: 991px) {
+  .card {
+    grid-template-columns: 1fr;
+  }
+  .contentCol {
+    padding: 1.75rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footerRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

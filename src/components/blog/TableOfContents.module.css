@@ -1,0 +1,119 @@
+.tocWrapper {
+  position: sticky;
+  top: 100px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.mobileToggle {
+  display: none;
+  width: 100%;
+  padding: 0.85rem 1.25rem;
+  background: var(--bg-surface-alt);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.mobileToggleText {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chevron {
+  font-size: 0.75rem;
+  transition: transform var(--transition-fast);
+}
+
+.chevron.open {
+  transform: rotate(180deg);
+}
+
+.tocCard {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.25rem;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+}
+
+.desktopHeading {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.item {
+  font-size: 0.86rem;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 0.75rem;
+  border-left: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.item.subItem {
+  padding-left: 1.5rem;
+  font-size: 0.82rem;
+}
+
+.link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  display: block;
+}
+
+.link:hover {
+  color: var(--brand-primary);
+}
+
+.item.active {
+  border-left-color: var(--brand-primary);
+}
+
+.item.active .link {
+  color: var(--brand-primary);
+  font-weight: 700;
+}
+
+@media (max-width: 991px) {
+  .tocWrapper {
+    position: static;
+    margin-bottom: 2rem;
+  }
+  .mobileToggle {
+    display: flex;
+  }
+  .tocCard {
+    display: none;
+  }
+  .tocCard.mobileOpen {
+    display: block;
+  }
+  .desktopHeading {
+    display: none;
+  }
+}

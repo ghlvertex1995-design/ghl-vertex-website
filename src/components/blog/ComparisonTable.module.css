@@ -1,0 +1,128 @@
+.tableWrapper {
+  margin: 2.25rem 0;
+}
+
+.scrollContainer {
+  overflow-x: auto;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+  background: #ffffff;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+  min-width: 680px;
+}
+
+.caption {
+  caption-side: top;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1rem;
+  background: var(--bg-surface-alt);
+  border-bottom: 1px solid var(--border-subtle);
+  text-align: left;
+}
+
+.table thead th {
+  background: #f8fafc;
+  padding: 1rem 1.15rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: -0.01em;
+  border-bottom: 2px solid var(--border-subtle);
+}
+
+.thPrimary {
+  color: var(--text-main);
+  width: 22%;
+}
+
+.thSecondary {
+  color: #64748b;
+  width: 26%;
+}
+
+.thHighlight {
+  color: var(--brand-primary);
+  background: #f0f7ff;
+  width: 28%;
+}
+
+.thImpact {
+  color: var(--text-secondary);
+  width: 24%;
+}
+
+.table tbody tr {
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background var(--transition-fast);
+}
+
+.table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.table tbody tr:hover {
+  background: #fafcfe;
+}
+
+.table tbody td {
+  padding: 1rem 1.15rem;
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+.tdPrimary {
+  color: var(--text-main);
+}
+
+.tdSecondary {
+  color: #64748b;
+  font-size: 0.86rem;
+}
+
+.tdHighlight {
+  color: var(--brand-primary);
+  background: rgba(240, 247, 255, 0.4);
+  font-weight: 500;
+}
+
+.badgeRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+
+.checkIcon {
+  color: var(--accent-emerald);
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.tdImpact {
+  color: var(--text-secondary);
+  font-size: 0.86rem;
+}
+
+.mobileHint {
+  display: none;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .mobileHint {
+    display: block;
+  }
+}

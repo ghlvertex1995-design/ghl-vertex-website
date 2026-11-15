@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
+import { getAllPosts } from "@/data/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://ghlvertex.com";
 
-  const routes = [
+  const staticRoutes = [
     "/",
     "/services/ghl-setup-services/",
     "/services/workflow-automation-services/",
@@ -30,12 +31,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/industries/professional-services/",
     "/industries/saas/",
     "/industries/multi-location-businesses/",
+    "/blog/",
   ];
 
-  return routes.map((route) => ({
+  const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
     url: route === "/" ? `${baseUrl}/` : `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: route === "/" ? ("daily" as const) : ("weekly" as const),
-    priority: route === "/" ? 1.0 : 0.9,
+    priority: route === "/" ? 1.0 : route.startsWith("/blog/") ? 0.85 : 0.9,
   }));
+
+  const blogPosts = getAllPosts().filter((p) => !p.draft && !p.noindex);
+  const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${baseUrl}${post.canonical}`,
+    lastModified: post.updatedAt ? new Date(post.updatedAt) : new Date(post.publishedAt),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticEntries, ...blogEntries];
 }

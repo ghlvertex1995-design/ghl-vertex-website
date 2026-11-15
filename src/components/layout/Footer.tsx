@@ -132,7 +132,7 @@ export function Footer() {
             <h3 className={styles.colTitle}>Resources</h3>
             <ul className={styles.linkList}>
               <li>
-                <Link href="/#contact" className={styles.link}>
+                <Link href="/blog/" className={styles.link}>
                   Blog
                 </Link>
               </li>

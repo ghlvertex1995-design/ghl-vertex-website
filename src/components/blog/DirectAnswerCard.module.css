@@ -1,0 +1,41 @@
+.card {
+  background: #ffffff;
+  border: 1.5px solid rgba(1, 72, 163, 0.28);
+  border-left: 5px solid var(--brand-primary);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.75rem;
+  margin: 1.75rem 0 2rem;
+  box-shadow: 0 4px 18px rgba(1, 72, 163, 0.06);
+}
+
+.eyebrowRow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--brand-primary);
+  background: var(--brand-primary-subtle);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.subtext {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.answer {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-main);
+  line-height: 1.65;
+  margin: 0;
+}

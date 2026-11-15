@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1329"/>
+      <stop offset="50%" stop-color="#121f42"/>
+      <stop offset="100%" stop-color="#070c1d"/>
+    </linearGradient>
+    <linearGradient id="violetGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+    <linearGradient id="cardGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#212852" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#101533" stop-opacity="0.95"/>
+    </linearGradient>
+    <pattern id="grid4" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg4)"/>
+  <rect width="1200" height="630" fill="url(#grid4)"/>
+
+  <!-- Ambient Glows -->
+  <circle cx="300" cy="200" r="280" fill="#8b5cf6" opacity="0.16" filter="blur(60px)"/>
+  <circle cx="920" cy="400" r="240" fill="#ec4899" opacity="0.14" filter="blur(60px)"/>
+
+  <!-- Header Badge -->
+  <rect x="80" y="80" width="200" height="36" rx="18" fill="rgba(139, 92, 246, 0.25)" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="180" y="103" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="14" font-weight="700" fill="#8b5cf6" text-anchor="middle" letter-spacing="1">LLM INTEGRATION</text>
+
+  <!-- Title & Subtitle -->
+  <text x="80" y="170" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="44" font-weight="800" fill="#ffffff" letter-spacing="-0.5">
+    LLM Integration Guide: Connecting
+  </text>
+  <text x="80" y="225" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="44" font-weight="800" fill="url(#violetGrad)" letter-spacing="-0.5">
+    Models to Existing Software &amp; CRM
+  </text>
+  <text x="80" y="275" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="18" fill="#94a3b8">
+    OpenAI • Claude • Gemini • Strict JSON Schemas • Prompt Caching • Provider Failover
+  </text>
+
+  <!-- Integration Architecture Diagram -->
+  <g transform="translate(80, 330)">
+    <!-- App / CRM -->
+    <rect x="0" y="20" width="220" height="130" rx="14" fill="url(#cardGrad4)" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="20" y="52" font-family="sans-serif" font-size="12" font-weight="700" fill="#8b5cf6" letter-spacing="1">HOST APPLICATION</text>
+    <text x="20" y="80" font-family="sans-serif" font-size="16" font-weight="700" fill="#ffffff">CRM / Database</text>
+    <text x="20" y="104" font-family="sans-serif" font-size="12" fill="#94a3b8">Customer records,</text>
+    <text x="20" y="122" font-family="sans-serif" font-size="12" fill="#94a3b8">webhook triggers &amp; state</text>
+
+    <!-- Arrow 1 -->
+    <path d="M 220 85 L 290 85" stroke="#ec4899" stroke-width="2"/>
+    <polygon points="290,85 282,80 282,90" fill="#ec4899"/>
+
+    <!-- Middleware: Guardrails & Schema -->
+    <rect x="290" y="10" width="250" height="150" rx="14" fill="url(#cardGrad4)" stroke="#ec4899" stroke-width="2"/>
+    <text x="310" y="44" font-family="sans-serif" font-size="12" font-weight="700" fill="#ec4899" letter-spacing="1">MIDDLEWARE LAYER</text>
+    <text x="310" y="72" font-family="sans-serif" font-size="16" font-weight="700" fill="#ffffff">Zod Schema Guard</text>
+    <text x="310" y="96" font-family="sans-serif" font-size="12" fill="#94a3b8">Prompt caching active</text>
+    <text x="310" y="114" font-family="sans-serif" font-size="12" fill="#94a3b8">Sanitizes user input</text>
+    <text x="310" y="136" font-family="monospace" font-size="11" fill="#38bdf8">response_format: json</text>
+
+    <!-- Arrow 2 -->
+    <path d="M 540 85 L 610 85" stroke="#ec4899" stroke-width="2"/>
+    <polygon points="610,85 602,80 602,90" fill="#ec4899"/>
+
+    <!-- Foundation Model Tier -->
+    <rect x="610" y="20" width="230" height="130" rx="14" fill="url(#cardGrad4)" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="630" y="52" font-family="sans-serif" font-size="12" font-weight="700" fill="#8b5cf6" letter-spacing="1">FOUNDATION MODELS</text>
+    <text x="630" y="80" font-family="sans-serif" font-size="16" font-weight="700" fill="#ffffff">Multi-Provider API</text>
+    <text x="630" y="104" font-family="sans-serif" font-size="12" fill="#94a3b8">Claude 3.5 • GPT-4o</text>
+    <text x="630" y="122" font-family="sans-serif" font-size="12" fill="#94a3b8">Automatic fallback circuit</text>
+
+    <!-- Arrow 3 -->
+    <path d="M 840 85 L 900 85" stroke="#ec4899" stroke-width="2"/>
+    <polygon points="900,85 892,80 892,90" fill="#ec4899"/>
+
+    <!-- Validated Output -->
+    <rect x="900" y="20" width="190" height="130" rx="14" fill="url(#cardGrad4)" stroke="#10b981" stroke-width="1.5"/>
+    <text x="920" y="52" font-family="sans-serif" font-size="12" font-weight="700" fill="#10b981" letter-spacing="1">STRUCTURED SYNC</text>
+    <text x="920" y="80" font-family="sans-serif" font-size="16" font-weight="700" fill="#ffffff">Clean JSON Sync</text>
+    <text x="920" y="104" font-family="sans-serif" font-size="12" fill="#94a3b8">100% deterministic</text>
+    <text x="920" y="122" font-family="sans-serif" font-size="12" fill="#94a3b8">Zero parse failures</text>
+  </g>
+
+  <!-- Brand Signature -->
+  <text x="1120" y="580" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="16" font-weight="700" fill="#64748b" text-anchor="end">GHLVertex LLM Integration Architecture</text>
+</svg>

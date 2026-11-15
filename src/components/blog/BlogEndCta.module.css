@@ -1,0 +1,117 @@
+.ctaCard {
+  background: radial-gradient(ellipse 70% 80% at 50% 0%, #0c234a 0%, #071329 100%);
+  border: 1px solid rgba(1, 72, 163, 0.45);
+  border-radius: var(--radius-xl);
+  padding: 3.5rem 2.5rem;
+  margin: 3.5rem 0 2rem;
+  text-align: center;
+  box-shadow: 0 20px 45px -10px rgba(1, 72, 163, 0.28);
+  position: relative;
+  overflow: hidden;
+}
+
+.inner {
+  max-width: 680px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+}
+
+.headline {
+  font-size: clamp(1.6rem, 3vw, 2.35rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.copy {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.6rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--gradient-brand-cta);
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 18px rgba(1, 72, 163, 0.4);
+  transition: all var(--transition-fast);
+}
+
+.primaryBtn:hover {
+  box-shadow: 0 8px 28px rgba(1, 72, 163, 0.55);
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+.arrow {
+  transition: transform var(--transition-fast);
+}
+
+.primaryBtn:hover .arrow {
+  transform: translateX(3px);
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.secondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 600px) {
+  .ctaCard {
+    padding: 2.5rem 1.5rem;
+  }
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}
