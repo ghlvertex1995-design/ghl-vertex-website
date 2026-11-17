@@ -12,6 +12,12 @@ import { ArticleFaq } from "./ArticleFaq";
 import { AuthorBox } from "./AuthorBox";
 import { RelatedArticles } from "./RelatedArticles";
 import { BlogEndCta } from "./BlogEndCta";
+import { FormattedText } from "./FormattedText";
+import { DisconnectedVsConnectedCard } from "./DisconnectedVsConnectedCard";
+import { QaChecklistCard } from "./QaChecklistCard";
+import { EvaluationMatrixCard } from "./EvaluationMatrixCard";
+import { RedFlagsCard } from "./RedFlagsCard";
+import { CapabilityMapCard } from "./CapabilityMapCard";
 import styles from "./ArticleBody.module.css";
 
 interface ArticleBodyProps {
@@ -49,10 +55,10 @@ export function ArticleBody({ post, relatedPosts }: ArticleBodyProps) {
                 {/* Direct Answer Block (GEO/AEO) */}
                 {section.directAnswer && <DirectAnswerCard block={section.directAnswer} />}
 
-                {/* Paragraphs */}
+                {/* Paragraphs with rich link formatting */}
                 {section.paragraphs.map((p, pIndex) => (
                   <p key={pIndex} className={styles.paragraph}>
-                    {p}
+                    <FormattedText text={p} />
                   </p>
                 ))}
 
@@ -73,17 +79,21 @@ export function ArticleBody({ post, relatedPosts }: ArticleBodyProps) {
                       </span>
                       <h4 className={styles.calloutTitle}>{section.callout.title}</h4>
                     </div>
-                    <p className={styles.calloutText}>{section.callout.text}</p>
+                    <p className={styles.calloutText}>
+                      <FormattedText text={section.callout.text} />
+                    </p>
                   </div>
                 )}
 
-                {/* Bullets */}
+                {/* Bullets with rich link formatting */}
                 {section.bullets && section.bullets.length > 0 && (
                   <ul className={styles.bulletList}>
                     {section.bullets.map((bullet, bIndex) => (
                       <li key={bIndex} className={styles.bulletItem}>
                         <span className={styles.bulletDot} aria-hidden="true">•</span>
-                        <span>{bullet}</span>
+                        <span>
+                          <FormattedText text={bullet} />
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -96,7 +106,7 @@ export function ArticleBody({ post, relatedPosts }: ArticleBodyProps) {
                       <h3 className={styles.subsectionHeading}>{sub.title}</h3>
                       {sub.paragraphs.map((p, spIndex) => (
                         <p key={spIndex} className={styles.paragraph}>
-                          {p}
+                          <FormattedText text={p} />
                         </p>
                       ))}
                       {sub.bullets && sub.bullets.length > 0 && (
@@ -104,7 +114,9 @@ export function ArticleBody({ post, relatedPosts }: ArticleBodyProps) {
                           {sub.bullets.map((b, sbIndex) => (
                             <li key={sbIndex} className={styles.bulletItem}>
                               <span className={styles.bulletDot} aria-hidden="true">•</span>
-                              <span>{b}</span>
+                              <span>
+                                <FormattedText text={b} />
+                              </span>
                             </li>
                           ))}
                         </ul>
@@ -119,6 +131,31 @@ export function ArticleBody({ post, relatedPosts }: ArticleBodyProps) {
                     description={section.workflow.description}
                     steps={section.workflow.steps}
                   />
+                )}
+
+                {/* Disconnected vs Connected System Visual */}
+                {section.disconnectedVsConnected && (
+                  <DisconnectedVsConnectedCard config={section.disconnectedVsConnected} />
+                )}
+
+                {/* Capability Map Visual */}
+                {section.capabilityMap && (
+                  <CapabilityMapCard config={section.capabilityMap} />
+                )}
+
+                {/* QA Checklist Visual */}
+                {section.qaChecklist && (
+                  <QaChecklistCard config={section.qaChecklist} />
+                )}
+
+                {/* Evaluation Matrix Visual */}
+                {section.evaluationMatrix && (
+                  <EvaluationMatrixCard config={section.evaluationMatrix} />
+                )}
+
+                {/* Red Flags Visual */}
+                {section.redFlags && (
+                  <RedFlagsCard config={section.redFlags} />
                 )}
 
                 {/* Comparison Table */}

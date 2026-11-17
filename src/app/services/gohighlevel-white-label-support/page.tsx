@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
@@ -12,93 +14,102 @@ import {
   ServiceHero,
   DirectAnswer,
   TrustStrip,
-  ProblemGrid,
   ServiceFeatures,
-  WorkflowDiagram,
   ComparisonTable,
   UseCaseGrid,
   GovernanceSection,
   ProcessSteps,
-  BusinessOutcomes,
   WhyGHLVertex,
   RelatedServices,
   FaqAccordion,
   ServiceCta,
 } from "@/components/services";
+import styles from "./WhiteLabelSupport.module.css";
 
 export const metadata: Metadata = {
-  title: "GoHighLevel White Label Support | GHL Agency Backend Support",
+  title: "GoHighLevel White Label Support for Agencies | GHLVertex",
   description:
-    "Expert GoHighLevel white label support services. Dedicated agency-branded GHL technical support, client onboarding, sub-account management, and ticket fulfillment.",
+    "Scale your agency with GoHighLevel white label support. Get help with CRM setup, workflows, integrations, and technical fulfillment from GHLVertex.",
   alternates: {
     canonical: "/services/gohighlevel-white-label-support/",
   },
   openGraph: {
-    title: "GoHighLevel White Label Support & Technical Fulfillment | GHLVertex",
+    title: "GoHighLevel White Label Support for Agencies | GHLVertex",
     description:
-      "Scale your SaaS or marketing agency without the payroll headaches. White-label GHL technical support, client onboarding, snapshot management, and ticket escalation.",
+      "Scale your agency with GoHighLevel white label support. Get help with CRM setup, workflows, integrations, and technical fulfillment from GHLVertex.",
     url: `${siteConfig.url}/services/gohighlevel-white-label-support/`,
     type: "website",
+    images: [
+      {
+        url: `${siteConfig.url}/images/services/gohighlevel-white-label-fulfillment-workflow.svg`,
+        width: 1200,
+        height: 630,
+        alt: "GoHighLevel White Label Technical Fulfillment Workflow Architecture",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "GoHighLevel White Label Support for Agencies | GHLVertex",
+    description:
+      "Scale your agency with GoHighLevel white label support. Get help with CRM setup, workflows, integrations, and technical fulfillment from GHLVertex.",
+    images: [`${siteConfig.url}/images/services/gohighlevel-white-label-fulfillment-workflow.svg`],
   },
 };
 
 const breadcrumbs = [
+  { label: "Home", href: "/" },
   { label: "Services", href: "/#services" },
-  { label: "GHL White Label Support", href: "/services/gohighlevel-white-label-support/" },
+  { label: "GoHighLevel White Label Support", href: "/services/gohighlevel-white-label-support/" },
 ];
 
 const faqs = [
   {
     question: "What is GoHighLevel white label support?",
     answer:
-      "GoHighLevel white label support is a dedicated behind-the-scenes technical fulfillment and helpdesk service that supports your marketing agency's sub-account clients under your own agency brand. Experienced GHL specialists manage client onboarding, snapshot deployments, workflow troubleshooting, API fixes, and support tickets, allowing agency owners to scale recurring SaaS client rosters without hiring an expensive in-house technical support team.",
+      "GoHighLevel white label support is a specialized backend service where certified technical experts handle your agency's HighLevel fulfillment, sub-account setup, workflow automation, and client troubleshooting completely behind the scenes. Operating under your agency brand, domain, and email, our team resolves client requests without ever revealing our identity, enabling you to scale without hiring full-time in-house staff.",
   },
   {
-    question: "What is the difference between white-label platform branding and white-label support?",
+    question: "How does white label technical fulfillment differ from HighLevel's SaaS mode?",
     answer:
-      "White-label platform branding simply means putting your agency's logo and custom domain on the GoHighLevel software interface. White-label support is actual human technical execution: certified engineers answering tickets, fixing broken workflows, onboarding new client sub-accounts, and troubleshooting integration issues under your agency's name.",
+      "HighLevel's SaaS mode provides platform-level rebranding, allowing you to put your logo, color palette, and custom domain on the software. White-label technical fulfillment is active human execution: certified engineers building custom workflows, troubleshooting broken triggers, handling A2P 10DLC telecom registrations, and resolving technical support tickets submitted by your sub-account clients.",
   },
   {
-    question: "How do you interact with our clients without revealing GHLVertex?",
+    question: "Do your technicians interact directly with our agency's clients?",
     answer:
-      "All communications occur strictly under your brand. We operate through your branded helpdesk email (e.g. support@youragency.com), your Slack or ticketing portal, using custom email signatures and your agency SOP guidelines. Your clients will never know an external team is assisting them.",
+      "Yes, if your engagement model includes client-facing helpdesk support. In those instances, our technicians communicate directly with your clients using your agency-branded email (such as support@youragency.com), branded Loom video recordings, and your established tone of voice. Alternatively, for back-office fulfillment models, we interface exclusively with your internal team via Slack or your project management portal.",
   },
   {
-    question: "Do you handle client sub-account onboarding and snapshot rollouts?",
+    question: "What happens when a client requests out-of-scope work or custom features?",
     answer:
-      "Yes. When you sign a new client, our team provisions the sub-account, deploys your master snapshot, connects their domain, configures their Twilio or LC Phone numbers, assists with A2P 10DLC registration, and verifies calendar sync.",
+      "When a client requests deliverables outside their agreed technical scope—such as custom landing page redesigns or new third-party software integrations—our team flags the request, estimates the required effort, and escalates it to your agency account manager. This creates a clean upsell opportunity for your agency to bill additional project fees.",
   },
   {
-    question: "What types of technical issues do your white label engineers resolve?",
+    question: "How does GHLVertex access our HighLevel agency account securely?",
     answer:
-      "We troubleshoot broken workflow triggers, email deliverability issues, DNS record errors, calendar conflicts, webhook payload mismatches, custom field configurations, pipeline logic, and third-party integrations (Stripe, QuickBooks, Zapier, n8n).",
+      "We adhere to strict least-privilege security protocols. You grant our team designated technician user accounts restricted to specific client sub-accounts, or provide agency-level admin access under dedicated, auditable credentials. We never require access to your agency's master billing or private corporate financials, and our work is protected by legally binding non-disclosure agreements.",
   },
   {
-    question: "What happens when a client request falls outside standard technical support?",
+    question: "Can you help us build and maintain our agency master snapshots?",
     answer:
-      "If a client requests out-of-scope custom funnel builds or paid software upgrades, we follow your agency escalation protocol: we notify your account manager so you can propose an upsell or project add-on to the client.",
+      "Yes. Building, cleaning, and updating agency master snapshots is one of our core competencies. We audit existing snapshots to remove redundant custom fields, standardize custom value keys, update workflow triggers to match new HighLevel features, and modularize components for rapid client provisioning across different industry verticals.",
   },
   {
-    question: "How do you track support tickets and response times?",
+    question: "What third-party tools and middleware do you support alongside HighLevel?",
     answer:
-      "We integrate seamlessly into your preferred ticketing software (Zendesk, Freshdesk, GHL Helpdesk, or email queues). You have complete visibility into ticket volume, resolution times, and client satisfaction ratings.",
+      "Beyond native HighLevel features, we support the broader modern agency tech stack: Twilio and LC Phone telecom infrastructure, Mailgun and LC Email deliverability, Stripe Connect payment gateways, Zapier, Make, and self-hosted n8n automation middleware, WordPress and Webflow webhooks, and ticketing systems including Zendesk, Freshdesk, and Help Scout.",
   },
   {
-    question: "Can you help our agency build and update master snapshots?",
+    question: "How quickly can GHLVertex start fulfilling technical work for our agency?",
     answer:
-      "Yes. We continuously audit, refine, and update your master snapshots with clean custom values, bulletproof workflows, and modular funnel structures so every new client deployment runs flawlessly.",
-  },
-  {
-    question: "How quickly can we launch white label support for our agency?",
-    answer:
-      "Standard agency onboarding takes 5 to 7 business days. We review your existing snapshots, set up shared helpdesk access, map escalation paths, and align on your client communication guidelines before taking the first ticket.",
+      "Standard agency onboarding is completed within 5 to 7 business days. During this period, we audit your master snapshots, integrate with your agency helpdesk or Slack, map out task escalation paths, and align on communication guidelines before taking our first ticket or project assignment.",
   },
 ];
 
 export default function GoHighLevelWhiteLabelSupportPage() {
   const currentUrl = "/services/gohighlevel-white-label-support/";
   const pageSchema = getWebPageSchema({
-    title: "GoHighLevel White Label Support | GHL Agency Backend Support",
+    title: "GoHighLevel White Label Support for Agencies | GHLVertex",
     description: metadata.description as string,
     url: currentUrl,
   });
@@ -120,34 +131,34 @@ export default function GoHighLevelWhiteLabelSupportPage() {
 
       <Breadcrumbs items={breadcrumbs} />
 
-      {/* 01. Hero */}
+      {/* 01. Hero Section */}
       <ServiceHero
         eyebrow="White Label Agency Fulfillment"
-        h1="GoHighLevel White Label Support & Technical Fulfillment for Agencies"
-        description="Scale your SaaS or marketing agency without the overhead of hiring, training, and managing in-house GHL technicians. We deliver 100% white-label client onboarding, ticket resolution, snapshot deployment, and workflow troubleshooting under your agency brand."
-        primaryCtaText="Book a White Label Strategy Call"
+        h1="GoHighLevel White Label Support for Growing Agencies"
+        description="Scale your digital marketing or SaaS agency without the operational friction, training costs, or fixed payroll overhead of managing in-house technicians. We deliver 100% white-label client onboarding, custom workflow builds, third-party integrations, and responsive technical ticket fulfillment—completely behind the scenes under your agency brand."
+        primaryCtaText="Book a GHL Strategy Call"
         primaryCtaHref="https://calendly.com/ghl-vertex1995/30min?month=2026-11"
-        secondaryCtaText="Explore Support Deliverables"
+        secondaryCtaText="Explore Our White Label Services"
         secondaryCtaHref="#service-capabilities"
-        targetAudience="SaaS Agency Owners, Marketing Consultants & GHL Resellers"
+        targetAudience="Digital Marketing Agencies, CRM Resellers & HighLevel SaaS Agency Owners"
         outcomeText="Zero In-House Support Payroll & 5x Client Retention Velocity"
-        diagramTitle="Agency White-Label Support Operations Loop"
+        diagramTitle="Agency White-Label Fulfillment Lifecycle"
         flowSteps={[
-          { label: "Client Ticket Ingestion", sublabel: "support@youragency.com • Branded Helpdesk" },
-          { label: "Triage & Technical Diagnostic", sublabel: "Workflow Audit, DNS Check & Log Analysis" },
-          { label: "Backend Resolution", sublabel: "Sub-account Fix, Snapshot Update & Webhook Repair" },
-          { label: "Branded Client Response", sublabel: "Clear Video Walkthrough or Branded Ticket Reply" },
-          { label: "Agency Dashboard Logging", sublabel: "Ticket History, Resolution Metrics & Escalations" },
+          { label: "Ticket & Task Intake", sublabel: "support@youragency.com • Slack • Project Portal" },
+          { label: "Technical Scoping & Triage", sublabel: "Audit Logs, Webhook Schema & Logic Review" },
+          { label: "Backend Fulfillment", sublabel: "Sub-Account Build, Workflow Fix & API Mapping" },
+          { label: "Staging QA & Verification", sublabel: "Live Test Submissions & Deliverability Checks" },
+          { label: "Branded Handoff & Closing", sublabel: "White-Label Video Walkthrough & Ticket Resolution" },
         ]}
         highlights={[
           "100% Branded Under Your Agency",
-          "Dedicated GHL Technical Specialists",
-          "Sub-Account Onboarding & Snapshot Rollout",
-          "Custom Escalation & Upsell Routing",
+          "Dedicated HighLevel Technical Specialists",
+          "Turnkey Sub-Account Onboarding & Snapshots",
+          "Strict Escalation & Up-Sell Handoffs",
         ]}
       />
 
-      {/* 02. Direct Answer / GEO / AEO */}
+      {/* 02. Direct Answer Section + Extended Narrative */}
       <DirectAnswer
         question="What is GoHighLevel white label support?"
         answer="GoHighLevel white label support is a dedicated behind-the-scenes technical fulfillment and helpdesk service that supports your marketing agency's sub-account clients under your own agency brand. Experienced GHL specialists manage client onboarding, snapshot deployments, workflow troubleshooting, API fixes, and support tickets, allowing agency owners to scale recurring SaaS client rosters without hiring an expensive in-house technical support team."
@@ -159,363 +170,555 @@ export default function GoHighLevelWhiteLabelSupportPage() {
         ]}
       />
 
+      {/* Extended Direct Answer Context */}
+      <div className="container">
+        <div className={styles.extendedDirectAnswer}>
+          <h2 className={styles.extendedTitle}>
+            Technical Fulfillment vs. Superficial SaaS Mode Rebranding
+          </h2>
+          <p className={styles.extendedParagraph}>
+            While HighLevel&apos;s SaaS mode allows agencies to apply their logo, color palette, and custom domain to the software portal, superficial platform rebranding does not solve the relentless operational burden of customer fulfillment. When client workflows misfire, webhooks drop payloads, or new accounts require deep pipeline customization, software branding alone leaves agency founders trapped in day-to-day tech support.
+          </p>
+          <p className={styles.extendedParagraph}>
+            True white-label support provides certified, human technical execution behind the scenes. Whether building end-to-end architectures through comprehensive{" "}
+            <Link href="/services/ghl-setup-services/" className={styles.inlineLink}>
+              GoHighLevel setup services
+            </Link>{" "}
+            or designing multi-branch triggers via dedicated{" "}
+            <Link href="/services/workflow-automation-services/" className={styles.inlineLink}>
+              workflow automation services
+            </Link>
+            , our engineers ensure your client systems operate reliably under your brand. For official platform standards, agencies can also consult the{" "}
+            <a
+              href="https://help.gohighlevel.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.externalLink}
+            >
+              official HighLevel Documentation and Help Center &#8599;
+            </a>
+            .
+          </p>
+
+          <div className={styles.exampleCallout}>
+            <div className={styles.exampleTitle}>
+              <span>&#9889;</span> Practical Agency Outsourcing Scenario
+            </div>
+            <p className={styles.exampleText}>
+              Consider a 25-client dental marketing agency signing three new practices each month. Instead of the founder spending 15 hours per client configuring A2P 10DLC messaging compliance, troubleshooting practice management webhooks, and testing appointment reminder sequences, GHLVertex provisions the sub-accounts, connects custom domains, audits Mailgun deliverability, and resolves client tickets under the agency&apos;s branded helpdesk. The founder focuses entirely on client acquisition and retainer strategy while technical delivery runs with zero friction.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* 03. Technology Trust Strip */}
       <TrustStrip
-        label="Supported Environments & Helpdesk Ecosystems"
+        label="Supported Environments & Technical Integrations"
         technologies={[
-          "GoHighLevel (Agency Pro / SaaS)",
+          "GoHighLevel (Agency Pro & SaaS Mode)",
           "LC Phone & Twilio Infrastructure",
-          "Mailgun & Custom SMTP Deliverability",
-          "Zendesk / Freshdesk / GHL Helpdesk",
+          "LC Email & Mailgun SMTP",
+          "Stripe Connect & Subscriptions",
+          "Zapier, Make & n8n Middleware",
+          "Zendesk, Freshdesk & GHL Helpdesk",
           "Slack Shared Channels",
           "Loom / Custom Video SOPs",
-          "Stripe Connect Billing",
         ]}
       />
 
-      {/* 04. Problem Section */}
-      <ProblemGrid
-        eyebrow="The Agency Scaling Trap"
-        heading="Why Agency Owners Burn Out Trying to Handle GHL Support"
-        subtitle="Signing new clients is exciting until your entire day is swallowed by broken webhooks, locked Twilio numbers, and angry client emails."
-        problems={[
-          {
-            title: "Founder Trapped in Low-Value Tech Support",
-            description:
-              "Instead of closing new $2,000/mo retainer clients, agency owners spend 4 hours a day debugging calendar buffers and custom fields.",
-            consequence: "New client acquisition grinds to an absolute halt.",
-          },
-          {
-            title: "The Cost of Hiring & Training In-House GHL Staff",
-            description:
-              "Hiring full-time US or offshore technicians requires endless screening, continuous training, high salaries, and constant management overhead.",
-            consequence: "Fixed payroll liabilities eat into agency recurring profits.",
-          },
-          {
-            title: "Client Churn Driven by Slow Ticket Resolution",
-            description:
-              "When a client's lead notifications or booking calendar breaks, waiting 48 hours for a fix destroys trust and leads to swift cancellations.",
-            consequence: "High client churn cancels out monthly new client acquisitions.",
-          },
-        ]}
-      />
+      {/* 04. Core Service Breakdown: 7 Capabilities */}
+      <div id="service-capabilities">
+        <ServiceFeatures
+          eyebrow="What We Handle"
+          heading="7 Core White-Label Support & Fulfillment Capabilities"
+          subtitle="Complete behind-the-scenes technical execution so your agency delivers enterprise-grade reliability to every client."
+          features={[
+            {
+              title: "1. Custom CRM Architecture & Sub-Account Provisioning",
+              description:
+                "Turnkey provisioning for new client sign-ups with standardized folder structures, custom values, and operational pipelines.",
+              deliverables: [
+                "Sub-account creation and agency snapshot deployment",
+                "Custom values mapping (company name, phone, address, calendar URLs)",
+                "Pipeline stages and opportunity value standardizations",
+                "User role assignments, permission audits, and notification profiles",
+              ],
+            },
+            {
+              title: "2. Advanced Workflow & Automation Engineering",
+              description:
+                "Designing, building, and maintaining multi-branch automation engines that handle lead nurturing, reminders, and internal alerts.",
+              deliverables: [
+                "Multi-channel automated sequences (SMS, email, voicemail drops, tasks)",
+                "Conditional logic branching with 'If/Else' and wait conditions",
+                "Custom webhook triggers for bi-directional data synchronization",
+                "Automated appointment reminders and no-show re-engagement flows",
+              ],
+            },
+            {
+              title: "3. Funnel, Form, & Survey Configuration",
+              description:
+                "High-converting funnel builds, survey conditional logic, and embedded capture systems tailored to client sub-accounts.",
+              deliverables: [
+                "Multi-step funnel page layout and mobile responsiveness checks",
+                "Custom form routing with hidden UTM parameter capture",
+                "Survey qualification logic and conditional stage redirecting",
+                "Tracking pixel installation (Meta CAPI, Google Analytics 4, TikTok)",
+              ],
+            },
+            {
+              title: "4. Agency Master Snapshot Architecture & Maintenance",
+              description:
+                "Continuous auditing, updating, and modular refactoring of your agency's core industry snapshots.",
+              deliverables: [
+                "Master snapshot audits to eliminate bloated custom fields and dead tags",
+                "Versioning and updating snapshots across newly released GHL features",
+                "Niche-specific modular snapshot architecture (Dentists, MedSpas, Roofers)",
+                "Snapshot deployment QA testing to guarantee error-free sub-account rollouts",
+              ],
+            },
+            {
+              title: "5. Third-Party API, Webhook, & Middleware Integration",
+              description:
+                "Bridging GoHighLevel with external business tools, proprietary CRMs, and payment gateways.",
+              deliverables: [
+                "Custom webhook configurations between GHL and external endpoints",
+                "Middleware pipeline automation via Zapier, Make, and self-hosted n8n",
+                "Stripe Connect, QuickBooks, and payment gateway synchronization",
+                "Database integration and custom API payload parsing",
+              ],
+            },
+            {
+              title: "6. Client Onboarding & Telecom Compliance Setup",
+              description:
+                "Eliminating technical onboarding bottlenecks with turnkey domain, email deliverability, and carrier telecom registrations.",
+              deliverables: [
+                "A2P 10DLC Brand and Campaign carrier compliance submissions",
+                "DNS domain mapping (A records, CNAMEs, TXT records)",
+                "Email deliverability setup (SPF, DKIM, DMARC, and MX records via Mailgun/LC)",
+                "Two-way Google and Outlook calendar synchronization testing",
+              ],
+            },
+            {
+              title: "7. Technical Troubleshooting & Bug Fix Fulfillment",
+              description:
+                "Rapid resolution of everyday bugs, broken triggers, and client support tickets under your agency brand.",
+              deliverables: [
+                "Branded ticket responses via your agency helpdesk email",
+                "Loom screen recordings explaining technical fixes to your clients",
+                "Execution log inspections to isolate broken triggers and failed webhooks",
+                "Strict escalation pathways to keep agency owners informed without noise",
+              ],
+            },
+          ]}
+        />
+      </div>
 
-      {/* 05. Service Features / Deliverables */}
-      <ServiceFeatures
-        eyebrow="What We Handle"
-        heading="Full-Service White Label Support Deliverables"
-        subtitle="Complete technical backing for your agency so you look like an enterprise powerhouse."
-        features={[
-          {
-            title: "White-Label Client Ticket Resolution",
-            description:
-              "We answer your clients' technical questions and resolve system bugs under your agency brand.",
-            deliverables: [
-              "Email ticketing via support@youragency.com",
-              "Branded Loom video explanations showing clients exactly how issues were fixed",
-              "Workflow debugging, form routing, and pipeline stage troubleshooting",
-              "Strict escalation protocols for non-technical or commercial requests",
-            ],
-          },
-          {
-            title: "New Client Sub-Account Onboarding",
-            description:
-              "Turnkey technical provisioning whenever you close a new client.",
-            deliverables: [
-              "Sub-account creation and master snapshot deployment",
-              "Custom values configuration (Business name, phone, address, logo)",
-              "DNS domain mapping, SPF, DKIM, and DMARC verification",
-              "Twilio/LC phone number provisioning and A2P 10DLC registration guidance",
-            ],
-          },
-          {
-            title: "Snapshot Maintenance & Optimization",
-            description:
-              "Keeping your core agency snapshots updated, clean, and error-free.",
-            deliverables: [
-              "Regular audits to remove unused custom fields and orphaned tags",
-              "Logic testing across new GoHighLevel platform feature updates",
-              "Modular snapshot structuring for rapid niche deployments",
-              "Documentation updates for your agency's internal knowledge base",
-            ],
-          },
-          {
-            title: "Custom Integrations & API Support",
-            description:
-              "Handling complex client requests connecting GHL to external platforms.",
-            deliverables: [
-              "Webhook troubleshooting between GHL and third-party CRMs",
-              "Stripe Connect billing and subscription troubleshooting",
-              "Zapier / n8n workflow repair and optimization",
-              "Custom form embeds and WordPress/Shopify tracking pixel setup",
-            ],
-          },
-        ]}
-      />
-
-      {/* 06. Architecture / Workflow */}
-      <WorkflowDiagram
-        eyebrow="Support Flow"
-        heading="Behind-the-Scenes Ticket Escalation Protocol"
-        subtitle="How an incoming technical ticket is received, resolved, and documented without client confusion."
-        nodes={[
-          {
-            phase: "Step 1: Ticket Ingestion",
-            title: "Client Submits Support Request",
-            description:
-              "Your client sends an email to support@youragency.com or submits an issue through your agency helpdesk widget.",
-            technicalDetails: "Branded Helpdesk • Automated Confirmation • Severity Tagging",
-          },
-          {
-            phase: "Step 2: Technical Triage & Isolation",
-            title: "Backend Diagnostic in GHL Sub-Account",
-            description:
-              "Our GHL engineer accesses the client sub-account, examines execution logs, and identifies the exact broken condition or trigger.",
-            technicalDetails: "Workflow Execution History • Error Code Review • DNS Check",
-          },
-          {
-            phase: "Step 3: Fix Deployment & Staging Test",
-            title: "Correction & Verification",
-            description:
-              "The engineer rectifies the configuration, fires test submissions, and verifies that pipeline stages and notifications trigger accurately.",
-            technicalDetails: "Test Contact Submission • Live Webhook Verification • Tag Test",
-          },
-          {
-            phase: "Step 4: Branded Resolution & Closing",
-            title: "Client Notification Under Your Agency Name",
-            description:
-              "A courteous response is sent from your agency support email containing a short branded screen recording confirming the resolution.",
-            technicalDetails: "Branded Email Signature • Custom Loom Video • Ticket Resolved",
-          },
-        ]}
-      />
-
-      {/* 07. Comparison Table */}
-      <ComparisonTable
-        eyebrow="Resource Comparison"
-        heading="In-House Support Team vs. GHLVertex White Label Support"
-        subtitle="Comparing the total cost and headache of hiring internally versus partnering with GHLVertex."
-        leftColumnHeader="Hiring In-House Technical Staff"
-        rightColumnHeader="GHLVertex White Label Support"
-        rows={[
-          {
-            dimension: "Monthly Payroll & Overhead",
-            traditional: "$3,500–$6,000/mo per technician plus benefits, taxes, and management time.",
-            ghlVertex: "Predictable, transparent agency retainers structured to protect your gross profit margins.",
-          },
-          {
-            dimension: "Training & Expertise",
-            traditional: "Requires weeks of training; knowledge leaves when employees resign.",
-            ghlVertex: "Immediate access to certified GHL experts with hundreds of accounts under management.",
-          },
-          {
-            dimension: "Scalability",
-            traditional: "Adding 15 new clients causes employee burnout and requires another costly hire.",
-            ghlVertex: "Effortlessly absorbs spikes in client volume without disrupting your day-to-day operations.",
-          },
-          {
-            dimension: "Quality Assurance",
-            traditional: "Vulnerable to sloppy work without constant agency owner supervision.",
-            ghlVertex: "Strict internal QA, standardized SOPs, and transparent ticket logging visible to you.",
-          },
-        ]}
-      />
-
-      {/* 08. Use Cases */}
+      {/* 05. Agency Target Audience: 5 Profiles */}
       <UseCaseGrid
-        eyebrow="Agency Scenarios"
-        heading="How Agencies Leverage Our White Label Team"
-        subtitle="Common operational scenarios where our team steps in to protect your agency's reputation."
+        eyebrow="Target Audiences"
+        heading="Tailored White-Label Fulfillment for Every Agency Model"
+        subtitle="Whether scaling a high-volume SaaS tier or managing custom boutique retainers, we eliminate technical fulfillment bottlenecks."
         useCases={[
           {
-            scenarioTitle: "Rapid 20-Account SaaS Flash Sale",
-            trigger: "Agency launches a Black Friday SaaS promotion and signs 20 new sub-accounts in 72 hours.",
+            scenarioTitle: "1. Digital Marketing & Paid Advertising Agencies",
+            trigger:
+              "Running lead generation campaigns for clients but losing billable hours fixing broken lead notifications, form routing, and CRM sync issues.",
             orchestration:
-              "Our team provisions all 20 accounts, deploys master snapshots, configures custom domains, and conducts individual technical onboarding checks.",
-            outcome: "All 20 clients activated in under 5 business days with zero client churn or owner stress.",
+              "GHLVertex manages all backend sub-account wiring, connects ad forms directly to pipelines, and verifies SMS/email speed-to-lead automations.",
+            outcome:
+              "Ad campaigns launch faster, lead conversions improve, and agency strategists stay focused on campaign ROAS.",
           },
           {
-            scenarioTitle: "Complex Client Webhook Emergency",
-            trigger: "Client's lead generation form on external Webflow site stops sending leads to GHL.",
+            scenarioTitle: "2. HighLevel SaaS Resellers (SaaS Mode)",
+            trigger:
+              "Acquiring 10 to 50+ SaaS clients monthly, creating an unmanageable wave of basic onboarding questions and phone setup tickets.",
             orchestration:
-              "GHLVertex engineer inspects the webhook payload, identifies a field type mismatch from a recent form update, updates the schema, and re-runs dropped leads.",
-            outcome: "Zero lost deals; client praises agency for rapid, expert technical resolution.",
+              "We handle turnkey sub-account provisioning, automated snapshot deployment, A2P 10DLC registration, and level-1/level-2 ticket support.",
+            outcome:
+              "Low monthly customer churn, scalable SaaS recurring revenue, and zero founder burnout.",
           },
           {
-            scenarioTitle: "A2P 10DLC Compliance Rejections",
-            trigger: "New client's SMS brand registration is rejected by mobile telecom carriers.",
+            scenarioTitle: "3. Niche Industry Agencies (Dental, MedSpa, Real Estate, Home Services)",
+            trigger:
+              "Servicing specialized local business clients requiring verticalized snapshot features, review automation, and custom booking workflows.",
             orchestration:
-              "Our team audits the client's privacy policy, opt-in disclosures, and sample messages, updates registration details, and secures carrier approval.",
-            outcome: "Compliant, high-deliverability SMS gateway unlocked without agency founder intervention.",
+              "We maintain and update your industry master snapshots, configure calendar booking rules, and troubleshoot practice management integrations.",
+            outcome:
+              "Consistent client experiences, high snapshot stability, and streamlined client retention.",
+          },
+          {
+            scenarioTitle: "4. Boutique Agencies & Solopreneurs at Capacity",
+            trigger:
+              "Solo agency founders capped at 5–10 clients because technical execution leaves no time for sales or business development.",
+            orchestration:
+              "GHLVertex acts as your invisible back-office technical department, executing client change requests and daily maintenance.",
+            outcome:
+              "Reclaims 20+ hours per week, allowing founders to double client rosters without hiring full-time staff.",
+          },
+          {
+            scenarioTitle: "5. Enterprise Agencies Requiring Overflow Support",
+            trigger:
+              "Established agencies experiencing client surges or sudden staff turnover that threaten project delivery timelines.",
+            orchestration:
+              "We provide instant technical bandwidth to absorb complex workflow builds, database migrations, and sub-account audits.",
+            outcome:
+              "Zero project delivery delays, protected agency reputation, and smooth client transitions.",
           },
         ]}
       />
 
-      {/* 09. Governance & Human-in-the-Loop */}
-      <GovernanceSection
-        eyebrow="Security & Boundaries"
-        heading="Rigorous Agency Protection & Confidentiality"
-        subtitle="Your clients remain 100% your clients. We operate under strict NDAs and security protocols."
-        items={[
-          {
-            title: "Strict Non-Disclosure & Non-Compete",
-            description:
-              "We never pitch your clients, never reveal our identity, and legally bind our services under watertight confidentiality agreements.",
-          },
-          {
-            title: "Scoped Sub-Account Access",
-            description:
-              "We operate strictly within designated sub-accounts, never accessing your primary agency billing or sensitive client contracts.",
-          },
-          {
-            title: "Standardized Change Management",
-            description:
-              "Major workflow or snapshot modifications are documented and confirmed with agency leadership before global deployment.",
-          },
-        ]}
-        humanInLoopNotes={[
-          "Billing inquiries, upsell opportunities, and cancellations are routed immediately to agency leadership.",
-          "Our technicians do not authorize refunds or discounts on your agency's behalf.",
-          "Custom design requests outside technical scope are handed off as sales leads for your agency.",
-        ]}
-      />
-
-      {/* 10. Process Steps */}
+      {/* 06. End-to-End Fulfillment Process: 5 Steps */}
       <ProcessSteps
-        eyebrow="Agency Integration Blueprint"
-        heading="How We Seamlessly Plug Into Your Agency"
-        subtitle="Our 4-step onboarding process to align with your brand voice and technical standards."
+        eyebrow="Fulfillment Framework"
+        heading="Our 5-Step Behind-the-Scenes Fulfillment Process"
+        subtitle="A structured, predictable delivery lifecycle engineered to guarantee quality, security, and brand invisibility."
         steps={[
           {
             number: "01",
-            timeline: "Days 1–2",
-            title: "Snapshot & Tech Stack Audit",
+            timeline: "Phase 1: Intake & Technical Scoping",
+            title: "Intake & Technical Scoping",
             description:
-              "We review your master snapshots, evaluate custom values, and assess current client ticket trends.",
-            deliverables: ["Snapshot Health Report", "Custom Values Standardization", "Access Matrix"],
+              "Your agency logs a task or a client submits a ticket. We review requirements, verify sub-account access, and evaluate workflow dependencies.",
+            deliverables: [
+              "Ticket Ingestion & Priority Tagging",
+              "Sub-Account Access Verification",
+              "Scope & Dependency Check",
+            ],
           },
           {
             number: "02",
-            timeline: "Days 3–4",
-            title: "Helpdesk & Communication Setup",
+            timeline: "Phase 2: Architecture & Technical Plan",
+            title: "Architecture & Technical Plan",
             description:
-              "We set up your agency branded support email, configure ticket routing, and connect internal Slack channels.",
-            deliverables: ["Branded Email Routing", "Helpdesk Integration", "Escalation Runbook"],
+              "Before modifying live systems, our certified engineers diagram the automation logic, custom value mapping, and webhook payloads.",
+            deliverables: [
+              "Logic Mapping & Trigger Schema",
+              "Custom Fields/Values Pre-Check",
+              "Rollback Safeguard Plan",
+            ],
           },
           {
             number: "03",
-            timeline: "Days 5–6",
-            title: "SOP & Brand Alignment",
+            timeline: "Phase 3: Implementation & Sub-Account Buildout",
+            title: "Implementation & Sub-Account Buildout",
             description:
-              "We establish your brand communication guidelines, response templates, and client interaction tone.",
-            deliverables: ["Client Response Guidelines", "Branded Video Templates", "SOP Repository"],
+              "We execute the technical work inside the designated sub-account—configuring pipelines, testing automations, and deploying snapshots.",
+            deliverables: [
+              "Clean Workflow Construction",
+              "API & Webhook Payload Integration",
+              "Sub-Account Asset Deployment",
+            ],
           },
           {
             number: "04",
-            timeline: "Day 7+",
-            title: "Live Ticket Fulfillment & Weekly Reviews",
+            timeline: "Phase 4: QA Testing & Verification",
+            title: "QA Testing & Verification",
             description:
-              "Our team begins handling live client support and sub-account onboarding with weekly KPI reporting.",
-            deliverables: ["Full Ticket Coverage", "Weekly Resolution Digest", "Continuous Snapshot Updates"],
+              "Rigorous staging verification: firing test contacts, checking conditional branch executions, validating email deliverability, and inspecting logs.",
+            deliverables: [
+              "End-to-End Test Submissions",
+              "Execution Log Audit",
+              "Deliverability & DNS Check",
+            ],
+          },
+          {
+            number: "05",
+            timeline: "Phase 5: Branded Delivery & Video SOPs",
+            title: "Branded Delivery & Video SOPs",
+            description:
+              "We close the ticket under your agency brand, providing a concise branded Loom video walkthrough and updated SOP documentation.",
+            deliverables: [
+              "Branded Ticket Reply & Closure",
+              "Client-Facing Loom Video Walkthrough",
+              "Agency Portal Task Summary",
+            ],
           },
         ]}
       />
 
-      {/* 11. Business Outcomes */}
-      <BusinessOutcomes
-        eyebrow="Agency Growth Impact"
-        heading="What Happens When Support is Taken Off Your Plate"
-        subtitle="Measurable operational advantages that empower agency owners to scale recurring revenue."
-        outcomes={[
+      {/* Visual Workflow Diagram */}
+      <div className="container">
+        <div className={styles.imageVisualWrapper}>
+          <Image
+            src="/images/services/gohighlevel-white-label-fulfillment-workflow.svg"
+            alt="End-to-End GoHighLevel White Label Technical Fulfillment Lifecycle Architecture Diagram"
+            width={1200}
+            height={630}
+            className={styles.responsiveSvg}
+          />
+        </div>
+      </div>
+
+      {/* 07. Flexible Fulfillment Options */}
+      <section className={styles.engagementSection}>
+        <div className="container">
+          <div className={styles.engagementHeader}>
+            <span className={styles.eyebrow}>Flexible Engagement Models</span>
+            <h2 className={styles.heading}>Flexible GoHighLevel Fulfillment Options</h2>
+            <p className={styles.subtitle}>
+              Whether you need sprint-based project execution, predictable monthly retainer support, or dedicated technical assistance, we align with your operational model.
+            </p>
+          </div>
+
+          <div className={styles.engagementGrid}>
+            {/* Model 1: Project-Based */}
+            <div className={styles.engagementCard}>
+              <span className={styles.tierBadge}>Sprint &amp; Migration</span>
+              <h3 className={styles.tierTitle}>Project-Based Implementation</h3>
+              <p className={styles.tierDesc}>
+                Ideal for agencies needing one-off sub-account builds, deep system audits, complex snapshot refactoring, or client migrations.
+              </p>
+              <ul className={styles.tierFeatures}>
+                <li className={styles.tierItem}>
+                  <span className={styles.tierItemCheck}>&#10003;</span>
+                  <span>Custom sub-account architecture &amp; pipeline builds</span>
+                </li>
+                <li className={styles.tierItem}>
+                  <span className={styles.tierItemCheck}>&#10003;</span>
+                  <span>Master snapshot cleanup &amp; modular reorganization</span>
+                </li>
+                <li className={styles.tierItem}>
+                  <span className={styles.tierItemCheck}>&#10003;</span>
+                  <span>Third-party CRM data migration into GoHighLevel</span>
+                </li>
+                <li className={styles.tierItem}>
+                  <span className={styles.tierItemCheck}>&#10003;</span>
+                  <span>Dedicated technical QA &amp; delivery documentation</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Model 2: Monthly Retainers */}
+            <div className={styles.engagementCard}>
+              <span className={styles.tierBadge}>Agency Scaling</span>
+              <h3 className={styles.tierTitle}>Ongoing Monthly Retainers</h3>
+              <p className={styles.tierDesc}>
+                Predictable technical fulfillment for agencies requiring ongoing ticket resolution, monthly snapshot updates, and regular client onboarding.
+              </p>
+              <ul className={styles.tierFeatures}>
+                <li className={styles.tierItem}>
+                  <span className={styles.tierItemCheck}>&#10003;</span>
+                  <span>Dedicated ticket queue handling under your agency brand</span>
+                </li>
+                <li className={styles.tierItem}>
+                  <span className={styles.tierItemCheck}>&#10003;</span>
+                  <span>Guaranteed service level agreements (SLAs) for ticket responses</span>
+                </li>
+                <li className={styles.tierItem}>
+                  <span className={styles.tierItemCheck}>&#10003;</span>
+                  <span>Turnkey monthly client onboarding &amp; snapshot deployments</span>
+                </li>
+                <li className={styles.tierItem}>
+                  <span className={styles.tierItemCheck}>&#10003;</span>
+                  <span>Weekly operational sync &amp; fulfillment reporting</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Model 3: Dedicated Technical Assistance */}
+            <div className={styles.engagementCard}>
+              <span className={styles.tierBadge}>High-Volume SaaS</span>
+              <h3 className={styles.tierTitle}>Dedicated Technical Assistance</h3>
+              <p className={styles.tierDesc}>
+                Full-spectrum backend technical department for fast-scaling SaaS agencies managing 50+ sub-accounts with continuous support demands.
+              </p>
+              <ul className={styles.tierFeatures}>
+                <li className={styles.tierItem}>
+                  <span className={styles.tierItemCheck}>&#10003;</span>
+                  <span>Dedicated technical specialist integrated into your Slack</span>
+                </li>
+                <li className={styles.tierItem}>
+                  <span className={styles.tierItemCheck}>&#10003;</span>
+                  <span>High-priority ticket triage &amp; custom API middleware support</span>
+                </li>
+                <li className={styles.tierItem}>
+                  <span className={styles.tierItemCheck}>&#10003;</span>
+                  <span>Continuous A2P 10DLC &amp; telecom compliance oversight</span>
+                </li>
+                <li className={styles.tierItem}>
+                  <span className={styles.tierItemCheck}>&#10003;</span>
+                  <span>Proactive sub-account health audits and workflow monitoring</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className={styles.engagementCtaBanner}>
+            <span>
+              Every agency is unique. Our fulfillment engagements are custom-scoped based on your active sub-account volume and technical complexity.{" "}
+              <a
+                href="https://calendly.com/ghl-vertex1995/30min?month=2026-11"
+                className={styles.inlineLink}
+              >
+                Book a strategy call to explore a tailored partnership &rarr;
+              </a>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* 08. In-House vs. White Label Support: 7 Dimensions */}
+      <ComparisonTable
+        eyebrow="Resource Evaluation"
+        heading="In-House Technical Hiring vs. GHLVertex White Label Support"
+        subtitle="An objective comparison of total operational cost, scalability, and technical reliability."
+        leftColumnHeader="In-House Technical Hire"
+        rightColumnHeader="GHLVertex White Label Support"
+        rows={[
           {
-            focusArea: "Founder Freedom",
-            metricLabel: "20+ Hours Reclaimed Weekly",
-            description:
-              "Agency owners eliminate daily technical firefighting and spend their working hours closing new clients and expanding partnerships.",
+            dimension: "1. Financial Overhead & Payroll Liabilities",
+            traditional:
+              "$4,000–$7,000/mo per technician plus employment taxes, healthcare, software licenses, and hardware.",
+            ghlVertex:
+              "Predictable, transparent agency retainers with zero tax liability, zero benefits, and high gross margin protection.",
           },
           {
-            focusArea: "Client Retention",
-            metricLabel: "Dramatically Reduced SaaS Churn",
-            description:
-              "Fast, competent technical support keeps your clients happy, preventing churn caused by technical frustration.",
+            dimension: "2. Onboarding Time & Speed to Deployment",
+            traditional:
+              "4 to 8 weeks for recruitment, technical screening, cultural onboarding, and system ramp-up.",
+            ghlVertex:
+              "Instant deployment within 5 to 7 business days with pre-vetted, certified HighLevel specialists.",
           },
           {
-            focusArea: "Profit Margins",
-            metricLabel: "Substantial Payroll Savings",
-            description:
-              "Avoid the heavy fixed overhead of full-time in-house technicians while accessing a team with deeper collective GHL expertise.",
+            dimension: "3. Technical Depth & Platform Breadth",
+            traditional:
+              "Often limited to basic CRM skills; struggles with advanced webhooks, custom code, APIs, and n8n middleware.",
+            ghlVertex:
+              "Full-stack technical team with cross-disciplinary expertise spanning CRM, APIs, webhooks, middleware, and automation.",
           },
           {
-            focusArea: "Enterprise Positioning",
-            metricLabel: "Seamless White-Label Professionalism",
-            description:
-              "Your agency appears as a fully staffed, enterprise-grade technology company equipped to service dozens of clients simultaneously.",
+            dimension: "4. Operational Scalability & Fluctuation Resilience",
+            traditional:
+              "Adding 15 new accounts overburdens single hires; slow months create idle payroll burn.",
+            ghlVertex:
+              "Elastic scalability: effortlessly absorbs sudden client surges without extra recruitment or management overhead.",
+          },
+          {
+            dimension: "5. Quality Assurance & Testing Standards",
+            traditional:
+              "Prone to human error without constant agency founder supervision, testing checklists, and review protocols.",
+            ghlVertex:
+              "Standardized multi-point staging QA, test submissions, execution log audits, and documented SOPs.",
+          },
+          {
+            dimension: "6. Management Overhead & Daily Supervision",
+            traditional:
+              "Requires 5–10 hours per week of founder time for daily 1-on-1s, task delegation, and quality checks.",
+            ghlVertex:
+              "Zero day-to-day management burden: autonomous ticket handling with transparent dashboard reporting.",
+          },
+          {
+            dimension: "7. Risk of Knowledge Loss & Employee Churn",
+            traditional:
+              "High vulnerability: when an employee departs, institutional snapshot and client setup knowledge walks out the door.",
+            ghlVertex:
+              "Institutional stability: thorough system documentation, standardized snapshots, and zero disruption from staff turnover.",
           },
         ]}
       />
 
-      {/* 12. Why GHLVertex */}
+      {/* 09. Agency Governance, Confidentiality & Human-in-the-Loop */}
+      <GovernanceSection
+        eyebrow="Security & Governance"
+        heading="Strict Agency Protection, Confidentiality, & Operating Boundaries"
+        subtitle="Your agency brand and client relationships are sacred. We operate with enterprise security standards and complete invisibility."
+        items={[
+          {
+            title: "Legally Binding NDAs & Non-Compete Clauses",
+            description:
+              "We sign strict confidentiality and non-compete agreements. We never market to, solicit, or directly contact your clients for our own services.",
+          },
+          {
+            title: "Scoped Least-Privilege Sub-Account Access",
+            description:
+              "Our technicians only access the specific client sub-accounts required for technical execution, keeping your master agency billing and private contracts strictly isolated.",
+          },
+          {
+            title: "Transparent Change Management & Audit Logs",
+            description:
+              "Every workflow modification, snapshot update, and custom field addition is documented with clear changelogs and audit trails visible to agency leadership.",
+          },
+        ]}
+        humanInLoopNotes={[
+          "Commercial conversations, billing inquiries, and contract negotiations are routed immediately to agency leadership.",
+          "Our technicians never authorize refunds, credits, or scope expansions without explicit agency owner approval.",
+          "Client requests for out-of-scope custom software builds or additional marketing services are packaged as warm upsell opportunities for your sales team.",
+        ]}
+      />
+
+      {/* 10. Why GHLVertex */}
       <WhyGHLVertex
         reasons={[
           {
-            title: "True GHL Technical Specialists",
+            title: "GoHighLevel Technical Specialists",
             description:
-              "We don't outsource support to generalists. Our technicians live and breathe GoHighLevel architecture every day.",
+              "We don't provide generic virtual assistance. Our engineers specialize exclusively in GoHighLevel architecture, advanced automations, and third-party integrations.",
           },
           {
-            title: "Completely Invisible & Branded",
+            title: "100% Brand Invisibility",
             description:
-              "Your clients only ever see your agency logo, domain, and brand voice. We remain completely behind the scenes.",
+              "Your clients only see your agency logo, domain, email signatures, and brand voice. GHLVertex remains completely unseen behind the scenes.",
           },
           {
-            title: "Proactive, Not Just Reactive",
+            title: "Proactive Architecture & System Cleanups",
             description:
-              "We don't just wait for tickets. We flag potential workflow issues, clean up bloated fields, and optimize your snapshots.",
+              "We don't merely react to broken tickets; we proactively identify bloated custom fields, orphaned tags, and workflow friction before clients notice.",
           },
           {
-            title: "Clear SLA Escalation",
+            title: "Standardized QA & Clear Escalations",
             description:
-              "Never wonder what happened to a client ticket. You maintain complete visibility into ticket progress and resolutions.",
+              "Every ticket and workflow update passes through rigorous staging verification with automated test contacts and full execution log audits.",
           },
         ]}
       />
 
-      {/* 13. Related Services */}
+      {/* 11. Related Services */}
       <RelatedServices
         services={[
           {
-            title: "GHL Setup Services",
+            title: "GoHighLevel Setup Services",
             href: "/services/ghl-setup-services/",
-            badge: "Account Architecture",
-            description: "Custom sub-account setup, deep data migrations, and advanced pipeline configurations.",
+            badge: "Core Architecture",
+            description:
+              "Turnkey sub-account configuration, pipeline structuring, and data migration for new deployments.",
           },
           {
             title: "Workflow Automation Services",
             href: "/services/workflow-automation-services/",
-            badge: "Enterprise Pipelines",
-            description: "Connect your agency GHL system to custom databases, billing platforms, and n8n orchestration engines.",
+            badge: "Automations & Logic",
+            description:
+              "Multi-branch automation workflows, webhook synchronization, and cross-platform middleware.",
           },
           {
-            title: "AI Consulting Services",
-            href: "/services/ai-consulting-services/",
-            badge: "Strategic Advisory",
-            description: "Help your agency clients evaluate and adopt modern AI agent and automation technologies.",
+            title: "AI Automation Services",
+            href: "/services/ai-automation-services/",
+            badge: "Intelligent Systems",
+            description:
+              "Integrate conversational AI and automated lead qualification agents into HighLevel sub-accounts.",
+          },
+          {
+            title: "AI Integration Services",
+            href: "/services/ai-integration-services/",
+            badge: "Custom APIs & Middleware",
+            description:
+              "Connect HighLevel to enterprise databases, n8n instances, and external proprietary platforms.",
           },
         ]}
       />
 
-      {/* 14. FAQs */}
+      {/* 12. Frequently Asked Questions */}
       <FaqAccordion faqs={faqs} />
 
-      {/* 15. Final CTA */}
+      {/* 13. Final Call to Action */}
       <ServiceCta
         eyebrow="Ready to Scale Your Agency Roster?"
         heading="Delegate Your GoHighLevel Technical Support to Certified Specialists."
-        subtitle="Schedule an agency partnership call to discuss your sub-account volume and support requirements."
-        primaryBtnText="Book a White Label Strategy Call"
+        subtitle="Book a 30-minute strategy call with our technical team to discuss your agency's sub-account volume, workflow requirements, and fulfillment options."
+        primaryBtnText="Book a GHL Strategy Call"
         primaryBtnHref="https://calendly.com/ghl-vertex1995/30min?month=2026-11"
-        secondaryBtnText="Explore GHL Setup Services"
-        secondaryBtnHref="/services/ghl-setup-services/"
+        secondaryBtnText="Contact GHLVertex"
+        secondaryBtnHref="/contact/"
       />
     </>
   );

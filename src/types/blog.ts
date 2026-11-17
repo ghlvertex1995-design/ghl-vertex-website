@@ -57,6 +57,72 @@ export interface InlineCtaConfig {
   ctaHref: string;
 }
 
+export interface DisconnectedVsConnectedConfig {
+  title: string;
+  description?: string;
+  disconnectedTitle: string;
+  disconnectedItems: {
+    tool: string;
+    issue: string;
+  }[];
+  connectedTitle: string;
+  connectedItems: {
+    capability: string;
+    benefit: string;
+  }[];
+  outcome: string;
+}
+
+export interface QaChecklistItem {
+  label: string;
+  detail: string;
+  standard: string;
+  critical?: boolean;
+}
+
+export interface QaChecklistConfig {
+  title: string;
+  description?: string;
+  items: QaChecklistItem[];
+}
+
+export interface EvaluationMatrixRow {
+  area: string;
+  included: string;
+  askProvider: string;
+}
+
+export interface EvaluationMatrixConfig {
+  title: string;
+  description?: string;
+  rows: EvaluationMatrixRow[];
+}
+
+export interface RedFlagItem {
+  title: string;
+  description: string;
+  risk: string;
+}
+
+export interface RedFlagsConfig {
+  title: string;
+  description?: string;
+  flags: RedFlagItem[];
+}
+
+export interface CoreCapabilityItem {
+  name: string;
+  role: string;
+  outcome: string;
+  badge?: string;
+}
+
+export interface CoreCapabilityMapConfig {
+  title: string;
+  description?: string;
+  capabilities: CoreCapabilityItem[];
+}
+
 export interface BlogSubsection {
   id: string;
   title: string;
@@ -88,6 +154,11 @@ export interface BlogSection {
     text: string;
   };
   inlineCta?: InlineCtaConfig;
+  disconnectedVsConnected?: DisconnectedVsConnectedConfig;
+  qaChecklist?: QaChecklistConfig;
+  evaluationMatrix?: EvaluationMatrixConfig;
+  redFlags?: RedFlagsConfig;
+  capabilityMap?: CoreCapabilityMapConfig;
 }
 
 export interface BlogPost {

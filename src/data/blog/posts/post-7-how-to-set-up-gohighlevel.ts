@@ -80,8 +80,24 @@ export const postHowToSetUpGohighlevel: BlogPost = {
       },
       paragraphs: [
         "A technically complete HighLevel setup can still fail completely in practice if the underlying business process is undefined. Software cannot decide what constitutes a qualified prospect, who should respond to an incoming inquiry after hours, or when an estimate expires. Those are operational questions.",
-        "Before navigating through settings panels, complete the planning matrix below with your sales and operational leaders:",
+        "Before navigating through settings panels, make sure you understand [what GoHighLevel is](/blog/what-is-gohighlevel/) designed to accomplish and where its architectural boundaries lie. Complete the planning matrix below with your sales and operational leaders:",
       ],
+      workflow: {
+        title: "The 10-Stage GoHighLevel Setup Sequence",
+        description: "A disciplined implementation progression ensuring operational foundations exist before complex automations are deployed.",
+        steps: [
+          { badge: "01 Discovery", label: "Business Process", description: "Map lead sources, qualification rules, and team SLAs on paper." },
+          { badge: "02 Schema", label: "CRM Structure", description: "Define custom fields, tagging standards, and deduplication preferences." },
+          { badge: "03 Sales", label: "Pipeline Design", description: "Build stages with unambiguous, mutually exclusive entry/exit criteria." },
+          { badge: "04 Intake", label: "Lead Capture", description: "Configure mobile forms, surveys, UTM tracking, and missed-call recovery." },
+          { badge: "05 Compliance", label: "Communication", description: "Register A2P 10DLC brand/campaign and authenticate email domain DNS." },
+          { badge: "06 Routing", label: "Calendar Logic", description: "Configure round-robin availability and sync Google/Outlook calendars." },
+          { badge: "07 Triggers", label: "Workflows", description: "Build modular intake, reminder, and stop-on-response sequences." },
+          { badge: "08 Tooling", label: "Integrations", description: "Connect Stripe for payments, QuickBooks, and outbound webhooks." },
+          { badge: "09 Intel", label: "AI Capabilities", description: "Deploy conversational triage bots with strict human safety boundaries." },
+          { badge: "10 QA", label: "Testing & Launch", description: "Execute multi-path sandbox testing across mobile and desktop devices." },
+        ],
+      },
       table: {
         caption: "Pre-Implementation Operational Mapping Matrix",
         headers: ["Operational Dimension", "Business Requirement", "HighLevel Configuration", "Architectural Impact"],
@@ -123,7 +139,7 @@ export const postHowToSetUpGohighlevel: BlogPost = {
       id: "step-1-crm-structure",
       title: "Step 1: Define Your CRM Structure & Data Hygiene",
       paragraphs: [
-        "Your CRM is the single source of truth for your entire business. If the data architecture is cluttered, every downstream workflow, reporting chart, and email campaign will suffer.",
+        "Your CRM is the single source of truth for your entire business. As outlined in [official HighLevel custom values and field documentation](https://help.gohighlevel.com/), structuring contact attributes and custom values around data your team actively uses ensures clean reporting, reliable personalization, and error-free automations.",
       ],
       bullets: [
         "Standardize Contact Fields: Distinguish between standard contact attributes (first name, email, phone) and custom fields needed for business logic (e.g., Service Type, Property Address, Estimated Project Value, Policy Number).",
@@ -137,12 +153,12 @@ export const postHowToSetUpGohighlevel: BlogPost = {
       title: "Step 2: Build the Right Sales Pipeline",
       paragraphs: [
         "Sales pipelines visualize the progress of prospective revenue. The most common mistake is creating too many stages or creating stages that describe actions rather than milestone states.",
-        "A healthy pipeline has 5 to 7 stages with clear, mutually exclusive definitions:",
+        "A healthy pipeline has 5 to 7 stages with clear, mutually exclusive definitions. Below is a representative, illustrative example of a standard service company sales pipeline:",
         "Ensure every stage has an operational purpose. If a sales rep cannot explain what action moves an opportunity from Stage A to Stage B, those stages should be combined.",
       ],
       workflow: {
-        title: "Standard Service Business Sales Pipeline",
-        description: "A disciplined stage structure showing milestone progression from initial capture to revenue realization.",
+        title: "Example CRM Pipeline Architecture",
+        description: "An illustrative 6-stage service business pipeline demonstrating milestone progression from initial capture to closed revenue.",
         steps: [
           {
             badge: "Stage 01",
@@ -194,10 +210,10 @@ export const postHowToSetUpGohighlevel: BlogPost = {
       id: "step-4-communication-setup",
       title: "Step 4: Set Up Conversations and Communication Channels",
       paragraphs: [
-        "HighLevel's communication engine powers your text messaging, phone calls, and email delivery. Setting these up requires respecting modern telecommunications and email deliverability requirements:",
+        "HighLevel's communication engine powers your text messaging, phone calls, and email delivery. Setting these up requires respecting modern telecommunications regulations and email deliverability requirements:",
       ],
       bullets: [
-        "Phone System & A2P 10DLC Registration: For US text messaging, businesses must complete Brand and Campaign registration under A2P 10DLC regulations. Skipping or rushing this step leads to carrier message filtering and blocked SMS.",
+        "Phone System & A2P 10DLC Registration: For US text messaging, businesses must complete Brand and Campaign registration under [official A2P 10DLC regulations](https://help.gohighlevel.com/). Skipping or rushing this step leads to carrier message filtering and blocked SMS.",
         "Dedicated Email Sending Domain: Connect a dedicated sub-domain (e.g., `mail.yourdomain.com`) and configure full SPF, DKIM, DMARC, and MX records to protect your primary domain reputation.",
         "Unified Conversation Inbox: Organize conversation folders and user notification settings so incoming messages alert assigned team members through desktop notifications and the LeadConnector mobile app.",
       ],
@@ -224,8 +240,21 @@ export const postHowToSetUpGohighlevel: BlogPost = {
       id: "step-6-workflow-automation",
       title: "Step 6: Build Modular Automated Workflows",
       paragraphs: [
-        "Workflows are where HighLevel connects triggers, conditions, and actions into automated sequences. Rather than creating one massive workflow, construct modular, single-responsibility workflows:",
+        "Workflows are where HighLevel connects triggers, conditions, and actions into automated sequences. Rather than creating one massive workflow, construct modular, single-responsibility workflows. If your organization requires multi-branch qualification or conditional routing, exploring custom [workflow automation services](/services/workflow-automation-services/) helps prevent logic loops and accidental messages.",
       ],
+      workflow: {
+        title: "Example Lead Workflow Architecture",
+        description: "How a new inbound inquiry triggers deterministic CRM updates, team alerts, and follow-up milestones.",
+        steps: [
+          { badge: "01 Inbound", label: "New Lead", description: "Form submitted, Facebook Lead Ad captured, or incoming text received." },
+          { badge: "02 Ingestion", label: "Create / Update Contact", description: "Standardize fields, apply source tag, and enforce deduplication rules." },
+          { badge: "03 Pipeline", label: "Create Opportunity", description: "Add deal card to 'New Lead' stage with estimated project value." },
+          { badge: "04 Alert", label: "Notify Team", description: "Dispatch mobile push alert and SMS notification to assigned sales rep." },
+          { badge: "05 Touchpoint", label: "Send Initial Response", description: "Sub-60s personalized SMS sent to prospect offering calendar link." },
+          { badge: "06 Cadence", label: "Start Follow-Up", description: "Multi-touch reminder cadence checks for prospect reply over 7 days." },
+          { badge: "07 Safety", label: "Stop on Response", description: "Workflow halts immediately the instant the lead replies or books." },
+        ],
+      },
       subsections: [
         {
           id: "new-lead-workflow-spec",
@@ -283,7 +312,7 @@ export const postHowToSetUpGohighlevel: BlogPost = {
       id: "step-8-ai-capabilities",
       title: "Step 8: Add AI Where It Improves the Process",
       paragraphs: [
-        "Once your deterministic workflows function smoothly, layer AI capabilities into specific bottlenecks where conversational intelligence creates tangible business value:",
+        "Once your deterministic workflows function smoothly, layer AI capabilities into specific bottlenecks where conversational intelligence creates tangible business value. For organizations requiring advanced voice intake, automated triage, or custom LLM logic, our [custom AI agent development](/services/ai-agent-development-services/) solutions ensure bots operate within strict operational guardrails:",
       ],
       bullets: [
         "Missed-Call Conversation AI: Deploy an AI text assistant to engage inbound callers who hang up without leaving a voicemail, gathering project details and offering appointment slots.",
@@ -297,6 +326,72 @@ export const postHowToSetUpGohighlevel: BlogPost = {
       paragraphs: [
         "Never send live advertising or customer traffic to an untested account. Systematic quality assurance prevents embarrassing communication errors.",
       ],
+      qaChecklist: {
+        title: "GoHighLevel Pre-Launch QA Checklist",
+        description: "Verify these 10 critical operational paths across live mobile and desktop devices before routing customer traffic.",
+        items: [
+          {
+            label: "Web Form Submission",
+            detail: "Submit form with test contact data; check standard and custom field population.",
+            standard: "Data appears in CRM contact record within 15 seconds.",
+            critical: true,
+          },
+          {
+            label: "Contact Field Mapping",
+            detail: "Verify dropdowns, address fields, and UTM tags write to designated custom fields.",
+            standard: "Zero null fields on required inputs; attribution tags logged.",
+            critical: true,
+          },
+          {
+            label: "Opportunity Creation",
+            detail: "Confirm Opportunity card is automatically created in the initial pipeline stage.",
+            standard: "Card placed in 'New Lead' stage with correct estimated value.",
+            critical: true,
+          },
+          {
+            label: "Workflow Trigger Execution",
+            detail: "Inspect workflow execution history to ensure all enrollment filters fired cleanly.",
+            standard: "Execution log shows 100% completed status without skipped steps.",
+            critical: true,
+          },
+          {
+            label: "Stop on Response Trigger",
+            detail: "Reply to automated test SMS; verify pending nurture messages abort immediately.",
+            standard: "Subsequent wait steps cancelled; conversation shows unread in inbox.",
+            critical: true,
+          },
+          {
+            label: "Calendar Reservation Sync",
+            detail: "Book an appointment on the live calendar; verify two-way Google/Outlook sync.",
+            standard: "Time slot blocked across staff calendars and GHL Appointments view.",
+            critical: true,
+          },
+          {
+            label: "Attendance Reminders & Reschedule",
+            detail: "Inspect scheduled reminder actions; test the 1-click reschedule link.",
+            standard: "Rescheduling updates slot without creating duplicate contact record.",
+            critical: false,
+          },
+          {
+            label: "Duplicate Contact Handling",
+            detail: "Submit form a second time using identical email and phone number.",
+            standard: "Contact record updated and merged, not duplicated.",
+            critical: true,
+          },
+          {
+            label: "Human Handoff & Triage",
+            detail: "Verify unassigned conversations generate notifications for team managers.",
+            standard: "Desktop and mobile push alerts fired to assigned rep.",
+            critical: false,
+          },
+          {
+            label: "Integration Fallback Path",
+            detail: "Simulate a failed billing webhook or Stripe payment decline.",
+            standard: "Fallback internal alert dispatched to operations admin.",
+            critical: false,
+          },
+        ],
+      },
       table: {
         caption: "Mandatory GoHighLevel Pre-Launch QA Checklist",
         headers: ["Test Scenario", "Expected System Behavior", "Verification Location", "Pass / Fail Criteria"],
@@ -384,8 +479,8 @@ export const postHowToSetUpGohighlevel: BlogPost = {
       id: "diy-vs-professional",
       title: "Should You Set Up GoHighLevel Yourself or Hire Help?",
       paragraphs: [
-        "Deciding between self-implementation and hiring a professional GoHighLevel solutions provider depends on your timeline, technical comfort, and operational complexity:",
-        "If you are considering hiring an agency or specialist, explore our companion evaluation guide linked below to review exact deliverable scopes, pricing expectations, and provider red flags.",
+        "Deciding between self-implementation and hiring a professional GoHighLevel solutions provider depends on your timeline, technical comfort, and operational complexity. Businesses that want expert implementation often leverage our [GoHighLevel setup services](/services/ghl-setup-services/) to ensure custom fields, pipelines, and compliance guardrails are built correctly from day one.",
+        "If you are considering hiring an agency or specialist, explore our companion evaluation guide on [what should a professional GoHighLevel setup include](/blog/what-should-gohighlevel-setup-include/) to review exact deliverable scopes, pricing expectations, and provider red flags.",
       ],
       table: {
         caption: "Decision Framework: DIY Implementation vs. Professional GHL Setup",
@@ -420,7 +515,7 @@ export const postHowToSetUpGohighlevel: BlogPost = {
       callout: {
         type: "tip",
         title: "Evaluating Setup Providers",
-        text: "Thinking about hiring professional implementation? Read our detailed companion guide: What Should a Professional GoHighLevel Setup Include? to evaluate scope, deliverables, and red flags.",
+        text: "Thinking about hiring professional implementation? Read our detailed companion guide: [What Should a Professional GoHighLevel Setup Include?](/blog/what-should-gohighlevel-setup-include/) to evaluate scope, deliverables, and red flags.",
       },
     },
     {

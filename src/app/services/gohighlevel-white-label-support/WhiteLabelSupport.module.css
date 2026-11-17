@@ -1,0 +1,248 @@
+.sectionWrapper {
+  padding: 3rem 0;
+}
+
+.extendedDirectAnswer {
+  background: var(--bg-surface-alt, #f8fafc);
+  border: 1px solid var(--border-subtle, #e2e8f0);
+  border-left: 4px solid var(--brand-primary, #0148a3);
+  border-radius: var(--radius-lg, 16px);
+  padding: 2.25rem 2rem;
+  margin: 1.5rem 0 3.5rem;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+}
+
+.extendedTitle {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main, #0f172a);
+  letter-spacing: -0.015em;
+  margin-bottom: 0.85rem;
+}
+
+.extendedParagraph {
+  font-size: 1.02rem;
+  color: var(--text-secondary, #475569);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.extendedParagraph:last-child {
+  margin-bottom: 0;
+}
+
+.exampleCallout {
+  background: #ffffff;
+  border: 1px solid var(--border-subtle, #e2e8f0);
+  border-radius: var(--radius-md, 12px);
+  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+}
+
+.exampleTitle {
+  font-size: 0.88rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--brand-primary, #0148a3);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.exampleText {
+  font-size: 0.95rem;
+  color: var(--text-secondary, #475569);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.inlineLink {
+  color: var(--brand-primary, #0148a3);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+}
+
+.inlineLink:hover {
+  color: #00367a;
+}
+
+.externalLink {
+  color: var(--brand-primary, #0148a3);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.2rem;
+  transition: color 0.15s ease;
+}
+
+.externalLink:hover {
+  color: #00367a;
+}
+
+/* Image Visual Wrapper */
+.imageVisualWrapper {
+  margin: 2.5rem 0 3.5rem;
+  border-radius: var(--radius-lg, 16px);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle, #e2e8f0);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
+  background: #0f172a;
+}
+
+.responsiveSvg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Engagement Options Grid (Section 7) */
+.engagementSection {
+  padding: 4.5rem 0;
+  background: #ffffff;
+}
+
+.engagementHeader {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--brand-primary, #0148a3);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.heading {
+  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+  font-weight: 800;
+  color: var(--text-main, #0f172a);
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 0.85rem;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary, #475569);
+  line-height: 1.6;
+}
+
+.engagementGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.engagementCard {
+  background: var(--bg-surface-alt, #f8fafc);
+  border: 1px solid var(--border-subtle, #e2e8f0);
+  border-radius: var(--radius-lg, 16px);
+  padding: 2.25rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-fast, 0.2s ease);
+}
+
+.engagementCard:hover {
+  border-color: rgba(1, 72, 163, 0.35);
+  box-shadow: 0 8px 25px rgba(1, 72, 163, 0.08);
+  transform: translateY(-3px);
+}
+
+.tierBadge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--brand-primary, #0148a3);
+  background: var(--brand-primary-subtle, #e0edff);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill, 9999px);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}
+
+.tierTitle {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-main, #0f172a);
+  margin-bottom: 0.5rem;
+}
+
+.tierDesc {
+  font-size: 0.92rem;
+  color: var(--text-secondary, #475569);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.tierFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.tierItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary, #475569);
+  line-height: 1.5;
+}
+
+.tierItemCheck {
+  color: #10b981;
+  font-weight: 800;
+  font-size: 0.95rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.engagementCtaBanner {
+  background: #f0f7ff;
+  border: 1px solid rgba(1, 72, 163, 0.25);
+  border-radius: var(--radius-md, 12px);
+  padding: 1.25rem 1.75rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--brand-primary, #0148a3);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+  .engagementGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .extendedDirectAnswer {
+    padding: 1.5rem 1.25rem;
+  }
+  .engagementCard {
+    padding: 1.75rem 1.25rem;
+  }
+}

@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" fill="none">
+  <rect width="1200" height="630" rx="16" fill="#0f172a"/>
+  
+  <!-- Subtle Grid Pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0148a3" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0.2"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <!-- Background Decorative Blur Circle -->
+  <circle cx="600" cy="120" r="280" fill="url(#blueGlow)" opacity="0.3" filter="blur(80px)"/>
+
+  <!-- Header Text -->
+  <text x="600" y="70" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" letter-spacing="3" fill="#38bdf8" text-transform="uppercase">WHITE LABEL AGENCY FULFILLMENT</text>
+  <text x="600" y="115" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="800" fill="#ffffff" letter-spacing="-0.5">GoHighLevel White Label Fulfillment Lifecycle</text>
+  <text x="600" y="150" text-anchor="middle" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" fill="#94a3b8">Behind-the-scenes technical execution engineered to scale your agency recurring revenue</text>
+
+  <!-- 5 Horizontal Process Steps -->
+  <!-- Step 1: Project Intake -->
+  <g transform="translate(60, 200)">
+    <rect width="200" height="320" rx="12" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="16" y="18" width="56" height="24" rx="12" fill="#0369a1" fill-opacity="0.3"/>
+    <text x="44" y="34" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#38bdf8">STEP 01</text>
+    <text x="16" y="75" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#ffffff">Project Intake</text>
+    <text x="16" y="98" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#38bdf8">Scope Alignment</text>
+    <line x1="16" y1="112" x2="184" y2="112" stroke="#334155" stroke-width="1"/>
+    <text x="16" y="135" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1" font-weight="600">• Requirements brief</text>
+    <text x="16" y="155" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">  Agency goals &amp; client needs</text>
+    <text x="16" y="185" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1" font-weight="600">• Access matrix</text>
+    <text x="16" y="205" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">  Sub-account permissions</text>
+    <text x="16" y="235" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1" font-weight="600">• Tech stack audit</text>
+    <text x="16" y="255" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">  Forms, tools &amp; webhooks</text>
+    <rect x="16" y="278" width="168" height="26" rx="6" fill="#0f172a" stroke="#1e293b"/>
+    <text x="100" y="295" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#10b981">✓ Intake Logged</text>
+  </g>
+
+  <!-- Arrow 1 to 2 -->
+  <path d="M 270 360 L 285 360" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="287,360 281,356 281,364" fill="#0ea5e9"/>
+
+  <!-- Step 2: Technical Planning -->
+  <g transform="translate(295, 200)">
+    <rect width="200" height="320" rx="12" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="16" y="18" width="56" height="24" rx="12" fill="#0369a1" fill-opacity="0.3"/>
+    <text x="44" y="34" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#38bdf8">STEP 02</text>
+    <text x="16" y="75" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#ffffff">Technical Plan</text>
+    <text x="16" y="98" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#38bdf8">Schema &amp; Architecture</text>
+    <line x1="16" y1="112" x2="184" y2="112" stroke="#334155" stroke-width="1"/>
+    <text x="16" y="135" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1" font-weight="600">• Field modeling</text>
+    <text x="16" y="155" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">  Custom values &amp; tags</text>
+    <text x="16" y="185" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1" font-weight="600">• Pipeline gates</text>
+    <text x="16" y="205" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">  Entry &amp; exit logic</text>
+    <text x="16" y="235" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1" font-weight="600">• Trigger blueprint</text>
+    <text x="16" y="255" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">  Event &amp; stop rules</text>
+    <rect x="16" y="278" width="168" height="26" rx="6" fill="#0f172a" stroke="#1e293b"/>
+    <text x="100" y="295" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#10b981">✓ Blueprint Approved</text>
+  </g>
+
+  <!-- Arrow 2 to 3 -->
+  <path d="M 505 360 L 520 360" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="522,360 516,356 516,364" fill="#0ea5e9"/>
+
+  <!-- Step 3: Implementation -->
+  <g transform="translate(530, 200)">
+    <rect width="200" height="320" rx="12" fill="url(#cardGrad)" stroke="#0284c7" stroke-width="2"/>
+    <rect x="16" y="18" width="56" height="24" rx="12" fill="#0284c7" fill-opacity="0.4"/>
+    <text x="44" y="34" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#38bdf8">STEP 03</text>
+    <text x="16" y="75" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#ffffff">Implementation</text>
+    <text x="16" y="98" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#38bdf8">Technical Build</text>
+    <line x1="16" y1="112" x2="184" y2="112" stroke="#334155" stroke-width="1"/>
+    <text x="16" y="135" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1" font-weight="600">• Sub-account build</text>
+    <text x="16" y="155" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">  Snapshot &amp; custom values</text>
+    <text x="16" y="185" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1" font-weight="600">• Workflows &amp; trees</text>
+    <text x="16" y="205" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">  Speed-to-lead &amp; booking</text>
+    <text x="16" y="235" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1" font-weight="600">• Integrations &amp; DNS</text>
+    <text x="16" y="255" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">  Stripe, A2P &amp; email</text>
+    <rect x="16" y="278" width="168" height="26" rx="6" fill="#0f172a" stroke="#1e293b"/>
+    <text x="100" y="295" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#38bdf8">⚡ Build Complete</text>
+  </g>
+
+  <!-- Arrow 3 to 4 -->
+  <path d="M 740 360 L 755 360" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="757,360 751,356 751,364" fill="#0ea5e9"/>
+
+  <!-- Step 4: Quality Assurance -->
+  <g transform="translate(765, 200)">
+    <rect width="200" height="320" rx="12" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="16" y="18" width="56" height="24" rx="12" fill="#0369a1" fill-opacity="0.3"/>
+    <text x="44" y="34" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#38bdf8">STEP 04</text>
+    <text x="16" y="75" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#ffffff">QA Testing</text>
+    <text x="16" y="98" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#38bdf8">Sandbox Audit</text>
+    <line x1="16" y1="112" x2="184" y2="112" stroke="#334155" stroke-width="1"/>
+    <text x="16" y="135" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1" font-weight="600">• Multi-path testing</text>
+    <text x="16" y="155" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">  Forms, calendars &amp; calls</text>
+    <text x="16" y="185" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1" font-weight="600">• Stop conditions</text>
+    <text x="16" y="205" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">  Cancel, reply &amp; DNC check</text>
+    <text x="16" y="235" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1" font-weight="600">• Error log review</text>
+    <text x="16" y="255" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">  Zero failed executions</text>
+    <rect x="16" y="278" width="168" height="26" rx="6" fill="#0f172a" stroke="#1e293b"/>
+    <text x="100" y="295" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#10b981">✓ 100% QA Passed</text>
+  </g>
+
+  <!-- Arrow 4 to 5 -->
+  <path d="M 975 360 L 990 360" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="992,360 986,356 986,364" fill="#0ea5e9"/>
+
+  <!-- Step 5: Handoff & Review -->
+  <g transform="translate(1000, 200)">
+    <rect width="180" height="320" rx="12" fill="url(#cardGrad)" stroke="#334155" stroke-width="1.5"/>
+    <rect x="16" y="18" width="56" height="24" rx="12" fill="#0369a1" fill-opacity="0.3"/>
+    <text x="44" y="34" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="800" fill="#38bdf8">STEP 05</text>
+    <text x="16" y="75" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#ffffff">Handoff</text>
+    <text x="16" y="98" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#38bdf8">Delivery &amp; SOPs</text>
+    <line x1="16" y1="112" x2="164" y2="112" stroke="#334155" stroke-width="1"/>
+    <text x="16" y="135" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1" font-weight="600">• Branded handoff</text>
+    <text x="16" y="155" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">  Under your agency</text>
+    <text x="16" y="185" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1" font-weight="600">• Video walkthroughs</text>
+    <text x="16" y="205" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">  Recorded Loom SOPs</text>
+    <text x="16" y="235" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1" font-weight="600">• Ongoing support</text>
+    <text x="16" y="255" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">  Ticket coverage</text>
+    <rect x="16" y="278" width="148" height="26" rx="6" fill="#0f172a" stroke="#1e293b"/>
+    <text x="90" y="295" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#10b981">✓ Agency Live</text>
+  </g>
+
+  <!-- Bottom Trust Badge -->
+  <rect x="350" y="560" width="500" height="40" rx="20" fill="#1e293b" stroke="#334155"/>
+  <text x="600" y="585" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">100% White-Label Delivery • Scoped Sub-Account Access • Strict NDAs</text>
+</svg>
