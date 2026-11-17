@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/data/blog";
 
+// Revalidate sitemap periodically so newly released posts appear automatically
+export const revalidate = 300;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://ghlvertex.com";
 

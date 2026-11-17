@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f"/>
+      <stop offset="50%" stop-color="#0e2a52"/>
+      <stop offset="100%" stop-color="#071324"/>
+    </linearGradient>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0148A3"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#183359" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0b1c33" stop-opacity="0.95"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255, 255, 255, 0.04)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+
+  <circle cx="280" cy="200" r="280" fill="#0148A3" opacity="0.18" filter="blur(60px)"/>
+  <circle cx="950" cy="420" r="240" fill="#06B6D4" opacity="0.15" filter="blur(60px)"/>
+
+  <!-- Eyebrow Badge -->
+  <rect x="80" y="80" width="230" height="36" rx="18" fill="rgba(1, 72, 163, 0.3)" stroke="#06B6D4" stroke-width="1"/>
+  <text x="195" y="103" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="13" font-weight="700" fill="#06B6D4" text-anchor="middle" letter-spacing="1">GOHIGHLEVEL EXPLAINED</text>
+
+  <!-- Titles -->
+  <text x="80" y="170" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="44" font-weight="800" fill="#ffffff" letter-spacing="-0.5">
+    What Is GoHighLevel?
+  </text>
+  <text x="80" y="225" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="44" font-weight="800" fill="url(#brandGrad)" letter-spacing="-0.5">
+    A Practical Guide for Growing Businesses
+  </text>
+  <text x="80" y="275" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="18" fill="#94a3b8">
+    CRM • Unified Conversations • Workflow Automation • Calendars • Customer Journey
+  </text>
+
+  <!-- Connected Customer Journey Cards -->
+  <g transform="translate(80, 335)">
+    <!-- Stage 1 -->
+    <rect x="0" y="0" width="180" height="175" rx="14" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+    <circle cx="36" cy="34" r="14" fill="#0148A3"/>
+    <text x="36" y="39" font-family="sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+    <text x="24" y="80" font-family="sans-serif" font-size="15" font-weight="700" fill="#ffffff">Capture Leads</text>
+    <text x="24" y="105" font-family="sans-serif" font-size="12" fill="#94a3b8">Forms, chats,</text>
+    <text x="24" y="123" font-family="sans-serif" font-size="12" fill="#94a3b8">calls &amp; funnels</text>
+
+    <!-- Connector 1 -->
+    <line x1="180" y1="88" x2="225" y2="88" stroke="#06B6D4" stroke-width="2" stroke-dasharray="4,4"/>
+    <polygon points="225,88 217,83 217,93" fill="#06B6D4"/>
+
+    <!-- Stage 2 -->
+    <rect x="225" y="0" width="180" height="175" rx="14" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+    <circle cx="261" cy="34" r="14" fill="#0148A3"/>
+    <text x="261" y="39" font-family="sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+    <text x="249" y="80" font-family="sans-serif" font-size="15" font-weight="700" fill="#ffffff">Unified Inbox</text>
+    <text x="249" y="105" font-family="sans-serif" font-size="12" fill="#94a3b8">Two-way SMS,</text>
+    <text x="249" y="123" font-family="sans-serif" font-size="12" fill="#94a3b8">email, WhatsApp</text>
+
+    <!-- Connector 2 -->
+    <line x1="405" y1="88" x2="450" y2="88" stroke="#06B6D4" stroke-width="2" stroke-dasharray="4,4"/>
+    <polygon points="450,88 442,83 442,93" fill="#06B6D4"/>
+
+    <!-- Stage 3 -->
+    <rect x="450" y="0" width="180" height="175" rx="14" fill="url(#cardGrad)" stroke="#06B6D4" stroke-width="2"/>
+    <circle cx="486" cy="34" r="14" fill="#06B6D4"/>
+    <text x="486" y="39" font-family="sans-serif" font-size="12" font-weight="700" fill="#071324" text-anchor="middle">3</text>
+    <text x="474" y="80" font-family="sans-serif" font-size="15" font-weight="700" fill="#ffffff">Workflows</text>
+    <text x="474" y="105" font-family="sans-serif" font-size="12" fill="#94a3b8">Smart triggers &amp;</text>
+    <text x="474" y="123" font-family="sans-serif" font-size="12" fill="#94a3b8">conditional nurture</text>
+
+    <!-- Connector 3 -->
+    <line x1="630" y1="88" x2="675" y2="88" stroke="#06B6D4" stroke-width="2" stroke-dasharray="4,4"/>
+    <polygon points="675,88 667,83 667,93" fill="#06B6D4"/>
+
+    <!-- Stage 4 -->
+    <rect x="675" y="0" width="180" height="175" rx="14" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+    <circle cx="711" cy="34" r="14" fill="#0148A3"/>
+    <text x="711" y="39" font-family="sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+    <text x="699" y="80" font-family="sans-serif" font-size="15" font-weight="700" fill="#ffffff">Calendar Booking</text>
+    <text x="699" y="105" font-family="sans-serif" font-size="12" fill="#94a3b8">Round-robin &amp;</text>
+    <text x="699" y="123" font-family="sans-serif" font-size="12" fill="#94a3b8">automated reminders</text>
+
+    <!-- Connector 4 -->
+    <line x1="855" y1="88" x2="900" y2="88" stroke="#06B6D4" stroke-width="2" stroke-dasharray="4,4"/>
+    <polygon points="900,88 892,83 892,93" fill="#06B6D4"/>
+
+    <!-- Stage 5 -->
+    <rect x="900" y="0" width="180" height="175" rx="14" fill="url(#cardGrad)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+    <circle cx="936" cy="34" r="14" fill="#10B981"/>
+    <text x="936" y="39" font-family="sans-serif" font-size="12" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+    <text x="924" y="80" font-family="sans-serif" font-size="15" font-weight="700" fill="#ffffff">Pipeline Close</text>
+    <text x="924" y="105" font-family="sans-serif" font-size="12" fill="#94a3b8">Clear stage status</text>
+    <text x="924" y="123" font-family="sans-serif" font-size="12" fill="#94a3b8">&amp; review collection</text>
+  </g>
+
+  <!-- Brand Signature -->
+  <text x="1120" y="580" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif" font-size="16" font-weight="700" fill="#64748b" text-anchor="end">GHLVertex Systems Architecture</text>
+</svg>

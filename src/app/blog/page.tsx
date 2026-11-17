@@ -4,6 +4,9 @@ import { getAllPosts, getFeaturedPost, getCornerstonePosts, BLOG_CATEGORY_LIST }
 import { BlogListingClient } from "@/components/blog/BlogListingClient";
 import { getBlogCollectionSchema, getBreadcrumbSchema } from "@/components/seo/schema";
 
+// Revalidate every 60 seconds to automatically publish scheduled posts
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "GoHighLevel, AI Automation & CRM Insights | GHLVertex",
   description:
