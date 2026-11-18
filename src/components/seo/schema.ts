@@ -50,11 +50,18 @@ export function getWebSiteSchema() {
 }
 
 export function getBreadcrumbSchema(
-  items: ({ name: string; url: string } | { label: string; href: string })[]
+  items: ({ name: string; url: string } | { label: string; href: string })[],
+  pageUrl?: string
 ) {
+  const fullPageUrl = pageUrl
+    ? pageUrl.startsWith("http")
+      ? pageUrl
+      : `${PROD_URL}${pageUrl.startsWith("/") ? pageUrl : `/${pageUrl}`}`
+    : undefined;
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    ...(fullPageUrl && { "@id": `${fullPageUrl}#breadcrumb` }),
     itemListElement: items.map((item, index) => {
       const name = "name" in item ? item.name : item.label;
       const rawUrl = "url" in item ? item.url : item.href;
@@ -146,6 +153,7 @@ export function getServiceSchema(service: {
   url: string;
   serviceType?: string;
   provider?: string;
+  areaServed?: string;
 }) {
   const fullUrl = service.url.startsWith("http")
     ? service.url
@@ -167,7 +175,7 @@ export function getServiceSchema(service: {
     },
     areaServed: {
       "@type": "Country",
-      name: "Worldwide",
+      name: service.areaServed || "Worldwide",
     },
   };
 }

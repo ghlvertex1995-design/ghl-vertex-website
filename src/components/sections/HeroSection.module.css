@@ -10,9 +10,9 @@
 .heroGridBackground {
   position: absolute;
   top: -120px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
+  left: 0;
+  right: 0;
+  width: 100%;
   height: calc(100% + 120px);
   background-image: radial-gradient(rgba(1, 72, 163, 0.055) 1.2px, transparent 1.2px);
   background-size: 28px 28px;
@@ -529,7 +529,7 @@
    ========================================================================== */
 @media (max-width: 1080px) {
   .heroContainer {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 3rem;
   }
 

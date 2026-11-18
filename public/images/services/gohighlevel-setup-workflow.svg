@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" role="img" aria-labelledby="ghl-setup-wf-title ghl-setup-wf-desc">
+  <title id="ghl-setup-wf-title">Five-Stage GoHighLevel Implementation Workflow</title>
+  <desc id="ghl-setup-wf-desc">Visual workflow showing the five phases of GoHighLevel setup services at GHLVertex: Stage 1 Discovery and Requirements, Stage 2 Business Process Mapping, Stage 3 CRM Configuration and Automation, Stage 4 Quality Assurance and Testing, and Stage 5 Handoff and Training.</desc>
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1528"/>
+      <stop offset="100%" stop-color="#0f1f3d"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#162849"/>
+      <stop offset="100%" stop-color="#101f3a"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0148A3"/>
+      <stop offset="50%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <marker id="arrowHead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="520" rx="18" fill="url(#bgGrad)"/>
+  <rect x="1" y="1" width="1198" height="518" rx="17" fill="none" stroke="#1e3a5f" stroke-width="2"/>
+
+  <!-- Subtle Grid Dots -->
+  <g fill="#1e3a5f" opacity="0.45">
+    <circle cx="60" cy="40" r="1.5"/><circle cx="140" cy="40" r="1.5"/><circle cx="220" cy="40" r="1.5"/>
+    <circle cx="980" cy="40" r="1.5"/><circle cx="1060" cy="40" r="1.5"/><circle cx="1140" cy="40" r="1.5"/>
+    <circle cx="60" cy="480" r="1.5"/><circle cx="140" cy="480" r="1.5"/><circle cx="1140" cy="480" r="1.5"/>
+  </g>
+
+  <!-- Header -->
+  <rect x="44" y="34" width="248" height="28" rx="14" fill="#0148A3" fill-opacity="0.35" stroke="#38bdf8" stroke-opacity="0.45" stroke-width="1"/>
+  <text x="168" y="53" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" font-weight="700" letter-spacing="1.2" fill="#7dd3fc">GHLVERTEX IMPLEMENTATION FLOW</text>
+  <text x="44" y="96" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="28" font-weight="800" fill="#ffffff">Five-Stage GoHighLevel Setup &amp; CRM Delivery</text>
+  <text x="44" y="122" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" fill="#94a3b8">Structured progression from business discovery to verified launch and team adoption</text>
+
+  <!-- Progress Track -->
+  <rect x="44" y="150" width="1112" height="4" rx="2" fill="url(#accentGrad)" opacity="0.85"/>
+
+  <!-- Stage 1 -->
+  <g transform="translate(44, 180)">
+    <rect width="198" height="252" rx="14" fill="url(#cardGrad)" stroke="#25426e" stroke-width="1.5"/>
+    <rect x="16" y="18" width="46" height="26" rx="8" fill="#0148A3"/>
+    <text x="39" y="36" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700" fill="#ffffff">01</text>
+    <text x="16" y="72" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Discovery &amp;</text>
+    <text x="16" y="93" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Requirements</text>
+    <line x1="16" y1="110" x2="182" y2="110" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="16" y="135" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Audit current tools</text>
+    <text x="16" y="160" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Define lead sources</text>
+    <text x="16" y="185" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Scope integrations</text>
+    <text x="16" y="210" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Confirm user roles</text>
+    <text x="16" y="236" font-family="monospace" font-size="11" font-weight="700" fill="#7dd3fc">OUTPUT: SCOPE BRIEF</text>
+  </g>
+
+  <!-- Arrow 1->2 -->
+  <line x1="246" y1="306" x2="268" y2="306" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowHead)"/>
+
+  <!-- Stage 2 -->
+  <g transform="translate(272, 180)">
+    <rect width="198" height="252" rx="14" fill="url(#cardGrad)" stroke="#25426e" stroke-width="1.5"/>
+    <rect x="16" y="18" width="46" height="26" rx="8" fill="#0369a1"/>
+    <text x="39" y="36" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700" fill="#ffffff">02</text>
+    <text x="16" y="72" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Business Process</text>
+    <text x="16" y="93" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Mapping</text>
+    <line x1="16" y1="110" x2="182" y2="110" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="16" y="135" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Map pipeline stages</text>
+    <text x="16" y="160" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Design field schema</text>
+    <text x="16" y="185" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Plan tag taxonomy</text>
+    <text x="16" y="210" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Draft trigger logic</text>
+    <text x="16" y="236" font-family="monospace" font-size="11" font-weight="700" fill="#7dd3fc">OUTPUT: CRM BLUEPRINT</text>
+  </g>
+
+  <!-- Arrow 2->3 -->
+  <line x1="474" y1="306" x2="496" y2="306" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowHead)"/>
+
+  <!-- Stage 3 -->
+  <g transform="translate(500, 180)">
+    <rect width="198" height="252" rx="14" fill="url(#cardGrad)" stroke="#0284c7" stroke-width="2"/>
+    <rect x="16" y="18" width="46" height="26" rx="8" fill="#0284c7"/>
+    <text x="39" y="36" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700" fill="#ffffff">03</text>
+    <text x="16" y="72" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#ffffff">CRM Setup &amp;</text>
+    <text x="16" y="93" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Automation</text>
+    <line x1="16" y1="110" x2="182" y2="110" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="16" y="135" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Configure sub-account</text>
+    <text x="16" y="160" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Connect forms/cal</text>
+    <text x="16" y="185" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Build GHL workflows</text>
+    <text x="16" y="210" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Set up DNS &amp; comms</text>
+    <text x="16" y="236" font-family="monospace" font-size="11" font-weight="700" fill="#38bdf8">OUTPUT: CONFIGURED CRM</text>
+  </g>
+
+  <!-- Arrow 3->4 -->
+  <line x1="702" y1="306" x2="724" y2="306" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowHead)"/>
+
+  <!-- Stage 4 -->
+  <g transform="translate(728, 180)">
+    <rect width="198" height="252" rx="14" fill="url(#cardGrad)" stroke="#25426e" stroke-width="1.5"/>
+    <rect x="16" y="18" width="46" height="26" rx="8" fill="#0d9488"/>
+    <text x="39" y="36" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700" fill="#ffffff">04</text>
+    <text x="16" y="72" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Quality Assurance</text>
+    <text x="16" y="93" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#ffffff">&amp; Testing</text>
+    <line x1="16" y1="110" x2="182" y2="110" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="16" y="135" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Test form routing</text>
+    <text x="16" y="160" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Verify calendar sync</text>
+    <text x="16" y="185" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Audit stop conditions</text>
+    <text x="16" y="210" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Check webhooks/logs</text>
+    <text x="16" y="236" font-family="monospace" font-size="11" font-weight="700" fill="#5eead4">OUTPUT: QA SIGN-OFF</text>
+  </g>
+
+  <!-- Arrow 4->5 -->
+  <line x1="930" y1="306" x2="952" y2="306" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowHead)"/>
+
+  <!-- Stage 5 -->
+  <g transform="translate(956, 180)">
+    <rect width="200" height="252" rx="14" fill="url(#cardGrad)" stroke="#10b981" stroke-width="2"/>
+    <rect x="16" y="18" width="46" height="26" rx="8" fill="#10b981"/>
+    <text x="39" y="36" text-anchor="middle" font-family="monospace" font-size="13" font-weight="700" fill="#06281e">05</text>
+    <text x="16" y="72" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Handoff &amp;</text>
+    <text x="16" y="93" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="16" font-weight="700" fill="#ffffff">Team Training</text>
+    <line x1="16" y1="110" x2="184" y2="110" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="16" y="135" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Verify user access</text>
+    <text x="16" y="160" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Deliver setup docs</text>
+    <text x="16" y="185" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Run live walkthrough</text>
+    <text x="16" y="210" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12.5" fill="#cbd5e1">&#8226; Transfer ownership</text>
+    <text x="16" y="236" font-family="monospace" font-size="11" font-weight="700" fill="#6ee7b7">OUTPUT: LAUNCH READY</text>
+  </g>
+
+  <!-- Footer Note -->
+  <rect x="44" y="454" width="1112" height="40" rx="10" fill="#0f2342" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="600" y="479" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" fill="#94a3b8">Every GoHighLevel setup project is scoped around your exact accounts, pipelines, compliance dependencies, and operational workflows.</text>
+</svg>

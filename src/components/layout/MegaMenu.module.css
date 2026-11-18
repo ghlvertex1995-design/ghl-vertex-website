@@ -390,6 +390,12 @@
   }
 }
 
+@media (max-width: 1040px) {
+  .megaMenuWrapper {
+    display: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .megaMenuWrapper,
   .itemCardLink,

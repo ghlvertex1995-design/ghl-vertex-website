@@ -121,7 +121,7 @@ export const postGohighlevelGrowthSystem: BlogPost = {
       id: "five-core-pillars",
       title: "The 5 Core Pillars of a High-Converting GHL Setup",
       paragraphs: [
-        "A robust GoHighLevel implementation is engineered around five interconnected stages. When any of these stages is missing, revenue velocity stalls.",
+        "A robust GoHighLevel implementation is engineered around five interconnected stages. When any of these stages is missing, revenue velocity stalls. Teams seeking [done-for-you CRM implementation](/services/ghl-setup-services/) typically structure these five pillars before activating live campaigns.",
       ],
       subsections: [
         {

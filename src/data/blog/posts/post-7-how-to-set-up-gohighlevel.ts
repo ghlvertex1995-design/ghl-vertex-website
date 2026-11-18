@@ -479,7 +479,7 @@ export const postHowToSetUpGohighlevel: BlogPost = {
       id: "diy-vs-professional",
       title: "Should You Set Up GoHighLevel Yourself or Hire Help?",
       paragraphs: [
-        "Deciding between self-implementation and hiring a professional GoHighLevel solutions provider depends on your timeline, technical comfort, and operational complexity. Businesses that want expert implementation often leverage our [GoHighLevel setup services](/services/ghl-setup-services/) to ensure custom fields, pipelines, and compliance guardrails are built correctly from day one.",
+        "Deciding between self-implementation and hiring a professional GoHighLevel solutions provider depends on your timeline, technical comfort, and operational complexity. Businesses that want expert guidance often leverage our [GoHighLevel implementation assistance](/services/ghl-setup-services/) to ensure custom fields, pipelines, and compliance guardrails are built correctly from day one.",
         "If you are considering hiring an agency or specialist, explore our companion evaluation guide on [what should a professional GoHighLevel setup include](/blog/what-should-gohighlevel-setup-include/) to review exact deliverable scopes, pricing expectations, and provider red flags.",
       ],
       table: {
