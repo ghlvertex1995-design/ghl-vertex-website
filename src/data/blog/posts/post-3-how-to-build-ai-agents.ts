@@ -213,7 +213,7 @@ export const postHowToBuildAiAgents: BlogPost = {
       id: "production-checklist",
       title: "Production Deployment & Cost Control Checklist",
       paragraphs: [
-        "To prevent unexpected API billing spikes, every production agent implementation should incorporate prompt caching, max-token boundaries, token rate limiters, and automated alerts triggered when average call durations exceed expected thresholds.",
+        "To prevent unexpected API billing spikes, every production agent implementation should incorporate prompt caching, max-token boundaries, token rate limiters, and automated alerts triggered when average call durations exceed expected thresholds. Furthermore, organizations seeking practical process efficiency can often deploy focused [business AI automation services](/services/ai-automation-services/) for document parsing and lead classification before investing in full agentic autonomy.",
       ],
     },
     {

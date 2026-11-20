@@ -211,7 +211,7 @@ export const postLlmIntegrationGuide: BlogPost = {
     {
       question: "Can an integrated LLM read and update our GoHighLevel CRM directly?",
       answer:
-        "Yes. Through HighLevel's REST APIs and custom webhooks, the LLM pipeline can read contact notes, fetch appointment status, write custom field values, and trigger automated workflow branches.",
+        "Yes. Through HighLevel's REST APIs, custom webhooks, or dedicated [AI automation solutions](/services/ai-automation-services/), an LLM pipeline can read contact notes, fetch appointment status, write custom field values, and trigger automated workflow branches.",
     },
     {
       question: "What is the difference between fine-tuning and API integration?",

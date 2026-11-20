@@ -207,7 +207,7 @@ export const postWorkflowAutomationGuide: BlogPost = {
       id: "webhooks-and-apis",
       title: "Extending GHL Workflows via Webhooks & External APIs",
       paragraphs: [
-        "GoHighLevel does not exist in a vacuum. Advanced workflows frequently require syncing data with external databases (PostgreSQL, Supabase), ERP platforms, or enterprise LLMs via webhooks.",
+        "GoHighLevel does not exist in a vacuum. Advanced workflows frequently require syncing data with external databases (PostgreSQL, Supabase), ERP platforms, or enterprise LLMs via webhooks. Organizations scaling past rigid conditional logic often implement dedicated [AI automation services](/services/ai-automation-services/) to interpret unstructured customer text, classify lead intent, and draft contextual responses before triggering downstream CRM actions.",
         "Using GHL's 'Custom Webhook' action, you can send contact payloads with Bearer authentication directly to endpoints or middleware like n8n or Make, process business logic, and receive responses back to update custom values.",
       ],
     },

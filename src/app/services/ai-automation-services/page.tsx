@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
@@ -12,103 +14,437 @@ import {
   ServiceHero,
   DirectAnswer,
   TrustStrip,
-  ProblemGrid,
-  ServiceFeatures,
-  WorkflowDiagram,
   ComparisonTable,
-  UseCaseGrid,
   GovernanceSection,
   ProcessSteps,
-  BusinessOutcomes,
   WhyGHLVertex,
   RelatedServices,
   FaqAccordion,
   ServiceCta,
 } from "@/components/services";
+import styles from "./AiAutomationServices.module.css";
+
+const PAGE_URL = "/services/ai-automation-services/";
+const PAGE_TITLE = "AI Automation Services for Business Growth | GHLVertex";
+const PAGE_DESCRIPTION =
+  "Automate lead management, CRM workflows, customer support, and repetitive tasks with AI automation services from GHLVertex. Discuss your project.";
 
 export const metadata: Metadata = {
-  title: "AI Automation Services | Intelligent Business Process Automation",
-  description:
-    "Production-grade AI automation services. We engineer intelligent systems combining LLMs, GoHighLevel, n8n, and custom APIs to automate complex business operations.",
+  title: {
+    absolute: PAGE_TITLE,
+  },
+  description: PAGE_DESCRIPTION,
   alternates: {
-    canonical: "/services/ai-automation-services/",
+    canonical: PAGE_URL,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   openGraph: {
-    title: "AI Automation Services: Intelligent Business Systems | GHLVertex",
-    description:
-      "Transform unstructured business chaos into automated efficiency. We build AI-powered CRM workflows, automated lead triage, and operations pipelines with human safeguards.",
-    url: `${siteConfig.url}/services/ai-automation-services/`,
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    url: `${siteConfig.url}${PAGE_URL}`,
     type: "website",
+    images: [
+      {
+        url: `${siteConfig.url}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "GHLVertex AI Automation Services for Business Growth",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    images: [`${siteConfig.url}/og-image.jpg`],
   },
 };
 
-const breadcrumbs = [
+// Note: Breadcrumbs UI component prepends "Home" automatically; schema list includes Home explicitly.
+const uiBreadcrumbs = [
   { label: "Services", href: "/#services" },
-  { label: "AI Automation Services", href: "/services/ai-automation-services/" },
+  { label: "AI Automation Services", href: PAGE_URL },
+];
+
+const schemaBreadcrumbs = [
+  { label: "Home", href: "/" },
+  ...uiBreadcrumbs,
 ];
 
 const faqs = [
   {
     question: "What are AI automation services?",
     answer:
-      "AI automation services engineer smart systems that combine artificial intelligence models with deterministic workflow automation to execute complex operational tasks. While traditional automation strictly follows rigid rules, AI automation interprets unstructured data, generates contextual customer responses, classifies incoming inquiries, and updates internal records autonomously while preserving human checkpoints for high-risk decisions.",
+      "AI automation services are professional implementation services that build intelligent, reliable software systems combining modern AI models with deterministic workflow automation. While standard automation only executes rigid rules on structured form data, AI automation interprets unstructured text, classifies intent, extracts parameters from documents, drafts contextual responses, and updates connected business software—all while preserving human checkpoints for high-risk decisions.",
   },
   {
-    question: "How is AI automation different from traditional workflow automation?",
+    question: "What business tasks can AI automate?",
     answer:
-      "Traditional workflow automation is rigid: if a customer uses an unexpected synonym or enters messy text, the automation errors out. AI automation incorporates Large Language Models (LLMs) to understand conversational intent, parse messy email attachments, extract key parameters, and then execute precise deterministic actions in your CRM and operational tools.",
+      "AI can automate a wide variety of repetitive operational tasks across sales, support, and administrative functions. Practical, high-ROI examples include inbound lead qualification and triage, CRM data enrichment and activity summarization, automated draft replies for customer inquiries, appointment scheduling and reschedule coordination, invoice and PDF document data extraction, support ticket routing, sentiment analysis, and multi-system data synchronization.",
   },
   {
-    question: "What types of business processes can be automated with AI?",
+    question: "How much does AI automation cost?",
     answer:
-      "High-ROI use cases include inbound customer lead triage, automated email response drafting, invoice and contract PDF parsing, conversational calendar scheduling, customer support inquiry categorization, sentiment analysis, and CRM pipeline status updates.",
+      "AI automation costs vary depending on the scope and complexity of your project rather than a single flat fee. Pricing factors include the number of automated workflows, the complexity of decision branching, the number of connected third-party applications, document variability, and testing requirements. In addition to GHLVertex implementation fees, businesses maintain their own software subscriptions and direct AI model inference expenses (e.g., OpenAI or Anthropic API usage). GHLVertex provides itemized scope estimates following a technical discovery session.",
   },
   {
-    question: "How do you prevent the AI from hallucinating or sending inaccurate messages to customers?",
+    question: "What is the difference between AI automation and workflow automation?",
     answer:
-      "We implement strict Grounded Generation (RAG) architectures: the AI is strictly constrained to your verified company SOPs and product documentation with temperature settings tuned for precision. Furthermore, high-stakes messages or outbound emails are queued for 1-click human review before sending.",
+      "Traditional workflow automation is deterministic and rule-based: it requires structured data and exact trigger matches (e.g., 'if form submitted, send email'). If an input deviates slightly, the workflow fails. AI automation adds a cognitive reasoning layer: it processes unstructured text, conversational emails, audio transcripts, or PDFs, extracts relevant data, categorizes intent, and then triggers deterministic workflow actions inside your CRM or database.",
   },
   {
-    question: "Which LLMs and software platforms do you connect?",
+    question: "Can AI automation work with an existing CRM?",
     answer:
-      "We orchestrate leading commercial models (OpenAI GPT-4o, Anthropic Claude 3.5 Sonnet, Google Gemini) with your operational tools (GoHighLevel, n8n, Stripe, PostgreSQL, Slack, Google Workspace, and proprietary REST APIs).",
+      "Yes. A core strength of GHLVertex is integrating AI automation directly into your existing CRM infrastructure, including GoHighLevel, HubSpot, Salesforce, Pipedrive, or proprietary internal databases. We connect via official REST APIs and secure webhooks so customer interactions, tags, notes, and pipeline stages update automatically in the platforms your team already uses daily.",
   },
   {
-    question: "How do you handle sensitive customer data and privacy in AI automations?",
+    question: "Does AI automation require custom software?",
     answer:
-      "We utilize enterprise zero-retention API contracts ensuring your business data is never logged or used to train public foundation models. Where necessary, automated preprocessing nodes redact PII before prompts are passed to LLM inference endpoints.",
+      "Not necessarily. Most high-ROI business automations are built by orchestrating enterprise-grade foundation models (such as OpenAI GPT-4o, Anthropic Claude 3.5 Sonnet, or Google Gemini) with reliable workflow automation platforms like GoHighLevel, n8n, Make, or Zapier. For specialized enterprise requirements, custom lightweight API microservices or middleware can be developed to handle complex data transformation.",
   },
   {
-    question: "What is the typical development and deployment timeline?",
+    question: "How long does implementation take?",
     answer:
-      "A focused AI automation pipeline (such as an automated lead triage and response engine) typically deploys within 10 to 14 business days. Enterprise cross-system orchestrations spanning multiple departments take between 3 to 5 weeks.",
+      "Implementation timelines depend on workflow complexity and external integration dependencies. A focused AI automation project—such as an automated inbound lead triage or document extraction pipeline—typically takes 2 to 3 weeks from discovery through testing and handoff. More comprehensive multi-department automations spanning multiple CRM pipelines, custom databases, and approval queues typically require 4 to 6 weeks.",
   },
   {
-    question: "Can these automations trigger actions inside our GoHighLevel CRM?",
+    question: "How are AI automation errors handled?",
     answer:
-      "Yes. That is our core specialty. We write bi-directional connectors that allow the AI to read customer context from GHL, classify the conversation, apply tags, move pipeline stages, and update custom fields dynamically.",
+      "We design AI automations with defensive engineering and automated error handling. This includes strict JSON schema validation for all model outputs, calibrated confidence score thresholds, automated retries with exponential backoff for API timeouts, and fallback routing that directs ambiguous, low-confidence, or malformed inputs directly to a human review queue rather than allowing errors to propagate silently.",
   },
   {
-    question: "What ongoing maintenance is required for AI automation pipelines?",
+    question: "Can AI workflows include human approvals?",
     answer:
-      "We provide continuous observability retainers: monitoring token usage, tracking model response latency, reviewing edge-case logs, and fine-tuning prompts as your business offerings and SOPs evolve.",
+      "Yes. Human-in-the-loop (HITL) checkpoints are an essential design principle in every GHLVertex AI automation system. High-stakes actions—such as sending contract quotes, processing refunds, altering financial records, or answering sensitive client escalations—can be routed as draft notifications to Slack, email, or a CRM task queue where a human team member must click to approve or modify before execution.",
+  },
+  {
+    question: "What happens after deployment?",
+    answer:
+      "Following production deployment, GHLVertex conducts a comprehensive team handoff with practical walkthrough documentation and video runbooks so your staff understands how to operate and monitor the system. We also provide post-launch stabilization monitoring to review execution logs, monitor token consumption, and make minor prompt calibration adjustments as real-world data flows through the pipeline.",
+  },
+];
+
+const businessProcesses = [
+  {
+    number: "01",
+    title: "Lead Routing & Inquiry Triage",
+    desc: "Analyze incoming customer inquiries in real time across web forms, emails, and SMS. AI evaluates buyer intent, project scope, budget, and urgency, automatically tagging contact records and assigning opportunities to the right sales reps.",
+    examples: "Inbound quote triage, geographic routing, high-value prospect alerting.",
+  },
+  {
+    number: "02",
+    title: "CRM Updates & Activity Logging",
+    desc: "Eliminate manual data entry for sales and operations teams. AI reads multi-turn email threads and call notes, generates executive summaries, updates pipeline deal stages, and populates custom CRM fields automatically.",
+    examples: "Call transcript summarization, deal stage progression, contact field enrichment.",
+  },
+  {
+    number: "03",
+    title: "Follow-Up Assistance & Draft Generation",
+    desc: "Speed up customer response times without sacrificing human judgment. The system drafts personalized, context-aware email and SMS responses grounded in your verified service documentation, ready for one-click staff approval.",
+    examples: "Pre-meeting questionnaires, detailed proposal follow-ups, quote check-ins.",
+  },
+  {
+    number: "04",
+    title: "Appointment Coordination & Scheduling",
+    desc: "Handle multi-turn scheduling requests without friction. AI understands natural language availability ('Can we do next Thursday after 2 PM?'), verifies real-time calendar availability, books appointments, and sends confirmations.",
+    examples: "Consultation booking, reschedule coordination, after-hours booking recovery.",
+  },
+  {
+    number: "05",
+    title: "Customer Support Triage & Classification",
+    desc: "Categorize incoming support tickets by urgency, product category, and customer sentiment. High-priority or frustrated inquiries escalate immediately to senior staff, while routine FAQs receive grounded, verified draft responses.",
+    examples: "Ticket sentiment detection, urgent bug routing, FAQ draft generation.",
+  },
+  {
+    number: "06",
+    title: "Data Classification & Document Processing",
+    desc: "Extract structured data from unstructured business documents. Multi-modal AI parses PDFs, vendor receipts, contracts, and scanned forms, converting line items and metadata into clean JSON ready for database sync.",
+    examples: "Invoice data extraction, signed agreement archiving, vendor estimate parsing.",
+  },
+  {
+    number: "07",
+    title: "Operational Reporting & Data Summaries",
+    desc: "Synthesize disparate business data into actionable executive insights. AI aggregates weekly pipeline movements, outstanding tickets, and sales activity logs into clear executive digests delivered directly to Slack or email.",
+    examples: "Weekly executive summaries, missed SLA digests, pipeline velocity reports.",
+  },
+  {
+    number: "08",
+    title: "Internal Team Operations & Handoffs",
+    desc: "Connect sales wins directly to project fulfillment. When an opportunity reaches 'Closed Won', AI parses closed deal notes, creates client project workspaces, drafts kickoff communications, and assigns onboarding tasks to account managers.",
+    examples: "New client workspace setup, onboarding task creation, handover briefs.",
+  },
+];
+
+const solutions = [
+  {
+    badge: "Sales Operations",
+    title: "AI Lead Qualification & Speed-to-Lead Automation",
+    summary:
+      "Capture inbound buyer intent instantly, enrich CRM records, and schedule qualified consultations before prospects turn to competitors.",
+    problem:
+      "Sales reps spend hours reading vague web inquiries, manually qualifying leads, and trading back-and-forth emails to schedule discovery calls.",
+    workflow:
+      "When a lead submits a form or email, AI analyzes project parameters, scores intent, creates an opportunity in GoHighLevel, and dispatches a personalized booking invite via SMS.",
+    oversight:
+      "Leads with enterprise budgets or non-standard requirements trigger an immediate Slack alert to the sales director for direct VIP outreach.",
+    benefit:
+      "Sub-minute response times, zero dropped inquiries, and sales reps who spend their time speaking with qualified buyers instead of copy-pasting notes.",
+  },
+  {
+    badge: "Customer Support",
+    title: "AI Support Triage & Grounded Draft Assistance",
+    summary:
+      "Resolve customer questions rapidly with AI-generated draft responses grounded strictly in your company SOPs and product documentation.",
+    problem:
+      "Support teams face repetitive tickets, slow response times during peak hours, and inconsistent answers when onboarding new support reps.",
+    workflow:
+      "Inbound tickets are categorized by intent and sentiment. AI searches your verified knowledge base, drafts an accurate reply, and updates ticket status.",
+    oversight:
+      "Draft replies sit in your helpdesk queue for one-click staff review, editing, and approval before dispatching to the customer.",
+    benefit:
+      "Dramatically reduced ticket resolution times, consistent brand voice, and complete prevention of AI hallucinations or inaccurate promises.",
+  },
+  {
+    badge: "Back-Office Operations",
+    title: "Automated Document Extraction & Multi-System Sync",
+    summary:
+      "Transform messy PDFs, invoices, and supplier estimates into structured database records without manual keyboard entry.",
+    problem:
+      "Accounting and operations staff waste 10 to 15 hours each week reading invoices and manually re-typing line items into accounting and CRM platforms.",
+    workflow:
+      "Inbound PDF attachments are processed through vision OCR models, extracting invoice numbers, line items, dates, and amounts into validated JSON.",
+    oversight:
+      "Line items are checked against existing database purchase orders; any price discrepancies over 5% are flagged for financial manager review.",
+    benefit:
+      "Elimination of manual transcription errors, instant cross-system reconciliation with Stripe or QuickBooks, and rapid invoice turnaround.",
+  },
+];
+
+const implementationStages = [
+  {
+    number: "01",
+    timeline: "Stage 1",
+    title: "Discovery & Feasibility Assessment",
+    description:
+      "We analyze your current manual workflows, collect sample inputs (emails, forms, PDFs), evaluate system access, and determine technical feasibility.",
+    deliverables: [
+      "Process Feasibility Brief",
+      "Input Data Review",
+      "Scope & ROI Metrics",
+    ],
+  },
+  {
+    number: "02",
+    timeline: "Stage 2",
+    title: "Business Process Mapping",
+    description:
+      "We map the end-to-end process sequence—defining exactly where AI models extract data, where deterministic logic routes tasks, and where human approvals occur.",
+    deliverables: [
+      "Process Flow Blueprint",
+      "Decision Gate Definitions",
+      "Data Schema Mapping",
+    ],
+  },
+  {
+    number: "03",
+    timeline: "Stage 3",
+    title: "Workflow & Guardrail Design",
+    description:
+      "We engineer prompt templates, configure few-shot examples, define strict JSON output schemas, and set calibrated confidence thresholds for human escalation.",
+    deliverables: [
+      "Engineered Prompts & Templates",
+      "Structured Output Schemas",
+      "Human Review UI Specs",
+    ],
+  },
+  {
+    number: "04",
+    timeline: "Stage 4",
+    title: "System Implementation & Configuration",
+    description:
+      "We build the pipeline in your automation environment (GoHighLevel, n8n, Make), connect AI model APIs, configure webhooks, and integrate CRM databases.",
+    deliverables: [
+      "Configured Workflow Pipelines",
+      "Active API & Webhook Nodes",
+      "Staged Database Connectors",
+    ],
+  },
+  {
+    number: "05",
+    timeline: "Stage 5",
+    title: "Quality Assurance & Edge Testing",
+    description:
+      "We run rigorous tests using synthetic inputs, adversarial edge cases, and malformed files to verify schema enforcement, error handling, and review queue routing.",
+    deliverables: [
+      "Edge-Case Test Results",
+      "Validation Sign-Off",
+      "Fallback Trigger Verification",
+    ],
+  },
+  {
+    number: "06",
+    timeline: "Stage 6",
+    title: "Production Deployment & Handoff",
+    description:
+      "We deploy the live automation pipeline, configure real-time error logging, deliver practical walkthrough runbooks, and train your staff on daily operations.",
+    deliverables: [
+      "Live Production System",
+      "Telemetry & Monitoring Setup",
+      "Video SOPs & Team Walkthrough",
+    ],
+  },
+];
+
+const comparisonRows = [
+  {
+    dimension: "1. Input Data Flexibility",
+    traditional:
+      "Requires rigid, perfectly formatted form fields or standardized webhooks. Fails on freeform text or attachments.",
+    ghlVertex:
+      "Seamlessly interprets conversational text, natural language emails, audio transcripts, and messy PDF attachments.",
+  },
+  {
+    dimension: "2. Natural Language Understanding",
+    traditional:
+      "Relies on brittle exact-match keywords or regex rules. Completely breaks if a customer uses an unexpected synonym.",
+    ghlVertex:
+      "Leverages modern frontier LLMs to understand conversational nuance, buyer context, customer sentiment, and intent.",
+  },
+  {
+    dimension: "3. Content & Draft Generation",
+    traditional:
+      "Limited to static merge tags ('Hi {{first_name}}') with rigid, robotic placeholder templates.",
+    ghlVertex:
+      "Drafts comprehensive, personalized responses synthesizing multi-turn conversation history and verified company documentation.",
+  },
+  {
+    dimension: "4. Document & Invoice Processing",
+    traditional:
+      "Requires fixed OCR coordinate templates that break whenever a vendor adjusts a single table column or logo.",
+    ghlVertex:
+      "Uses multi-modal vision and semantic parsing to extract line items, dates, and amounts regardless of document layout.",
+  },
+  {
+    dimension: "5. Human Oversight Architecture",
+    traditional:
+      "Binary execution: actions either run fully automated without oversight, or stall completely awaiting manual intervention.",
+    ghlVertex:
+      "Calibrated confidence thresholds: high-confidence actions run smoothly, while ambiguous cases queue for 1-click human review.",
+  },
+  {
+    dimension: "6. Exception & Error Resilience",
+    traditional:
+      "Silent workflow failures or infinite loops when unexpected data enters the execution pipeline.",
+    ghlVertex:
+      "Defensive architecture with JSON schema validation, exponential retry logic, and automated fallback notifications.",
+  },
+  {
+    dimension: "7. Long-Term Maintenance",
+    traditional:
+      "Tangled 'spaghetti' workflows with dozens of nested 'If/Else' conditions that become impossible to manage over time.",
+    ghlVertex:
+      "Modular architectures with decoupled cognitive prompts and deterministic execution nodes that adapt easily as business rules evolve.",
+  },
+];
+
+const supportedTools = [
+  {
+    category: "CRM & Platform",
+    name: "GoHighLevel (LeadConnector)",
+    desc: "Native integration for pipeline movements, custom values, automated SMS/email dispatch, and contact timeline activity updates.",
+  },
+  {
+    category: "Workflow Engine",
+    name: "n8n Automation Engine",
+    desc: "Self-hosted or cloud node-based workflow orchestration for complex data transformations, API chaining, and private database sync.",
+  },
+  {
+    category: "Cloud Middleware",
+    name: "Make & Zapier",
+    desc: "Cloud integration platforms for connecting third-party SaaS applications, cloud spreadsheets, and webhooks with AI endpoints.",
+  },
+  {
+    category: "AI Foundation Models",
+    name: "OpenAI API (GPT-4o)",
+    desc: "Enterprise API integration with structured JSON outputs, multi-modal vision, and function calling for high-speed business reasoning.",
+  },
+  {
+    category: "AI Foundation Models",
+    name: "Anthropic Claude API",
+    desc: "Claude 3.5 Sonnet and Haiku integration for long-context document parsing, complex instruction following, and nuanced response drafting.",
+  },
+  {
+    category: "AI Foundation Models",
+    name: "Google Gemini API",
+    desc: "High-throughput multi-modal processing for analyzing large batches of operational documents, video summaries, and structured data.",
+  },
+  {
+    category: "Data & Storage",
+    name: "PostgreSQL & Cloud DBs",
+    desc: "Secure relational and vector databases for persisting conversation logs, embedding company documentation, and managing state.",
+  },
+  {
+    category: "Team Communications",
+    name: "Slack & Microsoft Teams",
+    desc: "Real-time team notification webhooks, interactive human approval cards, and VIP prospect alerts delivered where your staff works.",
+  },
+];
+
+const pricingFactors = [
+  {
+    title: "Workflow Complexity & Branching",
+    desc: "A single linear intake workflow takes less development time than a multi-branch system coordinating several departments.",
+  },
+  {
+    title: "Number of Connected Applications",
+    desc: "Integrating two core platforms (e.g., GoHighLevel and Slack) requires fewer API mapping and authentication steps than connecting five distinct legacy databases.",
+  },
+  {
+    title: "Data Cleanliness & Document Variability",
+    desc: "Standardized digital form inputs require minimal preprocessing, while highly variable scanned vendor PDFs require multi-modal calibration and OCR validation.",
+  },
+  {
+    title: "Model Selection & Token Volume",
+    desc: "Lightweight models (GPT-4o-mini, Claude 3.5 Haiku) incur minimal API token costs, while high-volume document parsing with frontier models requires prompt optimization.",
+  },
+  {
+    title: "Human-in-the-Loop Review Interfaces",
+    desc: "Adding custom Slack interactive buttons or dedicated approval dashboards adds front-end configuration to ensure staff review is seamless.",
+  },
+  {
+    title: "Data Security & Redaction Protocols",
+    desc: "Pipelines requiring automated PII redaction, encryption, or enterprise compliance checks involve dedicated security filtering nodes.",
+  },
+  {
+    title: "Testing, Observability & Training",
+    desc: "Comprehensive edge-case testing, telemetry dashboard setup, and customized video SOPs for your team are scoped according to operational scale.",
   },
 ];
 
 export default function AiAutomationServicesPage() {
-  const currentUrl = "/services/ai-automation-services/";
   const pageSchema = getWebPageSchema({
-    title: "AI Automation Services | Intelligent Business Process Automation",
-    description: metadata.description as string,
-    url: currentUrl,
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    url: PAGE_URL,
   });
   const serviceSchema = getServiceSchema({
     name: "AI Automation Services",
-    description: metadata.description as string,
-    url: currentUrl,
-    serviceType: "Intelligent Process Automation & AI Engineering",
+    description: PAGE_DESCRIPTION,
+    url: PAGE_URL,
+    serviceType: "AI Automation Services & Intelligent Process Automation",
+    areaServed: "United States",
   });
-  const breadcrumbSchema = getBreadcrumbSchema(breadcrumbs);
+  const breadcrumbSchema = getBreadcrumbSchema(schemaBreadcrumbs, PAGE_URL);
   const faqSchema = getFaqSchema(faqs);
 
   return (
@@ -118,404 +454,525 @@ export default function AiAutomationServicesPage() {
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
 
-      <Breadcrumbs items={breadcrumbs} />
+      <Breadcrumbs items={uiBreadcrumbs} />
 
-      {/* 01. Hero */}
+      {/* SECTION 1 — HERO */}
       <ServiceHero
         eyebrow="Intelligent Process Automation"
-        h1="AI Automation Services: Intelligent Systems That Streamline Business Operations"
-        description="We engineer resilient AI automation systems that understand unstructured business data, reason through complex customer inquiries, and execute multi-step workflows across your CRM, databases, and operational software."
-        primaryCtaText="See What We Can Automate"
-        primaryCtaHref="/#contact"
-        secondaryCtaText="Explore Core AI Capabilities"
+        h1="AI Automation Services for Smarter Business Operations"
+        description="Reduce repetitive work and improve operational consistency with AI-powered workflows tailored to your business processes. GHLVertex helps connect AI capabilities, CRM systems, and business applications to automate practical tasks while maintaining appropriate oversight."
+        primaryCtaText="Book an AI Automation Strategy Call"
+        primaryCtaHref={siteConfig.links.calendly}
+        secondaryCtaText="Explore AI Automation Services"
         secondaryCtaHref="#service-capabilities"
-        targetAudience="Growing Businesses, Operations Directors & Enterprise Teams"
-        outcomeText="Instant Lead Triage, Reclaimed Staff Hours & Error-Free System Orchestration"
+        targetAudience="Growing Businesses, Operations Directors & Sales Teams"
+        outcomeText="Faster Response Times, Reclaimed Staff Hours & Reliable System Orchestration"
         diagramTitle="Intelligent AI Automation Execution Loop"
         flowSteps={[
-          { label: "Unstructured Data Ingestion", sublabel: "Email, Webhook, Voice or PDF Upload" },
-          { label: "Contextual LLM Reasoning", sublabel: "Intent Classification & Entity Extraction" },
-          { label: "Deterministic Validation", sublabel: "Business Rule Verification & Safety Checks" },
-          { label: "Automated Tool Execution", sublabel: "GHL Pipeline Move, Stripe Sync & Calendar Book" },
-          { label: "Human Verification Queue", sublabel: "Audit Trail & Exception Routing" },
+          { label: "Unstructured Ingestion", sublabel: "Email, Webhook, Voice or PDF Upload" },
+          { label: "Contextual Reasoning", sublabel: "Intent Classification & Entity Extraction" },
+          { label: "Deterministic Validation", sublabel: "Business Rule Verification & Schema Checks" },
+          { label: "Automated Execution", sublabel: "CRM Updates, Calendar Booking & Alerts" },
+          { label: "Human Review Queue", sublabel: "Approval Gates & Exception Routing" },
         ]}
         highlights={[
           "Hybrid LLM + Deterministic Logic",
-          "Automated PDF & Email Ingestion",
-          "Deep GoHighLevel & n8n Sync",
-          "Enterprise Data Privacy Standards",
+          "Automated Document & Email Ingestion",
+          "Deep GoHighLevel, n8n & API Sync",
+          "Built-In Human Safety Valves",
         ]}
       />
 
-      {/* 02. Direct Answer / GEO / AEO */}
+      {/* SECTION 2 — DIRECT ANSWER */}
       <DirectAnswer
-        question="What are AI automation services?"
-        answer="AI automation services engineer smart systems that combine artificial intelligence models with deterministic workflow automation to execute complex operational tasks. While traditional automation strictly follows rigid rules, AI automation interprets unstructured data, generates contextual customer responses, classifies incoming inquiries, and updates internal records autonomously while preserving human checkpoints for high-risk decisions."
+        question="What Are AI Automation Services?"
+        answer="AI automation services are professional implementation services that engineer practical software systems combining artificial intelligence with workflow automation to execute repetitive operational tasks. While traditional automation relies strictly on fixed rules and structured form inputs, AI automation interprets unstructured text, classifies incoming requests, drafts contextual responses, extracts data from documents, and executes multi-step actions across your CRM and business applications while keeping human oversight for sensitive decisions."
         keyTakeaways={[
-          "Combines probabilistic language understanding with bulletproof deterministic execution.",
-          "Extracts structured data from messy PDFs, voice notes, emails, and conversational SMS threads.",
-          "Eliminates hours of manual data entry while maintaining 100% human oversight for edge cases.",
-          "Integrates natively into core platforms: GoHighLevel, n8n, Stripe, PostgreSQL, and team communication hubs.",
+          "Combines probabilistic language understanding with bulletproof deterministic workflow execution.",
+          "Extracts structured data from messy PDFs, emails, conversational SMS, and voice transcripts.",
+          "Eliminates hours of manual administrative copy-pasting while preserving 100% human oversight for critical edge cases.",
+          "Integrates natively into core platforms: GoHighLevel, n8n, Stripe, PostgreSQL, Slack, and cloud databases.",
         ]}
       />
 
-      {/* 03. Technology Trust Strip */}
+      {/* Section 2 Extended Context: Business Example & Contrast */}
+      <div className={styles.extendedWrap}>
+        <div className="container">
+          <div className={styles.extendedDirectAnswer}>
+            <h3 className={styles.extendedTitle}>
+              Beyond Fragile Rules: How AI Transforms Real-World Business Workflows
+            </h3>
+            <p className={styles.extendedParagraph}>
+              Traditional business automation breaks down whenever real-world customer communication deviates from a rigid script. If a prospective client types &quot;Can we reschedule our consultation to next Tuesday afternoon?&quot; instead of clicking a designated link, a standard rule-based system stalls completely. By integrating modern large language models (such as GPT-4o, Claude 3.5 Sonnet, or Google Gemini) with robust workflow platforms, AI automation bridges the gap between conversational reality and structured databases.
+            </p>
+            <p className={styles.extendedParagraph}>
+              Rather than replacing human staff, intelligent automation eliminates low-leverage administrative friction—enabling your team to focus on high-value client relationships and closing deals. Organizations seeking foundational workflow architecture can explore our{" "}
+              <Link href="/services/workflow-automation-services/" className={styles.inlineLink}>
+                workflow automation services
+              </Link>
+              , while teams requiring deep database and API connectivity can review our{" "}
+              <Link href="/services/ai-integration-services/" className={styles.inlineLink}>
+                AI integration services
+              </Link>
+              . For platform standards, review official developer documentation on{" "}
+              <a
+                href="https://marketplace.gohighlevel.com/docs/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.externalLink}
+              >
+                HighLevel APIs &#8599;
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://platform.openai.com/docs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.externalLink}
+              >
+                OpenAI documentation &#8599;
+              </a>
+              .
+            </p>
+
+            <div className={styles.exampleCallout}>
+              <div className={styles.exampleTitle}>
+                <span aria-hidden="true">&#9889;</span> Practical Business Automation Example
+              </div>
+              <p className={styles.exampleText}>
+                Consider a commercial roofing contractor receiving dozens of project inquiries daily via email, web forms, and RFP specification PDFs. Instead of estimators spending 10 hours a week reading 30-page documents to manually extract square footage, materials, and bid deadlines into spreadsheets, GHLVertex deploys an AI automation workflow. The system parses the PDF, validates project criteria against the company&apos;s service parameters, creates an opportunity in GoHighLevel, generates an executive summary note for the estimator, and alerts the sales director on Slack—with human sign-off required before any quote is sent.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Technology Trust Strip */}
       <TrustStrip
-        label="Supported Foundation Models & Infrastructure"
+        label="Supported Foundation Models, Engines & Telephony"
         technologies={[
-          "OpenAI (GPT-4o)",
+          "OpenAI (GPT-4o & mini)",
           "Anthropic Claude 3.5 Sonnet",
-          "n8n Workflow Engine",
+          "Google Gemini Models",
           "GoHighLevel (LeadConnector)",
-          "LangChain / LlamaIndex",
-          "PostgreSQL / Vector DBs",
-          "Twilio / WhatsApp Business",
+          "n8n Automation Engine",
+          "Make & Zapier",
+          "PostgreSQL & Vector DBs",
+          "Twilio & Slack APIs",
         ]}
       />
 
-      {/* 04. Problem Section */}
-      <ProblemGrid
-        eyebrow="The Unstructured Data Problem"
-        heading="Why Traditional No-Code Tools Break Down on Real Business Tasks"
-        subtitle="Standard automation breaks the moment a human customer doesn't follow an exact script. AI automation bridges the gap between messy reality and reliable databases."
-        problems={[
-          {
-            title: "Rigid 'If/Else' Rules Break on Real Conversations",
-            description:
-              "A lead types 'Can we do Tuesday after lunch?' instead of selecting a form dropdown, causing traditional automated systems to freeze.",
-            consequence: "Opportunities stall in limbo until an overloaded employee manually re-reads the thread.",
-          },
-          {
-            title: "Hours Wasted Manually Copying Unstructured Docs",
-            description:
-              "Staff members spend 10+ hours a week reading supplier invoices, customer intake forms, or scanned PDFs to retype data into CRMs.",
-            consequence: "High labor costs, frequent typographical errors, and slow client turnaround times.",
-          },
-          {
-            title: "Unvetted AI Chatbots Hallucinating False Info",
-            description:
-              "Deploying generic consumer AI bots without strict knowledge grounding leads to fabricated pricing quotes and false commitments.",
-            consequence: "Severe legal exposure and damaged customer trust.",
-          },
-        ]}
+      {/* SECTION 3 — BUSINESS PROCESSES YOU CAN AUTOMATE WITH AI */}
+      <section
+        id="service-capabilities"
+        className={styles.processesSection}
+        aria-labelledby="processes-heading"
+      >
+        <div className="container">
+          <div className={styles.sectionHeader}>
+            <span className={styles.eyebrow}>Automation Scope</span>
+            <h2 id="processes-heading" className={styles.heading}>
+              Business Processes You Can Automate With AI
+            </h2>
+            <p className={styles.subtitle}>
+              From front-office speed-to-lead triage to back-office document processing, explore the practical operational tasks GHLVertex automates for growing businesses.
+            </p>
+          </div>
+
+          <div className={styles.processesGrid}>
+            {businessProcesses.map((process) => (
+              <article key={process.number} className={styles.processCard}>
+                <div className={styles.processCardHeader}>
+                  <span className={styles.processIndex} aria-hidden="true">
+                    {process.number}
+                  </span>
+                  <h3 className={styles.processTitle}>{process.title}</h3>
+                </div>
+                <p className={styles.processDesc}>{process.desc}</p>
+                <div className={styles.processExamples}>
+                  <span className={styles.processExampleLabel}>Common Applications: </span>
+                  {process.examples}
+                </div>
+              </article>
+            ))}
+          </div>
+
+          {/* Mid-Page Conversion CTA 1 */}
+          <div className={styles.midCtaWrap}>
+            <div className={styles.midCtaCard}>
+              <div className={styles.midCtaText}>
+                <h3 className={styles.midCtaHeading}>
+                  Have a Repetitive Process You Want to Automate?
+                </h3>
+                <p className={styles.midCtaCopy}>
+                  Schedule a technical discovery session to review your current workflows, software stack, and automation opportunities with our systems engineers.
+                </p>
+              </div>
+              <div className={styles.midCtaActions}>
+                <a
+                  href={siteConfig.links.calendly}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.midCtaPrimary}
+                >
+                  Book an AI Strategy Call
+                </a>
+                <Link href="/contact/" className={styles.midCtaSecondary}>
+                  Ask About Feasibility
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4 — AI AUTOMATION SOLUTIONS FOR SALES, SUPPORT & OPERATIONS */}
+      <section className={styles.solutionsSection} aria-labelledby="solutions-heading">
+        <div className="container">
+          <div className={styles.sectionHeader}>
+            <span className={styles.eyebrow}>Departmental Solutions</span>
+            <h2 id="solutions-heading" className={styles.heading}>
+              AI Automation Solutions for Sales, Support &amp; Operations
+            </h2>
+            <p className={styles.subtitle}>
+              See how structured AI automation solves operational bottlenecks across key departments through a transparent Problem &rarr; Workflow &rarr; Oversight &rarr; Benefit framework.
+            </p>
+          </div>
+
+          <div className={styles.solutionsGrid}>
+            {solutions.map((item) => (
+              <article key={item.title} className={styles.solutionCard}>
+                <span className={styles.solutionBadge}>{item.badge}</span>
+                <h3 className={styles.solutionTitle}>{item.title}</h3>
+                <p className={styles.solutionSummary}>{item.summary}</p>
+
+                <div className={styles.solutionSteps}>
+                  <div className={styles.solutionStep}>
+                    <span className={styles.solutionStepLabel}>Operational Problem</span>
+                    {item.problem}
+                  </div>
+                  <div className={styles.solutionStep}>
+                    <span className={styles.solutionStepLabel}>Automated Workflow</span>
+                    {item.workflow}
+                  </div>
+                  <div className={styles.solutionStep}>
+                    <span className={styles.solutionStepLabel}>Human Oversight</span>
+                    {item.oversight}
+                  </div>
+                  <div className={styles.solutionStep}>
+                    <span className={styles.solutionStepLabel}>Business Benefit</span>
+                    {item.benefit}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5 — HOW OUR AI AUTOMATION PROCESS WORKS */}
+      <ProcessSteps
+        eyebrow="Engineering Methodology"
+        heading="How Our AI Automation Process Works"
+        subtitle="A disciplined six-stage implementation methodology designed to deploy accurate, reliable AI workflows with zero operational disruption."
+        steps={implementationStages}
       />
 
-      {/* 05. Service Features / Deliverables */}
-      <ServiceFeatures
-        eyebrow="What We Build"
-        heading="End-to-End AI Automation Implementation Scope"
-        subtitle="Production-grade AI solutions tailored to solve specific operational bottlenecks."
-        features={[
-          {
-            title: "Intelligent Lead Triage & Speed-to-Lead",
-            description:
-              "Analyzing incoming lead inquiries in real time to assess urgency, budget, intent, and ideal routing.",
-            deliverables: [
-              "Multi-channel ingestion (Website forms, SMS, Email, Inbound Phone)",
-              "Contextual lead qualification scoring via GPT-4o or Claude 3.5",
-              "Automated calendar booking link dispatch tailored to lead urgency",
-              "Real-time SDR briefing cards sent directly to Slack with inquiry summary",
-            ],
-          },
-          {
-            title: "Automated Document & Invoice Extraction",
-            description:
-              "Extracting structured JSON data from messy PDFs, vendor receipts, and signed agreements.",
-            deliverables: [
-              "Multi-modal vision and OCR parsing for receipts, estimates, and contracts",
-              "Automated line-item validation against accounting records",
-              "Instant synchronization with QuickBooks, Stripe, or internal databases",
-              "Automated flagging of discrepancies or unrecognized line items",
-            ],
-          },
-          {
-            title: "Conversational Support & Triage Systems",
-            description:
-              "Handling high-volume customer inquiries with grounded, accurate answers and human escalation.",
-            deliverables: [
-              "Knowledge base retrieval grounded strictly in company documentation",
-              "Automated drafting of complex support email replies for staff review",
-              "Sentiment detection routing frustrated customers to senior support managers",
-              "Automated updating of GHL ticket statuses and custom fields",
-            ],
-          },
-          {
-            title: "CRM & Multi-App Autonomous Synchronizers",
-            description:
-              "Keeping your entire business stack synchronized through intelligent event listeners and webhooks.",
-            deliverables: [
-              "Continuous bi-directional data flow between GHL, n8n, and custom databases",
-              "Automatic deduplication and normalization of customer contact data",
-              "Automated generation of client onboarding workspaces upon deal close",
-              "Scheduled batch processing of data health audits and stale contact archiving",
-            ],
-          },
-        ]}
-      />
+      {/* Visual Workflow Diagram */}
+      <div className={styles.workflowVisualSection}>
+        <div className="container">
+          <div className={styles.workflowVisualBox}>
+            <Image
+              src="/images/services/ai-automation-workflow.svg"
+              alt="Six-Stage AI Automation Implementation Lifecycle: Discovery, Process Mapping, Workflow Design, System Implementation, Quality Assurance, and Deployment Handoff"
+              width={1200}
+              height={520}
+              className={styles.responsiveSvg}
+            />
+          </div>
+          <p className={styles.workflowCaption}>
+            Visual overview of GHLVertex&apos;s six-stage AI automation engineering lifecycle from initial feasibility assessment to production handoff.
+          </p>
+        </div>
+      </div>
 
-      {/* 06. Architecture / Workflow */}
-      <WorkflowDiagram
-        eyebrow="Technical Flow"
-        heading="Enterprise AI Triage & Execution Architecture"
-        subtitle="How an incoming customer email is parsed, validated, and converted into structured CRM actions."
-        nodes={[
-          {
-            phase: "Step 1: Ingestion & Sanitization",
-            title: "Inbound Email Webhook Ingestion",
-            description:
-              "Customer sends an inquiry email with an attached PDF RFP. The email gateway receives the payload, strips malicious scripts, and extracts the plain text.",
-            technicalDetails: "Inbound Webhook • PDF Parser • PII Redaction Filter",
-          },
-          {
-            phase: "Step 2: Model Inference & Reasoning",
-            title: "Intent Analysis & Entity Extraction",
-            description:
-              "Claude 3.5 Sonnet parses the customer's request against your service catalog, extracts budget, timeline, and location, and categorizes the intent.",
-            technicalDetails: "Anthropic API • JSON Schema Enforcement • Few-Shot Grounding",
-          },
-          {
-            phase: "Step 3: Business Logic Gate",
-            title: "Deterministic Validation & Routing",
-            description:
-              "System verifies that the extracted budget meets minimum criteria. If valid, it assigns the lead to the regional team calendar; if sub-threshold, it queues self-serve resources.",
-            technicalDetails: "n8n Conditional Switch • GHL Pipeline Assignment • Rule Verification",
-          },
-          {
-            phase: "Step 4: Action Dispatch & Notification",
-            title: "CRM Update & Personalized Response",
-            description:
-              "The pipeline creates an opportunity in GoHighLevel, writes the AI-generated inquiry summary to the contact timeline, and dispatches an automated SMS confirmation.",
-            technicalDetails: "GHL Opportunity API • Twilio SMS Gateway • Slack Channel Ping",
-          },
-        ]}
-      />
-
-      {/* 07. Comparison Table */}
+      {/* SECTION 6 — AI AUTOMATION VS TRADITIONAL WORKFLOW AUTOMATION */}
       <ComparisonTable
-        eyebrow="Solution Comparison"
-        heading="Standard Workflow Scripts vs. GHLVertex AI Automation"
-        subtitle="Comparing fragile linear no-code tools against robust, intelligence-driven process automation."
-        leftColumnHeader="Standard Linear Workflows"
+        eyebrow="Architectural Comparison"
+        heading="AI Automation vs Traditional Workflow Automation"
+        subtitle="Why modern businesses pair rule-based workflows with cognitive AI models to handle unstructured, conversational operations."
+        leftColumnHeader="Traditional Rule-Based Workflows"
         rightColumnHeader="GHLVertex AI-Powered Automation"
-        rows={[
-          {
-            dimension: "Data Flexibility",
-            traditional: "Only understands perfectly structured inputs from standardized web forms.",
-            ghlVertex: "Processes messy emails, conversational SMS, voice transcripts, and scanned PDFs.",
-          },
-          {
-            dimension: "Adaptability",
-            traditional: "Completely breaks when a customer deviates from expected keyword choices.",
-            ghlVertex: "Understands natural language intent, context, and semantic meaning effortlessly.",
-          },
-          {
-            dimension: "Human Workload",
-            traditional: "Employees must still read every message, verify attachments, and type notes.",
-            ghlVertex: "AI extracts facts, drafts responses, and writes structured executive summaries for reps.",
-          },
-          {
-            dimension: "Reliability & Safety",
-            traditional: "Binary pass/fail with no understanding of nuance or sentiment.",
-            ghlVertex: "Calibrated confidence scoring with automated human review queues for sensitive edge cases.",
-          },
-        ]}
+        rows={comparisonRows}
       />
 
-      {/* 08. Use Cases */}
-      <UseCaseGrid
-        eyebrow="Practical Scenarios"
-        heading="Real-World AI Automation Pipelines in Action"
-        subtitle="Typical operational implementations designed to solve acute administrative friction."
-        useCases={[
-          {
-            scenarioTitle: "Commercial Construction RFP Intake",
-            trigger: "Contractor receives a 40-page blueprint specification PDF via email.",
-            orchestration:
-              "Multi-modal AI parses document, extracts scope of work, deadline, and materials checklist, verifies alignment with licensing, and populates GHL deal record.",
-            outcome: "Estimators evaluate RFP viability in 5 minutes instead of reading 40 pages for 2 hours.",
-          },
-          {
-            scenarioTitle: "After-Hours Inbound Lead Booking",
-            trigger: "Prospect texts service business at 11:30 PM: 'Have an urgent burst pipe in my basement'.",
-            orchestration:
-              "AI analyzes urgency, tags as 'Critical Water Damage', checks on-call technician schedule, texts immediate booking confirmation, and dials on-call phone.",
-            outcome: "Emergency job captured within 90 seconds without human office staff awake.",
-          },
-          {
-            scenarioTitle: "Customer Invoicing Reconciliation",
-            trigger: "Vendor emails monthly PDF invoice to accounting inbox.",
-            orchestration:
-              "Vision model extracts invoice number, due date, line items, and tax ID, validates against open purchase orders in database, and queues for 1-click CFO approval.",
-            outcome: "Eliminates manual accounting ledger entry while maintaining human financial sign-off.",
-          },
-        ]}
-      />
+      {/* SECTION 7 — AI AUTOMATION TOOLS & INTEGRATIONS */}
+      <section className={styles.toolsSection} aria-labelledby="tools-heading">
+        <div className="container">
+          <div className={styles.sectionHeader}>
+            <span className={styles.eyebrow}>Supported Technology Stack</span>
+            <h2 id="tools-heading" className={styles.heading}>
+              Supported AI Automation Tools and Integrations
+            </h2>
+            <p className={styles.subtitle}>
+              We build production automations using proven platforms, foundation model APIs, and enterprise databases tailored to your business infrastructure.
+            </p>
+          </div>
 
-      {/* 09. Governance & Human-in-the-Loop */}
+          <div className={styles.toolsGrid}>
+            {supportedTools.map((tool) => (
+              <div key={tool.name} className={styles.toolCard}>
+                <span className={styles.toolCategory}>{tool.category}</span>
+                <h3 className={styles.toolName}>{tool.name}</h3>
+                <p className={styles.toolDesc}>{tool.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className={styles.toolsDisclaimer}>
+            <strong>Independent systems engineering:</strong> GHLVertex provides implementation, integration, and architecture services across these tools as an independent systems consultancy. All trademarks belong to their respective holders, and integrations are built using documented, official public APIs.
+          </p>
+        </div>
+      </section>
+
+      {/* SECTION 8 — SECURITY, HUMAN OVERSIGHT & ERROR HANDLING */}
       <GovernanceSection
         eyebrow="Security & Governance"
-        heading="Reliable AI Systems with Built-In Human Safety Valves"
-        subtitle="How we balance autonomous execution with strict operational security and human oversight."
+        heading="Security, Human Oversight &amp; Error Handling"
+        subtitle="How we balance autonomous execution with strict operational security, data privacy, and human safety valves."
         items={[
           {
-            title: "Deterministic Validation Layers",
+            title: "Private Enterprise Model Inference",
             description:
-              "AI outputs must validate against strict JSON schemas and database constraints before any write action is permitted in your CRM.",
+              "All LLM API calls execute under enterprise commercial agreements that prohibit customer data retention or public foundation model training.",
           },
           {
-            title: "Private Enterprise Inference",
+            title: "Deterministic Validation & JSON Guardrails",
             description:
-              "All LLM queries execute over enterprise API agreements that prohibit customer data retention or public model training.",
+              "Model outputs must validate against strict JSON schemas and database constraints before any write action is permitted in your CRM.",
           },
           {
-            title: "Automated Exception Flagging",
+            title: "Calibrated Confidence & Fallback Routing",
             description:
-              "If the model's confidence score drops below 85%, the system halts autonomous execution and routes the task directly to a human specialist.",
+              "If the model's confidence falls below defined thresholds or an input is malformed, the workflow halts autonomous execution and routes directly to human review.",
           },
         ]}
         humanInLoopNotes={[
-          "Refunds, billing adjustments, and financial transactions always require manual human approval.",
-          "High-value client escalations or legal notices immediately notify management via Slack.",
-          "Outbound emails in sensitive pipelines are queued as drafts awaiting 1-click human confirmation.",
+          "Financial transactions, refunds, and pricing modifications always require manual human approval.",
+          "High-value client escalations or legal notices trigger real-time management alerts on Slack.",
+          "Outbound emails and sensitive customer replies are queued as drafts awaiting one-click human confirmation.",
+          "Automated pre-processing filters redact sensitive PII before text is transmitted to external AI endpoints.",
         ]}
       />
 
-      {/* 10. Process Steps */}
-      <ProcessSteps
-        eyebrow="Our Engineering Methodology"
-        heading="How We Build Production AI Automations"
-        subtitle="A disciplined 4-stage sprint ensuring zero operational downtime and verified accuracy."
-        steps={[
-          {
-            number: "01",
-            timeline: "Week 1",
-            title: "Workflow Mapping & Data Profiling",
-            description:
-              "We analyze the targeted business process, collect sample data, and establish strict accuracy and latency requirements.",
-            deliverables: ["Process Logic Flowchart", "Sample Dataset Benchmark", "System Integration Spec"],
-          },
-          {
-            number: "02",
-            timeline: "Week 2",
-            title: "Prompt Engineering & Pipeline Architecture",
-            description:
-              "We build the extraction prompts, configure few-shot grounding examples, and wire the n8n orchestration pipelines.",
-            deliverables: ["Tested Prompt Templates", "Grounded RAG Pipeline", "Staging Integration Nodes"],
-          },
-          {
-            number: "03",
-            timeline: "Week 3",
-            title: "Boundary Testing & Guardrail Setup",
-            description:
-              "We run hundreds of synthetic edge-case tests, adversarial prompts, and malformed inputs to calibrate confidence thresholds.",
-            deliverables: ["Validation Test Report", "Human Review Queue Setup", "Fallback Exception Logic"],
-          },
-          {
-            number: "04",
-            timeline: "Week 4",
-            title: "Production Cutover & Observability",
-            description:
-              "We switch live data streams, configure real-time error logging, and train your operational team with clear video runbooks.",
-            deliverables: ["Live Production Deployment", "Telemetry Dashboard", "Team Video SOPs"],
-          },
-        ]}
-      />
+      {/* SECTION 9 — PRICING & IMPLEMENTATION FACTORS */}
+      <section className={styles.pricingSection} aria-labelledby="pricing-heading">
+        <div className="container">
+          <div className={styles.sectionHeader}>
+            <span className={styles.eyebrow}>Pricing &amp; Project Scope</span>
+            <h2 id="pricing-heading" className={styles.heading}>
+              What Affects AI Automation Cost and Implementation Timeline?
+            </h2>
+            <p className={styles.subtitle}>
+              Because every business process, software stack, and data volume is unique, GHLVertex scopes implementation fees around seven concrete project factors.
+            </p>
+          </div>
 
-      {/* 11. Business Outcomes */}
-      <BusinessOutcomes
-        eyebrow="Measurable Results"
-        heading="Realistic Operational Impact of AI Automation"
-        subtitle="Supportable, verifiable business improvements achieved through intelligent process engineering."
-        outcomes={[
-          {
-            focusArea: "Speed-to-Lead",
-            metricLabel: "Sub-Minute Inquiry Triage",
-            description:
-              "Inbound customer inquiries are categorized, enriched with CRM context, and answered or routed within 60 seconds 24/7.",
-          },
-          {
-            focusArea: "Labor Reallocation",
-            metricLabel: "Dozens of Hours Saved Weekly",
-            description:
-              "Free your sales and operations personnel from mind-numbing administrative copy-pasting so they can focus on client relationships.",
-          },
-          {
-            focusArea: "Data Cleanliness",
-            metricLabel: "Standardized CRM Records",
-            description:
-              "Eliminate missing phone numbers, untagged records, and blank custom fields with automated AI data normalization.",
-          },
-          {
-            focusArea: "Customer Satisfaction",
-            metricLabel: "Zero Forgotten Inquiries",
-            description:
-              "Every single customer inquiry receives prompt, intelligent attention, eliminating dropped leads and unreturned messages.",
-          },
-        ]}
-      />
+          <div className={styles.factorsGrid}>
+            {pricingFactors.map((factor) => (
+              <div key={factor.title} className={styles.factorCard}>
+                <h3 className={styles.factorTitle}>{factor.title}</h3>
+                <p className={styles.factorDesc}>{factor.desc}</p>
+              </div>
+            ))}
+          </div>
 
-      {/* 12. Why GHLVertex */}
+          <div className={styles.subscriptionNotice}>
+            <h3 className={styles.subscriptionTitle}>
+              Software Subscriptions &amp; Model Usage vs. Implementation Fees
+            </h3>
+            <p className={styles.subscriptionText}>
+              Your monthly software subscriptions (such as GoHighLevel, n8n, or Make) and usage-based foundation model inference fees (billed directly by OpenAI, Anthropic, or Google) are maintained directly by your organization. GHLVertex implementation fees cover architecture, workflow design, prompt engineering, integration development, QA testing, and team handoff. Book a discovery call to receive a transparent, itemized project estimate tailored to your requirements.
+            </p>
+          </div>
+
+          {/* Mid-Page Conversion CTA 2 */}
+          <div className={styles.midCtaWrap}>
+            <div className={styles.midCtaCard}>
+              <div className={styles.midCtaText}>
+                <h3 className={styles.midCtaHeading}>
+                  Want a Realistic Scope &amp; Timeline Estimate?
+                </h3>
+                <p className={styles.midCtaCopy}>
+                  Walk through your current manual bottlenecks and software stack to receive a clear feasibility plan and project timeline.
+                </p>
+              </div>
+              <div className={styles.midCtaActions}>
+                <a
+                  href={siteConfig.links.calendly}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.midCtaPrimary}
+                >
+                  Book an AI Strategy Call
+                </a>
+                <Link href="/contact/" className={styles.midCtaSecondary}>
+                  Request a Quote
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 10 — WHY CHOOSE GHLVERTEX */}
       <WhyGHLVertex
+        eyebrow="Why Choose GHLVertex"
+        heading="Why Choose GHLVertex for AI Automation?"
+        subtitle="We build reliable, production-grade business automations grounded in verified company data—not fragile, speculative experiments."
         reasons={[
           {
-            title: "Deep CRM Integration Mastery",
+            title: "Pragmatic Hybrid Architecture",
             description:
-              "We don't build isolated AI toys. We embed intelligence directly into your existing GoHighLevel, Stripe, and internal workflows.",
+              "We don't force AI into steps where simple logic works better. We pair deterministic workflows with cognitive AI models for optimal reliability and cost.",
           },
           {
-            title: "Grounded & Hallucination-Resistant",
+            title: "Deep CRM & GoHighLevel Specialization",
             description:
-              "Our systems are strictly grounded in your company SOPs and product data, with zero tolerance for fabricated answers.",
+              "We connect AI directly to where your sales reps and operations staff work every day, ensuring automated insights drive real pipeline velocity.",
           },
           {
             title: "Human Oversight by Design",
             description:
-              "We build guardrails and human review queues into high-stakes steps so you always maintain complete executive control.",
+              "Every high-stakes step includes confidence thresholds, safety guardrails, and human review queues so you always maintain complete executive control.",
           },
           {
-            title: "Transparent, Owned Infrastructure",
+            title: "Client-Owned, Transparent Infrastructure",
             description:
-              "You own the workflows, prompts, and code. No black-box vendor lock-in or recurring proprietary seat taxes.",
+              "You own the prompts, workflows, and configurations in your accounts. We believe in complete transparency without proprietary black-box vendor lock-in.",
           },
         ]}
       />
 
-      {/* 13. Related Services */}
+      {/* SECTION 11 — RELATED SERVICES & GUIDES */}
       <RelatedServices
+        eyebrow="Connected Capabilities"
+        heading="Explore Related CRM and Automation Services"
         services={[
           {
             title: "Workflow Automation Services",
             href: "/services/workflow-automation-services/",
             badge: "Deterministic Logic",
-            description: "High-volume business workflow design, n8n orchestration, and cross-platform API pipelines.",
-          },
-          {
-            title: "AI Agent Development Services",
-            href: "/services/ai-agent-development-services/",
-            badge: "Autonomous Agents",
-            description: "Custom autonomous agents with multi-turn memory, external tool usage, and complex reasoning capabilities.",
+            description:
+              "Multi-channel automation, custom branching logic, and error-proof CRM pipelines built by GHLVertex.",
           },
           {
             title: "AI Integration Services",
             href: "/services/ai-integration-services/",
             badge: "System Connectivity",
-            description: "Connect leading LLMs and AI services directly to your existing enterprise databases and software tools.",
+            description:
+              "Connect OpenAI, Claude, Gemini, and custom LLM endpoints directly to your business software and CRM.",
+          },
+          {
+            title: "AI Agent Development Services",
+            href: "/services/ai-agent-development-services/",
+            badge: "Autonomous Agents",
+            description:
+              "Autonomous booking agents, sales qualification bots, and voice calling systems with tool execution.",
+          },
+          {
+            title: "AI Chatbot Development Services",
+            href: "/services/ai-chatbot-development-services/",
+            badge: "Conversational AI",
+            description:
+              "Customer-facing chatbots for website support, lead qualification, and appointment booking.",
+          },
+          {
+            title: "GoHighLevel Setup Services",
+            href: "/services/ghl-setup-services/",
+            badge: "CRM Architecture",
+            description:
+              "Custom sub-account setup, clean pipeline structuring, and data migration for reliable operations.",
+          },
+          {
+            title: "AI Consulting Services",
+            href: "/services/ai-consulting-services/",
+            badge: "Strategic Advisory",
+            description:
+              "AI readiness audits, feasibility assessments, and architecture roadmaps tailored to your operations.",
           },
         ]}
       />
 
-      {/* 14. FAQs */}
-      <FaqAccordion faqs={faqs} />
+      {/* Related Implementation Guides Strip */}
+      <div className={styles.guidesSection}>
+        <div className="container">
+          <div className={styles.guidesBox}>
+            <div className={styles.guidesHeader}>
+              <h3 className={styles.guidesTitle}>Further Reading on AI &amp; Automation</h3>
+              <p className={styles.guidesSubtitle}>
+                Explore our practical guides on workflow engineering, LLM integration, and AI agent architecture:
+              </p>
+            </div>
+            <div className={styles.guidesGrid}>
+              <Link
+                href="/blog/gohighlevel-workflow-automation-guide/"
+                className={styles.guideCard}
+              >
+                <span className={styles.guideTag}>Workflow Architecture</span>
+                <span className={styles.guideCardTitle}>
+                  GoHighLevel Workflow Automation Guide
+                </span>
+                <p className={styles.guideCardDesc}>
+                  Master multi-branch automation logic, trigger controls, and stop-on-response guardrails.
+                </p>
+              </Link>
+              <Link
+                href="/blog/how-to-build-and-deploy-ai-agents-in-business/"
+                className={styles.guideCard}
+              >
+                <span className={styles.guideTag}>Agent Architecture</span>
+                <span className={styles.guideCardTitle}>
+                  How to Build &amp; Deploy AI Agents
+                </span>
+                <p className={styles.guideCardDesc}>
+                  Learn how autonomous agents reason, execute tools, and coordinate with CRM pipelines.
+                </p>
+              </Link>
+              <Link
+                href="/blog/llm-integration-guide-for-business-software/"
+                className={styles.guideCard}
+              >
+                <span className={styles.guideTag}>API Integration</span>
+                <span className={styles.guideCardTitle}>
+                  LLM Integration Guide for Business Software
+                </span>
+                <p className={styles.guideCardDesc}>
+                  Discover how to connect frontier LLMs to enterprise software with structured JSON schemas.
+                </p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      {/* 15. Final CTA */}
+      {/* SECTION 12 — FAQ */}
+      <FaqAccordion
+        eyebrow="Frequently Asked Questions"
+        heading="Frequently Asked Questions About AI Automation"
+        subtitle="Practical, direct answers covering AI capabilities, implementation timelines, error handling, CRM integration, and human oversight."
+        faqs={faqs}
+      />
+
+      {/* SECTION 13 — FINAL CTA */}
       <ServiceCta
-        eyebrow="Ready to Streamline Operations?"
-        heading="Transform Chaotic Manual Work into Resilient AI-Powered Automations."
-        subtitle="Book a technical discovery session to audit your business processes and uncover your best automation candidates."
-        primaryBtnText="See What We Can Automate"
-        primaryBtnHref="/#contact"
-        secondaryBtnText="Explore Workflow Automation"
-        secondaryBtnHref="/services/workflow-automation-services/"
+        eyebrow="Start Your AI Automation Project"
+        heading="Transform Repetitive Operations into Resilient AI Automations"
+        subtitle="Schedule a 30-minute discovery session to audit your business processes, explore feasibility, and receive a tailored implementation plan."
+        primaryBtnText="Book an AI Automation Strategy Call"
+        primaryBtnHref={siteConfig.links.calendly}
+        secondaryBtnText="Contact GHLVertex"
+        secondaryBtnHref="/contact/"
       />
     </>
   );

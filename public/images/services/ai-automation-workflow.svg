@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" role="img" aria-labelledby="ai-auto-wf-title ai-auto-wf-desc">
+  <title id="ai-auto-wf-title">Six-Stage AI Automation Implementation Lifecycle</title>
+  <desc id="ai-auto-wf-desc">Visual workflow showing the six phases of AI automation services at GHLVertex: Stage 1 Discovery, Stage 2 Process Mapping, Stage 3 Workflow Design, Stage 4 Implementation, Stage 5 QA and Testing, and Stage 6 Handoff.</desc>
+  <defs>
+    <linearGradient id="bgGradAI" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#071228"/>
+      <stop offset="100%" stop-color="#0c1d3d"/>
+    </linearGradient>
+    <linearGradient id="cardGradAI" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#142647"/>
+      <stop offset="100%" stop-color="#0d1b36"/>
+    </linearGradient>
+    <linearGradient id="accentGradAI" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0148A3"/>
+      <stop offset="35%" stop-color="#0284c7"/>
+      <stop offset="70%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <marker id="arrowHeadAI" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="520" rx="18" fill="url(#bgGradAI)"/>
+  <rect x="1" y="1" width="1198" height="518" rx="17" fill="none" stroke="#1e3a5f" stroke-width="2"/>
+
+  <!-- Subtle Ambient Dots -->
+  <g fill="#1e3a5f" opacity="0.4">
+    <circle cx="50" cy="40" r="1.5"/><circle cx="120" cy="40" r="1.5"/><circle cx="190" cy="40" r="1.5"/>
+    <circle cx="1010" cy="40" r="1.5"/><circle cx="1080" cy="40" r="1.5"/><circle cx="1150" cy="40" r="1.5"/>
+    <circle cx="50" cy="480" r="1.5"/><circle cx="120" cy="480" r="1.5"/><circle cx="1150" cy="480" r="1.5"/>
+  </g>
+
+  <!-- Header Section -->
+  <rect x="40" y="32" width="260" height="28" rx="14" fill="#0148A3" fill-opacity="0.35" stroke="#38bdf8" stroke-opacity="0.45" stroke-width="1"/>
+  <text x="170" y="51" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" font-weight="700" letter-spacing="1.2" fill="#7dd3fc">GHLVERTEX IMPLEMENTATION LIFECYCLE</text>
+  <text x="40" y="94" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="27" font-weight="800" fill="#ffffff">Six-Stage AI Automation Engineering Process</text>
+  <text x="40" y="120" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13.5" fill="#94a3b8">Disciplined execution from process discovery to calibrated guardrails, testing, and team handoff</text>
+
+  <!-- Progress Bar Line -->
+  <rect x="40" y="148" width="1120" height="4" rx="2" fill="url(#accentGradAI)" opacity="0.85"/>
+
+  <!-- Stage 01: Discovery -->
+  <g transform="translate(40, 176)">
+    <rect width="170" height="258" rx="12" fill="url(#cardGradAI)" stroke="#23416b" stroke-width="1.5"/>
+    <rect x="14" y="16" width="42" height="24" rx="6" fill="#0148A3"/>
+    <text x="35" y="33" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#ffffff">01</text>
+    <text x="14" y="66" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Discovery &amp;</text>
+    <text x="14" y="85" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Feasibility</text>
+    <line x1="14" y1="100" x2="156" y2="100" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="14" y="124" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Audit bottlenecks</text>
+    <text x="14" y="147" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Sample input data</text>
+    <text x="14" y="170" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Check connected apps</text>
+    <text x="14" y="193" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Define success metrics</text>
+    <text x="14" y="240" font-family="monospace" font-size="10" font-weight="700" fill="#7dd3fc">OUTPUT: SCOPE PLAN</text>
+  </g>
+
+  <!-- Arrow 1->2 -->
+  <line x1="214" y1="305" x2="226" y2="305" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowHeadAI)"/>
+
+  <!-- Stage 02: Process Mapping -->
+  <g transform="translate(230, 176)">
+    <rect width="170" height="258" rx="12" fill="url(#cardGradAI)" stroke="#23416b" stroke-width="1.5"/>
+    <rect x="14" y="16" width="42" height="24" rx="6" fill="#0369a1"/>
+    <text x="35" y="33" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#ffffff">02</text>
+    <text x="14" y="66" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Business Process</text>
+    <text x="14" y="85" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Mapping</text>
+    <line x1="14" y1="100" x2="156" y2="100" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="14" y="124" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Map step sequence</text>
+    <text x="14" y="147" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Define decision gates</text>
+    <text x="14" y="170" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Set review checkpoints</text>
+    <text x="14" y="193" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Form data schemas</text>
+    <text x="14" y="240" font-family="monospace" font-size="10" font-weight="700" fill="#7dd3fc">OUTPUT: LOGIC MAP</text>
+  </g>
+
+  <!-- Arrow 2->3 -->
+  <line x1="404" y1="305" x2="416" y2="305" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowHeadAI)"/>
+
+  <!-- Stage 03: Workflow Design -->
+  <g transform="translate(420, 176)">
+    <rect width="170" height="258" rx="12" fill="url(#cardGradAI)" stroke="#0284c7" stroke-width="1.8"/>
+    <rect x="14" y="16" width="42" height="24" rx="6" fill="#0284c7"/>
+    <text x="35" y="33" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#ffffff">03</text>
+    <text x="14" y="66" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Workflow &amp;</text>
+    <text x="14" y="85" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Guardrail Design</text>
+    <line x1="14" y1="100" x2="156" y2="100" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="14" y="124" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Prompt engineering</text>
+    <text x="14" y="147" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Structure JSON outputs</text>
+    <text x="14" y="170" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Wire human review UI</text>
+    <text x="14" y="193" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Calibrate thresholds</text>
+    <text x="14" y="240" font-family="monospace" font-size="10" font-weight="700" fill="#38bdf8">OUTPUT: ARCH SPEC</text>
+  </g>
+
+  <!-- Arrow 3->4 -->
+  <line x1="594" y1="305" x2="606" y2="305" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowHeadAI)"/>
+
+  <!-- Stage 04: Implementation -->
+  <g transform="translate(610, 176)">
+    <rect width="170" height="258" rx="12" fill="url(#cardGradAI)" stroke="#0284c7" stroke-width="1.8"/>
+    <rect x="14" y="16" width="42" height="24" rx="6" fill="#0891b2"/>
+    <text x="35" y="33" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#ffffff">04</text>
+    <text x="14" y="66" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#ffffff">System Build &amp;</text>
+    <text x="14" y="85" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Configuration</text>
+    <line x1="14" y1="100" x2="156" y2="100" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="14" y="124" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Connect GHL / n8n</text>
+    <text x="14" y="147" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Model API integrations</text>
+    <text x="14" y="170" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Webhook routing logic</text>
+    <text x="14" y="193" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Database sync nodes</text>
+    <text x="14" y="240" font-family="monospace" font-size="10" font-weight="700" fill="#22d3ee">OUTPUT: STAGED PIPELINE</text>
+  </g>
+
+  <!-- Arrow 4->5 -->
+  <line x1="784" y1="305" x2="796" y2="305" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowHeadAI)"/>
+
+  <!-- Stage 05: QA & Testing -->
+  <g transform="translate(800, 176)">
+    <rect width="170" height="258" rx="12" fill="url(#cardGradAI)" stroke="#23416b" stroke-width="1.5"/>
+    <rect x="14" y="16" width="42" height="24" rx="6" fill="#0d9488"/>
+    <text x="35" y="33" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#ffffff">05</text>
+    <text x="14" y="66" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Quality Assurance</text>
+    <text x="14" y="85" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#ffffff">&amp; Edge Testing</text>
+    <line x1="14" y1="100" x2="156" y2="100" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="14" y="124" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Test malformed inputs</text>
+    <text x="14" y="147" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Verify schema guards</text>
+    <text x="14" y="170" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Check timeout failover</text>
+    <text x="14" y="193" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Test human queue</text>
+    <text x="14" y="240" font-family="monospace" font-size="10" font-weight="700" fill="#5eead4">OUTPUT: QA SIGN-OFF</text>
+  </g>
+
+  <!-- Arrow 5->6 -->
+  <line x1="974" y1="305" x2="986" y2="305" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowHeadAI)"/>
+
+  <!-- Stage 06: Production Handoff -->
+  <g transform="translate(990, 176)">
+    <rect width="170" height="258" rx="12" fill="url(#cardGradAI)" stroke="#10b981" stroke-width="2"/>
+    <rect x="14" y="16" width="42" height="24" rx="6" fill="#10b981"/>
+    <text x="35" y="33" text-anchor="middle" font-family="monospace" font-size="12" font-weight="700" fill="#042f1a">06</text>
+    <text x="14" y="66" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Deployment &amp;</text>
+    <text x="14" y="85" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Team Handoff</text>
+    <line x1="14" y1="100" x2="156" y2="100" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="14" y="124" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Production cutover</text>
+    <text x="14" y="147" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Activate telemetry logs</text>
+    <text x="14" y="170" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Deliver video runbook</text>
+    <text x="14" y="193" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" fill="#cbd5e1">&#8226; Hand off ownership</text>
+    <text x="14" y="240" font-family="monospace" font-size="10" font-weight="700" fill="#6ee7b7">OUTPUT: LIVE SYSTEM</text>
+  </g>
+
+  <!-- Footer Banner -->
+  <rect x="40" y="454" width="1120" height="40" rx="10" fill="#0e2445" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="600" y="479" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" fill="#94a3b8">Every AI automation project balances automated intelligence with deterministic business guardrails and human review.</text>
+</svg>
