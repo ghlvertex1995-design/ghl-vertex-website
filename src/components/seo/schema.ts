@@ -112,9 +112,11 @@ export function getWebPageSchema(page: {
     isPartOf: {
       "@id": `${PROD_URL}/#website`,
     },
-    breadcrumb: {
-      "@id": `${fullUrl}#breadcrumb`,
-    },
+    ...(fullUrl !== `${PROD_URL}/` && {
+  breadcrumb: {
+    "@id": `${fullUrl}#breadcrumb`,
+  },
+}),
     inLanguage: "en-US",
   };
 }
