@@ -113,10 +113,10 @@ export function getWebPageSchema(page: {
       "@id": `${PROD_URL}/#website`,
     },
     ...(fullUrl !== `${PROD_URL}/` && {
-  breadcrumb: {
-    "@id": `${fullUrl}#breadcrumb`,
-  },
-}),
+      breadcrumb: {
+        "@id": `${fullUrl}#breadcrumb`,
+      },
+    }),
     inLanguage: "en-US",
   };
 }
