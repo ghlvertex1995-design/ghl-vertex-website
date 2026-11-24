@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1260 520" width="1260" height="520" role="img" aria-labelledby="ai-agent-lifecycle-title ai-agent-lifecycle-desc">
+  <title id="ai-agent-lifecycle-title">Seven-Stage AI Agent Development and Deployment Lifecycle</title>
+  <desc id="ai-agent-lifecycle-desc">Visual engineering workflow showing the seven phases of custom AI agent development at GHLVertex: Stage 1 Requirements Discovery, Stage 2 Task and Workflow Mapping, Stage 3 Tool and Permission Assessment, Stage 4 Architecture and Model Selection, Stage 5 Development and Integration, Stage 6 Evaluation and Security Testing, and Stage 7 Deployment and Handoff.</desc>
+  <defs>
+    <linearGradient id="bgGradAgent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#071228"/>
+      <stop offset="100%" stop-color="#0c1d3d"/>
+    </linearGradient>
+    <linearGradient id="cardGradAgent" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#142647"/>
+      <stop offset="100%" stop-color="#0d1b36"/>
+    </linearGradient>
+    <linearGradient id="accentGradAgent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0148A3"/>
+      <stop offset="25%" stop-color="#0284c7"/>
+      <stop offset="50%" stop-color="#06b6d4"/>
+      <stop offset="75%" stop-color="#0d9488"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <marker id="arrowHeadAgent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#38bdf8"/>
+    </marker>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1260" height="520" rx="18" fill="url(#bgGradAgent)"/>
+  <rect x="1" y="1" width="1258" height="518" rx="17" fill="none" stroke="#1e3a5f" stroke-width="2"/>
+
+  <!-- Subtle Accent Grid Dots -->
+  <g fill="#1e3a5f" opacity="0.4">
+    <circle cx="50" cy="40" r="1.5"/><circle cx="120" cy="40" r="1.5"/><circle cx="190" cy="40" r="1.5"/>
+    <circle cx="1070" cy="40" r="1.5"/><circle cx="1140" cy="40" r="1.5"/><circle cx="1210" cy="40" r="1.5"/>
+    <circle cx="50" cy="480" r="1.5"/><circle cx="120" cy="480" r="1.5"/><circle cx="1210" cy="480" r="1.5"/>
+  </g>
+
+  <!-- Header Badge & Title -->
+  <rect x="40" y="32" width="280" height="28" rx="14" fill="#0148A3" fill-opacity="0.35" stroke="#38bdf8" stroke-opacity="0.45" stroke-width="1"/>
+  <text x="180" y="51" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11.5" font-weight="700" letter-spacing="1.2" fill="#7dd3fc">GHLVERTEX AGENTIC LIFECYCLE</text>
+  <text x="40" y="94" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="26" font-weight="800" fill="#ffffff">Seven-Stage AI Agent Engineering Process</text>
+  <text x="40" y="120" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" fill="#94a3b8">End-to-end delivery lifecycle from task mapping to tool authorization, model orchestration, rigorous Evals, and safe deployment</text>
+
+  <!-- Progress Track -->
+  <rect x="40" y="148" width="1180" height="4" rx="2" fill="url(#accentGradAgent)" opacity="0.85"/>
+
+  <!-- Stage 01: Requirements Discovery -->
+  <g transform="translate(40, 176)">
+    <rect width="150" height="258" rx="12" fill="url(#cardGradAgent)" stroke="#23416b" stroke-width="1.5"/>
+    <rect x="12" y="16" width="38" height="24" rx="6" fill="#0148A3"/>
+    <text x="31" y="33" text-anchor="middle" font-family="monospace" font-size="11.5" font-weight="700" fill="#ffffff">01</text>
+    <text x="12" y="66" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Requirements</text>
+    <text x="12" y="84" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Discovery</text>
+    <line x1="12" y1="98" x2="138" y2="98" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="12" y="120" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Business objectives</text>
+    <text x="12" y="141" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Pain point audit</text>
+    <text x="12" y="162" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Autonomy bounds</text>
+    <text x="12" y="183" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Success criteria</text>
+    <text x="12" y="238" font-family="monospace" font-size="9" font-weight="700" fill="#7dd3fc">OUTPUT: AGENT SCOPE</text>
+  </g>
+
+  <!-- Arrow 1->2 -->
+  <line x1="192" y1="305" x2="208" y2="305" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowHeadAgent)"/>
+
+  <!-- Stage 02: Task & Workflow Mapping -->
+  <g transform="translate(212, 176)">
+    <rect width="150" height="258" rx="12" fill="url(#cardGradAgent)" stroke="#23416b" stroke-width="1.5"/>
+    <rect x="12" y="16" width="38" height="24" rx="6" fill="#0284c7"/>
+    <text x="31" y="33" text-anchor="middle" font-family="monospace" font-size="11.5" font-weight="700" fill="#ffffff">02</text>
+    <text x="12" y="66" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Task &amp; Workflow</text>
+    <text x="12" y="84" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Mapping</text>
+    <line x1="12" y1="98" x2="138" y2="98" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="12" y="120" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Task decomposition</text>
+    <text x="12" y="141" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Decision trees</text>
+    <text x="12" y="162" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Stop conditions</text>
+    <text x="12" y="183" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Human checkpoints</text>
+    <text x="12" y="238" font-family="monospace" font-size="9" font-weight="700" fill="#7dd3fc">OUTPUT: STATE DIAGRAM</text>
+  </g>
+
+  <!-- Arrow 2->3 -->
+  <line x1="364" y1="305" x2="380" y2="305" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowHeadAgent)"/>
+
+  <!-- Stage 03: Tool & Permission Assessment -->
+  <g transform="translate(384, 176)">
+    <rect width="150" height="258" rx="12" fill="url(#cardGradAgent)" stroke="#23416b" stroke-width="1.5"/>
+    <rect x="12" y="16" width="38" height="24" rx="6" fill="#0284c7"/>
+    <text x="31" y="33" text-anchor="middle" font-family="monospace" font-size="11.5" font-weight="700" fill="#ffffff">03</text>
+    <text x="12" y="66" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Tool, Data &amp;</text>
+    <text x="12" y="84" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Permissions</text>
+    <line x1="12" y1="98" x2="138" y2="98" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="12" y="120" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Tool allowlists</text>
+    <text x="12" y="141" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Least privilege</text>
+    <text x="12" y="162" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Read/write rules</text>
+    <text x="12" y="183" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; API credentialing</text>
+    <text x="12" y="238" font-family="monospace" font-size="9" font-weight="700" fill="#7dd3fc">OUTPUT: TOOL SCHEMAS</text>
+  </g>
+
+  <!-- Arrow 3->4 -->
+  <line x1="536" y1="305" x2="552" y2="305" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowHeadAgent)"/>
+
+  <!-- Stage 04: Architecture & Model Selection -->
+  <g transform="translate(556, 176)">
+    <rect width="150" height="258" rx="12" fill="url(#cardGradAgent)" stroke="#23416b" stroke-width="1.5"/>
+    <rect x="12" y="16" width="38" height="24" rx="6" fill="#06b6d4"/>
+    <text x="31" y="33" text-anchor="middle" font-family="monospace" font-size="11.5" font-weight="700" fill="#ffffff">04</text>
+    <text x="12" y="66" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Architecture &amp;</text>
+    <text x="12" y="84" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Model Selection</text>
+    <line x1="12" y1="98" x2="138" y2="98" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="12" y="120" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Single vs multi-agent</text>
+    <text x="12" y="141" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; LLM benchmarking</text>
+    <text x="12" y="162" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Memory design</text>
+    <text x="12" y="183" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Latency budgeting</text>
+    <text x="12" y="238" font-family="monospace" font-size="9" font-weight="700" fill="#7dd3fc">OUTPUT: ARCH BLUEPRINT</text>
+  </g>
+
+  <!-- Arrow 4->5 -->
+  <line x1="708" y1="305" x2="724" y2="305" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowHeadAgent)"/>
+
+  <!-- Stage 05: Development & Integration -->
+  <g transform="translate(728, 176)">
+    <rect width="150" height="258" rx="12" fill="url(#cardGradAgent)" stroke="#23416b" stroke-width="1.5"/>
+    <rect x="12" y="16" width="38" height="24" rx="6" fill="#0d9488"/>
+    <text x="31" y="33" text-anchor="middle" font-family="monospace" font-size="11.5" font-weight="700" fill="#ffffff">05</text>
+    <text x="12" y="66" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Development &amp;</text>
+    <text x="12" y="84" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Integration</text>
+    <line x1="12" y1="98" x2="138" y2="98" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="12" y="120" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Tool calling hooks</text>
+    <text x="12" y="141" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; CRM webhook wiring</text>
+    <text x="12" y="162" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Structured JSON</text>
+    <text x="12" y="183" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Circuit breakers</text>
+    <text x="12" y="238" font-family="monospace" font-size="9" font-weight="700" fill="#7dd3fc">OUTPUT: AGENT RUNTIME</text>
+  </g>
+
+  <!-- Arrow 5->6 -->
+  <line x1="880" y1="305" x2="896" y2="305" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowHeadAgent)"/>
+
+  <!-- Stage 06: Evaluation & Security Testing -->
+  <g transform="translate(900, 176)">
+    <rect width="150" height="258" rx="12" fill="url(#cardGradAgent)" stroke="#23416b" stroke-width="1.5"/>
+    <rect x="12" y="16" width="38" height="24" rx="6" fill="#10b981"/>
+    <text x="31" y="33" text-anchor="middle" font-family="monospace" font-size="11.5" font-weight="700" fill="#ffffff">06</text>
+    <text x="12" y="66" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Evaluation &amp;</text>
+    <text x="12" y="84" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Security Testing</text>
+    <line x1="12" y1="98" x2="138" y2="98" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="12" y="120" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Automated Evals</text>
+    <text x="12" y="141" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Prompt injection</text>
+    <text x="12" y="162" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Tool failure simulation</text>
+    <text x="12" y="183" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Human handover gate</text>
+    <text x="12" y="238" font-family="monospace" font-size="9" font-weight="700" fill="#7dd3fc">OUTPUT: EVAL REPORT</text>
+  </g>
+
+  <!-- Arrow 6->7 -->
+  <line x1="1052" y1="305" x2="1068" y2="305" stroke="#38bdf8" stroke-width="2" marker-end="url(#arrowHeadAgent)"/>
+
+  <!-- Stage 07: Deployment & Handoff -->
+  <g transform="translate(1070, 176)">
+    <rect width="150" height="258" rx="12" fill="url(#cardGradAgent)" stroke="#23416b" stroke-width="1.5"/>
+    <rect x="12" y="16" width="38" height="24" rx="6" fill="#10b981"/>
+    <text x="31" y="33" text-anchor="middle" font-family="monospace" font-size="11.5" font-weight="700" fill="#ffffff">07</text>
+    <text x="12" y="66" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Deployment &amp;</text>
+    <text x="12" y="84" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Handoff</text>
+    <line x1="12" y1="98" x2="138" y2="98" stroke="#1e3a5f" stroke-width="1"/>
+    <text x="12" y="120" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Cloud deployment</text>
+    <text x="12" y="141" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Observability logs</text>
+    <text x="12" y="162" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Operational SOPs</text>
+    <text x="12" y="183" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="11" fill="#cbd5e1">&#8226; Team walkthrough</text>
+    <text x="12" y="238" font-family="monospace" font-size="9" font-weight="700" fill="#7dd3fc">OUTPUT: PRODUCTION AGENT</text>
+  </g>
+
+  <!-- Footer Tagline -->
+  <text x="630" y="475" text-anchor="middle" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" fill="#64748b">Verified engineering guardrails, least-privilege tool allowlists, and human-in-the-loop oversight at every operational stage.</text>
+</svg>

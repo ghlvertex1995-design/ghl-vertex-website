@@ -198,7 +198,7 @@ export const postRagDevelopmentGuide: BlogPost = {
       id: "connecting-crm-data",
       title: "Connecting RAG Pipelines to GoHighLevel & CRM Databases",
       paragraphs: [
-        "When RAG is linked directly to GoHighLevel, customer support bots and sales assistants can query dynamic client history in real time. For example, an intake assistant can verify whether an incoming contact has an active service warranty in HighLevel before providing pricing for a repair dispatch.",
+        "When RAG is linked directly to GoHighLevel, customer support bots and sales assistants can query dynamic client history in real time. For example, an intake assistant can verify whether an incoming contact has an active service warranty in HighLevel before providing pricing for a repair dispatch. Implementing this effectively relies on specialized [AI CRM integration](/services/ai-integration-services/) to ensure secure data exchange between vector stores and live customer records.",
       ],
     },
     {

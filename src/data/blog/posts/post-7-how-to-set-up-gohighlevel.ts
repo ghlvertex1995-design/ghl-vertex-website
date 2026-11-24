@@ -316,7 +316,7 @@ export const postHowToSetUpGohighlevel: BlogPost = {
       ],
       bullets: [
         "Missed-Call Conversation AI: Deploy an AI text assistant to engage inbound callers who hang up without leaving a voicemail, gathering project details and offering appointment slots.",
-        "FAQ Assistance: Use knowledge-grounded AI bots to answer standard pricing, warranty, and location questions on website chat widgets 24 hours a day.",
+        "FAQ Assistance: Deploy dedicated [AI chatbot development services](/services/ai-chatbot-development-services/) to answer standard pricing, warranty, and location questions on website chat widgets 24 hours a day.",
         "Safety Boundary: Never give an AI agent permission to promise custom pricing or execute high-stakes operational changes without mandatory human-in-the-loop review.",
       ],
     },

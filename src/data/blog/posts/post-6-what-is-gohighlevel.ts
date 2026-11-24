@@ -232,7 +232,7 @@ export const postWhatIsGohighlevel: BlogPost = {
           id: "use-ai-workflows",
           title: "Use AI Within Customer Workflows",
           paragraphs: [
-            "HighLevel incorporates native conversational AI capabilities and can integrate with external large language models (such as OpenAI, Anthropic Claude, and voice agents). In practical applications, implementing custom [AI automation](/services/ai-automation-services/) assists with 24/7 lead intake, answering service questions, booking appointments, and summarizing long customer email threads for sales reps.",
+            "HighLevel incorporates native conversational AI capabilities and can integrate with external large language models (such as OpenAI, Anthropic Claude, and voice agents). In practical applications, implementing custom [AI automation](/services/ai-automation-services/) alongside dedicated [AI chatbot development services](/services/ai-chatbot-development-services/) assists with 24/7 lead intake, answering service questions, booking appointments, and summarizing long customer email threads for sales reps.",
           ],
         },
         {
