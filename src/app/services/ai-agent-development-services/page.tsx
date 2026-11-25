@@ -4,8 +4,6 @@ import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
-  getOrganizationSchema,
-  getWebSiteSchema,
   getBreadcrumbSchema,
   getFaqSchema,
   getServiceSchema,
@@ -28,7 +26,7 @@ import styles from "./AiAgentServices.module.css";
 const PAGE_URL = "/services/ai-agent-development-services/";
 const PAGE_TITLE = "AI Agent Development Services | GHLVertex";
 const PAGE_DESCRIPTION =
-  "Build custom AI agents for sales, customer support, CRM operations, and multi-step business tasks with GHLVertex. Discuss your AI agent project.";
+  "Build custom autonomous systems with GHLVertex's AI agent development services. We engineer task-oriented AI agents for sales, CRM, and multi-step workflows.";
 
 export const metadata: Metadata = {
   title: {
@@ -855,14 +853,9 @@ export default function AiAgentDevelopmentServicesPage() {
   });
   const breadcrumbSchema = getBreadcrumbSchema(schemaBreadcrumbs);
   const faqSchema = getFaqSchema(faqs);
-  const organizationSchema = getOrganizationSchema();
-  const webSiteSchema = getWebSiteSchema();
 
   return (
     <>
-      {/* 6 Structured Data Schemas */}
-      <JsonLd data={organizationSchema} />
-      <JsonLd data={webSiteSchema} />
       <JsonLd data={pageSchema} />
       <JsonLd data={serviceSchema} />
       <JsonLd data={breadcrumbSchema} />

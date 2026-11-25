@@ -341,7 +341,7 @@ export default function WorkflowAutomationServicesPage() {
         keyTakeaways={[
           "Replaces slow, error-prone manual data entry with instantaneous deterministic pipelines.",
           "Connects fragmented tools: GoHighLevel CRM, payment processors, Slack, calendars, and databases.",
-          "Guarantees rapid speed to lead, routing new inquiries to sales reps within seconds.",
+          "Accelerates rapid speed to lead, routing new inquiries to sales reps within seconds.",
           "Built with defensive error trapping, automated API retry queues, and 100% client system ownership.",
         ]}
       />

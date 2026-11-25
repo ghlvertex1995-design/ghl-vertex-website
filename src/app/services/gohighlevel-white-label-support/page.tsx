@@ -27,7 +27,9 @@ import {
 import styles from "./WhiteLabelSupport.module.css";
 
 export const metadata: Metadata = {
-  title: "GoHighLevel White Label Support for Agencies | GHLVertex",
+  title: {
+    absolute: "GoHighLevel White Label Support for Agencies | GHLVertex",
+  },
   description:
     "Scale your agency with GoHighLevel white label support. Get help with CRM setup, workflows, integrations, and technical fulfillment from GHLVertex.",
   alternates: {
@@ -503,7 +505,7 @@ export default function GoHighLevelWhiteLabelSupportPage() {
                 </li>
                 <li className={styles.tierItem}>
                   <span className={styles.tierItemCheck}>&#10003;</span>
-                  <span>Guaranteed service level agreements (SLAs) for ticket responses</span>
+                  <span>Defined service level agreements (SLAs) for ticket responses</span>
                 </li>
                 <li className={styles.tierItem}>
                   <span className={styles.tierItemCheck}>&#10003;</span>

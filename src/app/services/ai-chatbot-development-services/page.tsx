@@ -4,8 +4,6 @@ import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
-  getOrganizationSchema,
-  getWebSiteSchema,
   getBreadcrumbSchema,
   getFaqSchema,
   getServiceSchema,
@@ -28,7 +26,7 @@ import styles from "./AiChatbotServices.module.css";
 const PAGE_URL = "/services/ai-chatbot-development-services/";
 const PAGE_TITLE = "AI Chatbot Development Services | GHLVertex";
 const PAGE_DESCRIPTION =
-  "Build custom AI chatbots for customer support, lead generation, appointment booking, and CRM integration with GHLVertex. Discuss your project.";
+  "Deploy custom conversational AI with GHLVertex's AI chatbot development services. We build smart, grounded bots for customer support, lead capture, and CRM sync.";
 
 export const metadata: Metadata = {
   title: {
@@ -257,7 +255,7 @@ const capabilities = [
     requirements:
       "Curated company documentation, vector database indexing (Pinecone/pgvector), and semantic chunking architecture.",
     benefit:
-      "Guarantees 100% factual accuracy based strictly on your approved documentation, completely eliminating hallucination risk.",
+      "Constrains responses strictly to your approved documentation, substantially mitigating hallucination risk.",
   },
   {
     number: "08",
@@ -802,14 +800,9 @@ export default function AiChatbotDevelopmentServicesPage() {
   });
   const breadcrumbSchema = getBreadcrumbSchema(schemaBreadcrumbs);
   const faqSchema = getFaqSchema(faqs);
-  const organizationSchema = getOrganizationSchema();
-  const webSiteSchema = getWebSiteSchema();
 
   return (
     <>
-      {/* 6 Structured Data Schemas */}
-      <JsonLd data={organizationSchema} />
-      <JsonLd data={webSiteSchema} />
       <JsonLd data={pageSchema} />
       <JsonLd data={serviceSchema} />
       <JsonLd data={breadcrumbSchema} />
