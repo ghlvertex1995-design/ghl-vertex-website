@@ -68,7 +68,7 @@ export const postRagDevelopmentGuide: BlogPost = {
       },
       paragraphs: [
         "Even the most advanced models (GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro) have zero knowledge of your company's internal SOPs, yesterday's contract updates, or the specific service warranties you offer clients.",
-        "Rather than attempting to train or fine-tune models on rapidly changing company information—which is expensive, slow, and prone to knowledge drift—RAG operates like an open-book exam. When a query is made, the system searches your document library, retrieves the three to five most pertinent paragraphs, and instructs the LLM to answer using exclusively those facts.",
+        "Rather than attempting to train or fine-tune models on rapidly changing company information—which is expensive, slow, and prone to knowledge drift—RAG operates like an open-book exam. When engineering custom [RAG development services](/services/rag-development-services/), the system searches your document library, retrieves the three to five most pertinent paragraphs, and instructs the LLM to answer using exclusively those verified facts.",
       ],
       callout: {
         type: "insight",
@@ -221,9 +221,9 @@ export const postRagDevelopmentGuide: BlogPost = {
         "For teams already running PostgreSQL, `pgvector` is an outstanding choice because it keeps vector embeddings and relational business data in the same ACID-compliant database. For dedicated high-scale vector workloads, Pinecone and Qdrant offer excellent managed performance.",
     },
     {
-      question: "How does RAG eliminate hallucinations?",
+      question: "How does RAG mitigate AI hallucinations?",
       answer:
-        "By enforcing strict system prompts that instruct the model to only draw conclusions from the retrieved context chunks and to admit when an answer is not present in the provided materials.",
+        "By enforcing strict boundary prompts that instruct the model to only draw conclusions from the retrieved context chunks and to state when an answer is not present in the provided materials, backed by verifiable source citations.",
     },
     {
       question: "How long does it take for updated documents to appear in RAG answers?",
