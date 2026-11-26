@@ -685,7 +685,7 @@ export default function AiIntegrationServicesPage() {
               <span className={styles.deepDiveBadge}>Reliability &amp; Cost</span>
               <h3 className={styles.deepDiveTitle}>Rate Limits, Token Cost Control &amp; Error Handling</h3>
               <p className={styles.deepDiveCopy}>
-                Direct, unbuffered API scripts often crash under high volume. We build resilient middleware that guarantees high availability and predictable operating expenses:
+                Direct, unbuffered API scripts often crash under high volume. We build resilient middleware designed for high availability and predictable operating expenses:
               </p>
               <ul className={styles.featureList}>
                 <li className={styles.featureItem}>

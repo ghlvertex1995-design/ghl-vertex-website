@@ -181,7 +181,7 @@ const capabilities = [
     requirements:
       "Detailed process SOPs, target software API credentials, data field mappings, and designated operational boundaries.",
     benefit:
-      "Eliminates hours of manual administrative overhead while enforcing 100% adherence to standard operating procedures.",
+      "Reduces manual administrative overhead while enforcing strict adherence to standard operating procedures.",
   },
   {
     number: "02",
@@ -398,7 +398,7 @@ const useCases = [
     oversight:
       "Tenant disputes, lease cancellation requests, or repair emergencies route immediately to human property managers.",
     benefit:
-      "Enables 24/7 showing scheduling and instantaneous FAQ resolution without requiring after-hours front-desk staffing.",
+      "Enables 24/7 showing scheduling and rapid FAQ resolution without requiring after-hours front-desk staffing.",
   },
   {
     badge: "E-Commerce",

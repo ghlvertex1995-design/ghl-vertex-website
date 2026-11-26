@@ -147,7 +147,7 @@ const capabilities = [
     title: "CRM Record Updates & Data Enrichment",
     problem: "Sales reps spend hours manually updating deal stages, typing contact notes, and copying info across tools.",
     workflow: "Listens for customer activity events (link clicks, form updates, call logs) and automatically updates contact tags, custom fields, and lifecycle stages in real time.",
-    benefit: "Maintains 100% clean CRM data hygiene without burdening sales reps with repetitive administrative data entry.",
+    benefit: "Maintains clean CRM data hygiene without burdening sales reps with repetitive administrative data entry.",
     considerations: "Tag naming conventions, custom field schemas, conflict resolution for existing contacts.",
   },
   {
@@ -339,9 +339,9 @@ export default function WorkflowAutomationServicesPage() {
         question="What Are Workflow Automation Services?"
         answer="Workflow automation services are professional implementation services that design, build, and optimize automated sequences connecting your business applications. By replacing manual administrative tasks with deterministic trigger-condition-action logic, workflow automation eliminates duplicate data entry, enforces consistent business rules, accelerates sales follow-ups, and synchronizes customer information across platforms without human intervention."
         keyTakeaways={[
-          "Replaces slow, error-prone manual data entry with instantaneous deterministic pipelines.",
+          "Replaces slow, error-prone manual data entry with responsive deterministic pipelines.",
           "Connects fragmented tools: GoHighLevel CRM, payment processors, Slack, calendars, and databases.",
-          "Accelerates rapid speed to lead, routing new inquiries to sales reps within seconds.",
+          "Helps reduce lead response times by automating follow-ups, lead routing, and team notifications.",
           "Built with defensive error trapping, automated API retry queues, and 100% client system ownership.",
         ]}
       />
@@ -667,7 +667,7 @@ export default function WorkflowAutomationServicesPage() {
               <span className={styles.deepDiveBadge}>First Impressions</span>
               <h3 className={styles.deepDiveTitle}>Instant Client Provisioning &amp; Workspace Setup</h3>
               <p className={styles.deepDiveCopy}>
-                When a new customer makes an initial payment, their excitement is at its peak. Any delay in kickoff communication creates buyer friction. Our onboarding pipelines bridge sales and operations instantaneously.
+                When a new customer makes an initial payment, their excitement is at its peak. Any delay in kickoff communication creates buyer friction. Our onboarding pipelines bridge sales and operations rapidly and reliably.
               </p>
               <ul className={styles.featureList}>
                 <li className={styles.featureItem}>
@@ -918,7 +918,7 @@ export default function WorkflowAutomationServicesPage() {
           {
             dimension: "Primary Strengths",
             traditional:
-              "Maximum speed, 100% data consistency, zero hallucination risk, and negligible computational execution costs.",
+              "Maximum speed, consistent data formatting, deterministic execution, and negligible computational execution costs.",
             ghlVertex:
               "Complex context comprehension, document summarization, personalized draft generation, and human-like conversational flexibility.",
           },
@@ -993,7 +993,7 @@ export default function WorkflowAutomationServicesPage() {
               Transparent Cost Structure: Implementation vs. Platform Subscriptions
             </h4>
             <p className={styles.subscriptionText}>
-              GHLVertex charges transparent professional service fees for solution architecture, custom engineering, webhook development, QA testing, and team training. Client organizations maintain their own software platform subscriptions (e.g. GoHighLevel sub-accounts, n8n hosting, Zapier plans, or Twilio phone numbers) directly with providers. This guarantees that you maintain complete ownership of your infrastructure with no proprietary markups or vendor lock-in. For organizations planning broader digital transformation, our{" "}
+              GHLVertex charges transparent professional service fees for solution architecture, custom engineering, webhook development, QA testing, and team training. Client organizations maintain their own software platform subscriptions (e.g. GoHighLevel sub-accounts, n8n hosting, Zapier plans, or Twilio phone numbers) directly with providers. This ensures that you maintain complete ownership of your infrastructure with no proprietary markups or vendor lock-in. For organizations planning broader digital transformation, our{" "}
               <Link href="/services/ai-consulting-services/" className={styles.inlineLink}>
                 AI Consulting Services
               </Link>{" "}

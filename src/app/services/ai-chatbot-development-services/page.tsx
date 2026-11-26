@@ -255,7 +255,7 @@ const capabilities = [
     requirements:
       "Curated company documentation, vector database indexing (Pinecone/pgvector), and semantic chunking architecture.",
     benefit:
-      "Constrains responses strictly to your approved documentation, substantially mitigating hallucination risk.",
+      "Uses approved business documentation to ground chatbot responses and reduce the risk of unsupported answers. Response validation and human escalation can help address uncertain or incomplete information.",
   },
   {
     number: "08",
@@ -388,7 +388,7 @@ const useCases = [
     oversight:
       "Tenant disputes, lease cancellation requests, and urgent maintenance emergencies are automatically flagged and routed to property managers.",
     benefit:
-      "Provides 24/7 showing scheduling and instantaneous FAQ resolution without requiring after-hours front desk staffing.",
+      "Provides 24/7 showing scheduling and rapid FAQ resolution without requiring after-hours front desk staffing.",
   },
   {
     badge: "Direct-to-Consumer",
@@ -1329,10 +1329,10 @@ export default function AiChatbotDevelopmentServicesPage() {
           <div className={styles.sectionHeader}>
             <span className={styles.eyebrow}>Enterprise Knowledge Grounding</span>
             <h2 className={styles.heading}>
-              AI Chatbots That Use Your Business Knowledge: Grounded Retrieval Without Hallucinations
+              AI Chatbots That Use Your Business Knowledge: Grounded Retrieval to Minimize Hallucinations
             </h2>
             <p className={styles.subtitle}>
-              How we use Retrieval-Augmented Generation (RAG) to ensure your chatbot communicates with 100% factual accuracy based strictly on your verified company documentation.
+              How we use Retrieval-Augmented Generation (RAG) to ensure your chatbot communicates based on verified company documentation with strict citation guardrails.
             </p>
           </div>
 

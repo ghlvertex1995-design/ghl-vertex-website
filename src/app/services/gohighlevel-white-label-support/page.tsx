@@ -276,7 +276,7 @@ export default function GoHighLevelWhiteLabelSupportPage() {
                 "Master snapshot audits to eliminate bloated custom fields and dead tags",
                 "Versioning and updating snapshots across newly released GHL features",
                 "Niche-specific modular snapshot architecture (Dentists, MedSpas, Roofers)",
-                "Snapshot deployment QA testing to guarantee error-free sub-account rollouts",
+                "Snapshot deployment QA testing to verify reliable sub-account rollouts",
               ],
             },
             {
@@ -374,7 +374,7 @@ export default function GoHighLevelWhiteLabelSupportPage() {
       <ProcessSteps
         eyebrow="Fulfillment Framework"
         heading="Our 5-Step Behind-the-Scenes Fulfillment Process"
-        subtitle="A structured, predictable delivery lifecycle engineered to guarantee quality, security, and brand invisibility."
+        subtitle="A structured, predictable delivery lifecycle engineered to ensure quality, security, and brand invisibility."
         steps={[
           {
             number: "01",
@@ -505,7 +505,7 @@ export default function GoHighLevelWhiteLabelSupportPage() {
                 </li>
                 <li className={styles.tierItem}>
                   <span className={styles.tierItemCheck}>&#10003;</span>
-                  <span>Defined service level agreements (SLAs) for ticket responses</span>
+                  <span>Service scope, communication expectations, and response times are agreed upon based on the engagement requirements.</span>
                 </li>
                 <li className={styles.tierItem}>
                   <span className={styles.tierItemCheck}>&#10003;</span>
